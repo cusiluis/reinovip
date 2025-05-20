@@ -1,132 +1,66 @@
+<?php
+
+include ("includes/globales.inc.php");
+include ("includes/conexion.inc.php");
+
+// $donde='mapa.php';
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reino VIP</title>
+  <title><?php echo $TituloSitio; ?></title>
+  <meta name="description" content="Guía Erótica de España donde encontraras acompañantes vip, chicas, escorts, travestis, eros,  etc.  Publica tu anuncio GRATIS">
+  <meta name="keywords" content="acompañantes vip, chicas, escorts, travestis, eros, gays, chicas en las palmas, transexuales,">
+
    
 
-<?php include ('cabecera.php') ?>
-
+<?php 
+  include ('cabecera.php');
+  require 'includes/scortService.php';
+?>
 
 <!-- Cards -->
 <div class="container mt-4">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
 
-    <!-- Card normal -->
-    <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Ana paula </h3>
-          <p class="card-text small text-muted">Escort Las Palmas 7 palmas</p>
-        </div>
-      </div>
-    </div>
+<?php
 
-    <!-- Card con VIP -->
-    <div class="col">
-      <div class="card h-100 position-relative vip-card">
-        <span class="vip-ribbon">VIP</span>
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo VIP">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre VIP</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
 
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
+$escortService = new EscortService($mysqli);
 
-    <!-- Card con VIP -->
-    <div class="col">
-      <div class="card h-100 position-relative vip-card">
-        <span class="vip-ribbon">VIP</span>
-        <img src="http://reinovip.com/fotos/wjqvt3.jpg" class="card-img-top" alt="Modelo VIP">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre VIP</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
+// Recolectamos filtros del usuario
+$filtros = [
+    'localidad' => $_GET['qs_localidad'] ?? null,
+    'ciudad' => $_GET['qs_ciudad'] ?? null,
+    'provincia' => $_GET['qs_provincia'] ?? null,
+    'categoria' => $_GET['qs_categoria'] ?? null,
+    'pagina' => $_GET['pagina'] ?? 1
+];
 
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
+// Si hay filtros, buscar escorts con filtros
+if ($filtros['ciudad'] || $filtros['provincia'] || $filtros['localidad'] || $filtros['categoria']) {
+    $resultados = $escortService->buscarEscorts($filtros);
+    while ($escort = mysqli_fetch_assoc($resultados)) {
+        $escortService->renderEscort($escort, $URLSitio);
+    }
+} else {
+    // Si no hay filtros, mostrar provincias destacadas
+    $limiteProv = $escortService->getConfiguracion("CANT_PROV_INICIO_LISTA_ESCORTS") ?? 5;
+    $limiteEscorts = $escortService->getConfiguracion("CANT_ESCORTS_INICIO") ?? 10;
 
- <!-- Card con VIP -->
- <div class="col">
-  <div class="card h-100 position-relative vip-card">
-    <span class="vip-ribbon">VIP</span>
-    <img src="http://reinovip.com/fotos/wjqvt3.jpg" class="card-img-top" alt="Modelo VIP">
-    <div class="card-body p-2">
-      <h3 class="card-title mb-1">Nombre VIP</h3>
-      <p class="card-text small text-muted">Ciudad, Provincia</p>
-    </div>
-  </div>
-</div>
-
- <!-- Card normal -->
- <div class="col">
-  <div class="card h-100">
-    <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-    <div class="card-body p-2">
-      <h3 class="card-title mb-1">Nombre</h3>
-      <p class="card-text small text-muted">Ciudad, Provincia</p>
-    </div>
-  </div>
-</div>
-
- <!-- Card con VIP -->
- <div class="col">
-  <div class="card h-100 position-relative vip-card">
-    <span class="vip-ribbon">VIP</span>
-    <img src="http://reinovip.com/fotos/wjqvt3.jpg" class="card-img-top" alt="Modelo VIP">
-    <div class="card-body p-2">
-      <h3 class="card-title mb-1">Nombre VIP</h3>
-      <p class="card-text small text-muted">Ciudad, Provincia</p>
-    </div>
-  </div>
-</div>
-
- <!-- Card normal -->
- <div class="col">
-  <div class="card h-100">
-    <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-    <div class="card-body p-2">
-      <h3 class="card-title mb-1">Nombre</h3>
-      <p class="card-text small text-muted">Ciudad, Provincia</p>
-    </div>
-  </div>
-</div>
-
-<!-- Card normal -->
-<div class="col">
-  <div class="card h-100">
-    <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-    <div class="card-body p-2">
-      <h3 class="card-title mb-1">Nombre</h3>
-      <p class="card-text small text-muted">Ciudad, Provincia</p>
-    </div>
-  </div>
-</div>
-    <!-- Más cards aquí... -->
+    $provincias = $escortService->getProvinciasDestacadas($limiteProv);
+    while ($provincia = mysqli_fetch_assoc($provincias)) {
+        $idProvincia = $provincia['ID'];
+        $resultados = $escortService->getEscortsPorProvincia($idProvincia, $filtros['categoria'], $limiteEscorts);
+        while ($escort = mysqli_fetch_assoc($resultados)) {
+            $escortService->renderEscort($escort, $URLSitio);
+        }
+    }
+}
+?>
 
   </div>
 </div>

@@ -16,7 +16,7 @@
       
       <!-- LOGO -->
       <div class="col-md-2 d-flex align-items-center">
-        <a href="#"><img src="images/logo-reino-vip.png" alt="Logo" class="img-fluid1"></a>
+        <a href="<?php echo $URLSitio?>"><img src="images/logo-reino-vip.png" alt="Logo" class="img-fluid1"></a>
       </div>
 
       <!-- FILTROS (2 filas) -->
@@ -49,37 +49,37 @@
           </button>
         </div>
         <!-- Fila 2: Buscador -->
+       <form name="qsearch" id="qsearch" method="GET" action="/index.php">  
         <div class="row mt-2 g-2" id="desktop-filters">
-
           <div class="col-md-3">
-            <select class="form-select shadow-sm">
-              <option selected>España</option>
-              <option>Otro país</option>
+            <select id="selectPais" name="qs_localidad" class="form-select shadow-sm">
+              <option value="" selected>Seleccione País</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-select shadow-sm">
-              <option selected>Categoría</option>
+            <select id="selectProvincia" name="qs_provincia" class="form-select shadow-sm" disabled>
+              <option value="" selected>Seleccione Provincia</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-select shadow-sm">
-              <option selected>Provincia</option>
+            <select id="selectCiudad" name="qs_ciudad" class="form-select shadow-sm" disabled>
+              <option value="" selected>Seleccione Ciudad</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-select shadow-sm">
-              <option selected>Ciudad</option>
+            <select id="selectCategoria" name="qs_categoria" class="form-select shadow-sm" disabled>
+              <option value="">Seleccione Categoría</option>
             </select>
           </div>
           <div class="col-md-buscar">
-            <a class="button-buscar ">
-           <i class="fas fa-search" style="color:#333;"></i> Buscar
-              
-            </a>
+            <!-- <a class="button-buscar">
+              <i class="fas fa-search" style="color:#333;"></i> Buscar
+            </a> -->
+            <button class="button-buscar" type="submit" name="Search"><i class="fas fa-search" style="color:#333;"></i> Buscar</button>
+
           </div>
-         
         </div>
+      </form> 
       </div>
 
       <!-- BOTONES -->
@@ -129,7 +129,90 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const selectPais = document.getElementById('selectPais');
+    const selectProvincia = document.getElementById('selectProvincia');
+    const selectCiudad = document.getElementById('selectCiudad');
+    const selectCategoria = document.getElementById('selectCategoria');
 
+    function resetSelect(selectElement, placeholder) {
+      selectElement.innerHTML = `<option value="" selected>${placeholder}</option>`;
+      selectElement.disabled = true;
+    }
+
+    // Cargar Paises al cargar la página
+    fetch('includes/get_paises.php')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(pais => {
+          const option = document.createElement('option');
+          option.value = pais.ID;
+          option.textContent = pais.Nombre;
+          selectPais.appendChild(option);
+        });
+      });
+
+    selectPais.addEventListener('change', () => {
+      resetSelect(selectProvincia, "Seleccione Provincia");
+      resetSelect(selectCiudad, "Seleccione Ciudad");
+
+      if (!selectPais.value) return;
+
+      fetch(`includes/get_provincias.php?paisID=${selectPais.value}`)
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(provincia => {
+            const option = document.createElement('option');
+            option.value = provincia.ID;
+            option.textContent = provincia.Nombre;
+            selectProvincia.appendChild(option);
+          });
+          selectProvincia.disabled = false;
+        });
+    });
+
+    selectProvincia.addEventListener('change', () => {
+      resetSelect(selectCiudad, "Seleccione Ciudad");
+
+      if (!selectProvincia.value) return;
+
+      fetch(`includes/get_ciudades.php?provinciaID=${selectProvincia.value}`)
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(ciudad => {
+            const option = document.createElement('option');
+            option.value = ciudad.ID;
+            option.textContent = ciudad.Nombre;
+            selectCiudad.appendChild(option);
+          });
+          selectCiudad.disabled = false;
+        });
+    });
+
+    
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('includes/get_categorias.php')
+        .then(res => {
+          if (!res.ok) throw new Error("Error cargando categorías");
+          return res.json();
+        })
+        .then(data => {
+          data.forEach(categoria => {
+            const option = document.createElement('option');
+            option.value = categoria.ID;
+            option.textContent = categoria.Nombre;
+            selectCategoria.appendChild(option);
+          });
+          selectCategoria.disabled = false;
+        })
+        .catch(err => {
+          console.error("Error al cargar categorías:", err);
+        });
+    });
+  });
+</script>
 </header>
 
 
