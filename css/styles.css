@@ -190,13 +190,19 @@
      
       margin-bottom: 20px;
     }
-    .section-box h3{
+    .section-box h1{
         color: #793a57;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 500;
   font-family: Roboto,sans-serif !important;
     }
-    .section-box h4{
+    .section-box h2{
+        color: #793a57;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: Roboto,sans-serif !important;
+    }
+       .section-box h3{
         color: #793a57;
   font-size: 1rem;
   font-weight: 500;
@@ -220,10 +226,23 @@
   margin-bottom: 10px;
   font-size: 17px;
     }
-    .btn-chat {
-      background-color: #28a745;
-      color: white;
-      border: none;
+    a.btn-chat {
+      font-size: 18px;
+  background: #793a57;
+  color: #fff;
+  padding: 7px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: lighter !important;
+    }
+     a:hover.btn-chat {
+      font-size: 18px;
+  background: #FFC20B;
+  color: #333;
+  padding: 7px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: lighter !important;
     }
 .tex-data{
       color: #793a57;
@@ -299,7 +318,11 @@ ol, ul {
       }
     }
 
-
+@media (min-width: 576px) {
+  .col-sm-6 {
+      width: 33% !important;
+  }
+}
 
 
 
@@ -335,13 +358,13 @@ ol, ul {
     }
     @media (min-width: 768px) {
   .col-md-3 {
-       width: 21% !important;
+       width: 20% !important;
   }
 }
 
 @media (min-width: 768px) {
   .col-md-buscar {
-       width: 8% !important;
+       width: 18% !important;
   }
 }
     @media (max-width: 767.98px) {
