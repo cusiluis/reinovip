@@ -475,6 +475,8 @@ ol, ul {
   }
   .g-2, .gy-2 {
   padding-top: 8px;
+   width: 100%;
+
 }
   a.btn-cuenta {
 
