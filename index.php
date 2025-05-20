@@ -7,13 +7,6 @@
    
 
 <?php include ('cabecera.php') ?>
-<style>
-      @media (max-width: 767.98px) {
-      #desktop-filters {
-        display: none;
-      }
-    }
-</style>
 
 <!-- Cards -->
 <div class="container mt-4">
