@@ -9,83 +9,39 @@ session_start();
 $idioma=$_GET['idioma'];
 
 if ($idioma!="") {
-
 	if ($_SESSION['sitestyle']!="") {
-
 		$_SESSION['sitestyle']=$idioma;
-
-
-
 	} else {
-
-
-
 		session_register('sitestyle');
-
-
-
 		$_SESSION['sitestyle']=$idioma;
-
 	}
-
 }
 
-
-
 if ($idioma=="") $idioma=$_SERVER['HTTP_ACCEPT_LANGUAGE'];
-
-
-
 $gLANG=substr($idioma,0,2);
-
-
-
 $sitestyle=$_SESSION['sitestyle'];
-
-
 
 if ($sitestyle=="") $sitestyle=$gLANG;
 
-
-
 if ($sitestyle=="") $sitestyle="es"; //idioma por default: es-> español
-
-
 
 if ($_SESSION['sitestyle']!="") {
 
-
-
 	$_SESSION['sitestyle']=$sitestyle;
 
-
-
 } else {
-
-
-
-	
-
 
 	$_SESSION['sitestyle']=$sitestyle;
 
 }
 
-
-
 //-------------------------------------------------------------------------------------------------------------
 
-
-
 //------ ADMINISTRADOR ----------------------------------------------------------------------------------------
-
-
 
 //-------------------------------------------------------------------------------------------------------------
 
 $adminstyle="es";
-
-
 
 $hastadonde=$_SESSION['cantporpagina'];
 
@@ -99,21 +55,11 @@ if ($_SESSION['cantporpagina']!="") {
 
 $_SESSION['cantporpagina']=$hastadonde;
 
-
-
 } else {
-
-
-
-	
-
-
 
 	$_SESSION['cantporpagina']=$hastadonde;
 
 }
-
-
 
 //*** administrador utf-8 ***
 
@@ -121,13 +67,9 @@ $admin_en_utf8 = true;
 
 $sitio_en_utf8 = true;
 
-
-
 function utf8 ($texto){
 
   global $admin_en_utf8;
-
-
 
   global $sitio_en_utf8;
 
@@ -141,25 +83,15 @@ function utf8 ($texto){
 
 	}
 
-
-
 }
-
-
 
 //***
 
-
-
 //--FIN ADMINISTRADOR -------------------------------------------------------------------------------------------
-
-
 
 //prefijo de las tablas (solo para esta aplicacion)
 
 $Prefijo="reino01_";
-
-
 
 //datos de conexion principal
 
@@ -173,10 +105,7 @@ $UsuarioPrincipal="root";
 $ClavePrincipal="root";
 $BasePrincipal="reinovip";
 
-
 $MensajeDeErrorConexion = "";
-
-
 
 $FTPhost="ftp.reinovip.com";
 
@@ -187,7 +116,6 @@ $FTPrelativa="";
 $FTPuser="rv2@reinovip.com";
 
 $FTPpass="0913ReinoVip";
-
 
 
 //variables del sitio
@@ -217,7 +145,6 @@ $EmailTesteo = "test.reinovip@vedcora.es";
 $EmailVentas_1=$EmailSitio; 
 
 $PrecioPublicacion=74;
-
 
 
 //variables de envio de correo   // EnvioDeCorreo.php
@@ -261,12 +188,7 @@ $Abortar = 0;
 $TasaIVA=0;
 
 
-
-
-
 function strtolower_utf8($inputString) {
-
-
 
     $outputString    = utf8_decode($inputString);
 
@@ -279,22 +201,12 @@ function strtolower_utf8($inputString) {
 }
 
 
-
 function urls_amigables($url) {
-
-
-
 	// Tranformamos todo a minusculas
-
-
 
 	$url = strtolower_utf8($url);
 
-
-
 	//Rememplazamos caracteres especiales latino
-
-
 
 	$find = array('á', 'é', 'í', 'ó', 'ú', 'ñ','Ñ','Á','É','Í','Ó','Ú');
 
@@ -302,17 +214,11 @@ function urls_amigables($url) {
 
 	$url = str_replace ($find, $repl, $url);
 
-
-
 	// Añadimos los guiones
-
-
 
 	$find = array(' ', '&', '\r\n', '\n', '+');
 
 	$url = str_replace ($find, '-', $url);
-
-
 
 	// Eliminamos y Reemplazamos dem�s caracteres especiales
 
@@ -324,15 +230,10 @@ function urls_amigables($url) {
 
 	return $url;
 
-
-
 }
 
 
-
 foreach($_POST AS $key => $value) {
-
-
 
     ${$key} = $value;
 
@@ -340,14 +241,8 @@ foreach($_POST AS $key => $value) {
 
 foreach($_GET AS $key => $value) {
 
-
-
     ${$key} = $value;
 
-
-
 }
-
-
 
 ?>

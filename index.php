@@ -1,9 +1,21 @@
+<?php
+
+include ("includes/globales.inc.php");
+include ("includes/conexion.inc.php");
+
+// $donde='mapa.php';
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reino VIP</title>
+  <title><?php echo $TituloSitio; ?></title>
+  <meta name="description" content="Guía Erótica de España donde encontraras acompañantes vip, chicas, escorts, travestis, eros,  etc.  Publica tu anuncio GRATIS">
+  <meta name="keywords" content="acompañantes vip, chicas, escorts, travestis, eros, gays, chicas en las palmas, transexuales,">
+  <link rel="shortcut icon" href="<?php echo $URLSitio?>images/reinovip.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" href="<?php echo $URLSitio?>images/reinovip.ico" />
    
 
 <?php include ('cabecera.php') ?>
