@@ -42,41 +42,29 @@
 
       <!-- MAIN IMAGE -->
       <div class="section-box1 text-center">
-        <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
+        <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox card1 h-100 position-relative" data-gallery="perfil">
+          <span class="vip-ribbon">VIP</span>
            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Foto principal" class="img-fluid rounded">
         </a>
       </div>
 
       <!-- GALLERY -->
-      <div class="section-box">
+      <div class="section-box-galeria">
         <h4 class="section-title">Galería</h4>
         <div class="d-flex flex-wrap gap-2 gallery">
           <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 1">
+            <img src="http://www.reinovip.com/resize/perfil/1200_351495.jpg" alt="Mini 1">
           </a>
           <a href="http://reinovip.com/fotos/wjqvt3.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/wjqvt3.jpg" alt="Mini 2">
+            <img src="http://www.reinovip.com/resize/perfil/1200_408586.jpg" alt="Mini 2">
           </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 3">
+         <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
+            <img src="http://www.reinovip.com/resize/perfil/1200_351495.jpg" alt="Mini 3">
           </a>
           <a href="http://reinovip.com/fotos/wjqvt3.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/wjqvt3.jpg" alt="Mini 4">
+            <img src="http://www.reinovip.com/resize/perfil/1200_408586.jpg" alt="Mini 4">
           </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 5">
-          </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 5">
-          </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 5">
-          </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 5">
-          </a>
-          <a href="http://reinovip.com/fotos/1200_480496.jpg" class="glightbox" data-gallery="perfil">
-            <img src="http://reinovip.com/fotos/1200_480496.jpg" alt="Mini 5">
+        
           </a>
         </div>
       </div>

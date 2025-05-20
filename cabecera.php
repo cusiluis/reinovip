@@ -15,13 +15,13 @@
       
       <!-- LOGO -->
       <div class="col-md-2 d-flex align-items-center">
-        <img src="https://reinovip.com/img/logo_dorado.png" alt="Logo" class="img-fluid" style="max-height: 90px;">
+        <img src="images/logo-reino-vip.png" alt="Logo" class="img-fluid1">
       </div>
 
       <!-- FILTROS (2 filas) -->
       <div class="col-md-7">
         <!-- Fila 1: Selectores -->
-        <div class="row g-2" style=" width: 97%;">
+        <div class="row g-2">
 
           <div class="d-flex justify-content-end align-items-center gap-2 flex-wrap">
             <a class="btn-cuenta">
