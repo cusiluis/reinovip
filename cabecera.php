@@ -15,7 +15,7 @@
       
       <!-- LOGO -->
       <div class="col-md-2 d-flex align-items-center">
-        <img src="images/logo-reino-vip.png" alt="Logo" class="img-fluid1">
+        <a href="#"><img src="images/logo-reino-vip.png" alt="Logo" class="img-fluid1"></a>
       </div>
 
       <!-- FILTROS (2 filas) -->

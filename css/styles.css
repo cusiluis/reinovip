@@ -471,7 +471,9 @@ ol, ul {
   }
 
   .img-fluid1{
-    width: 30% !important;
+   width: 50% !important;
+    right: -110px;
+    position: relative;
   }
   .g-2, .gy-2 {
   padding-top: 8px;
