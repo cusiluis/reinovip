@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2 Columnas con listas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .column {
+      flex: 1 1 300px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .value {
+      color: #555;
+      text-align: right;
+      max-width: 50%;
+    }
+
+    @media (max-width: 600px) {
+      .columns {
+        flex-direction: column;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .value {
+        text-align: left;
+        margin-top: 4px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <ul>
+          <li><span class="label">Edad:</span><span class="value">21</span></li>
+          <li><span class="label">Altura:</span><span class="value">173 cm</span></li>
+          <li><span class="label">Peso:</span><span class="value">53 kg</span></li>
+          <li><span class="label">Cabello:</span><span class="value">Castaño</span></li>
+          <li><span class="label">Ojos:</span><span class="value">Marrones</span></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><span class="label">Nacionalidad:</span><span class="value">Rusa</span></li>
+          <li><span class="label">Idiomas:</span><span class="value">Inglés, Ruso</span></li>
+          <li><span class="label">Fuma:</span><span class="value">No</span></li>
+          <li><span class="label">Tatuajes:</span><span class="value">No</span></li>
+          <li><span class="label">Piercings:</span><span class="value">Sí</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
