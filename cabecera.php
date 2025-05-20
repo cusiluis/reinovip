@@ -39,14 +39,16 @@
               <i class="fas fa-bullhorn"></i> PUBLICAR GRATIS
             </a>
           </div>
-
-
-
           
         </div>
-
+        <!-- Botón de filtros para móvil -->
+        <div class="container mt-3 d-md-none text-end">
+          <button id="mobile-filters-btn" class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#filtersModal">
+            <i class="bi bi-sliders"></i> Filtros
+          </button>
+        </div>
         <!-- Fila 2: Buscador -->
-        <div class="row mt-2 g-2">
+        <div class="row mt-2 g-2" id="desktop-filters">
 
           <div class="col-md-3">
             <select class="form-select shadow-sm">
@@ -84,6 +86,49 @@
 
     </div>
   </div>
+
+  <!-- Modal para filtros móviles -->
+<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filtersModalLabel">Filtros de Búsqueda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-2">
+          <div class="col-12">
+            <select class="form-select rounded-pill">
+              <option selected>España</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <select class="form-select rounded-pill">
+              <option selected>Categoría</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <select class="form-select rounded-pill">
+              <option selected>Provincia</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <select class="form-select rounded-pill">
+              <option selected>Ciudad</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <input type="text" class="form-control rounded-pill" placeholder="Buscar...">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold w-100" data-bs-dismiss="modal"><i class="bi bi-search"></i> Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </header>
 
 

@@ -1,0 +1,11 @@
+<meta name="description" content="Evolucion Web Online, Web Design Diseño Web Hosting Programacion Web Php Mysql Javascript" />
+
+<meta name="keywords" content="Evolucion Web Online, Web Design Diseño Web Hosting Programacion Php Mysql Javascript" />
+
+<meta name="Revisit" content="10 days" />
+
+<meta name="REVISIT-AFTER" content="10 days" />
+
+<meta name="Robots" content="Index,Follow" />
+
+<meta content-type="ImageToolBar" content="no" />

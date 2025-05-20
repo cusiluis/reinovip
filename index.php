@@ -7,30 +7,14 @@
    
 
 <?php include ('cabecera.php') ?>
+<style>
+      @media (max-width: 767.98px) {
+      #desktop-filters {
+        display: none;
+      }
+    }
+</style>
 
-<!-- Modal para filtros móviles -->
-<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4">
-      <div class="modal-header">
-        <h5 class="modal-title" id="filtersModalLabel">Filtros de Búsqueda</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-2">
-          <div class="col-12"><select class="form-select"><option selected>España</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Categoría</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Provincia</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Ciudad</option></select></div>
-          <div class="col-12"><input type="text" class="form-control" placeholder="Buscar..."></div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-gold w-100" data-bs-dismiss="modal"><i class="bi bi-search"></i> Buscar</button>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Cards -->
 <div class="container mt-4">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">

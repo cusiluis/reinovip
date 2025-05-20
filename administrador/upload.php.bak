@@ -1,0 +1,49 @@
+<?php
+require("../includes/globales.inc.php");
+require("../includes/conexion.inc.php");
+
+   // Edit upload location here
+    $idEscort=$_POST['idEscort'];
+	$imgPincipal=$_POST['imgPrincipal'];
+	$archivo=$_FILES['myfile']['name'];
+	$arryArchivo=explode(".",$archivo);
+	$ext=$arryArchivo[1];
+		$sqlm="select  f.*
+		from reino01_foto_escort f 
+		where f.IdEscort='$idEscort'";
+		$resultm=mysql_query($sqlm) or die ("error en el query registro de fotos" .mysql_error());
+		$numMed=mysql_num_rows($resultm);
+	$cant=$numMed+1;	
+
+		if($imgPincipal==1){
+		$SQLGC="update reino01_foto_escort set Principal=0 where IdEscort='$idEscort'";	
+		mysql_query($SQLGC);
+		}
+
+		$SQLGP="insert into reino01_foto_escort(IdEscort,Principal) 
+					values ('$idEscort','$imgPincipal')";	
+		mysql_query($SQLGP);
+		$idImg=mysql_insert_id();
+
+	$medio=$idEscort."_".$idImg.".".$ext;   
+
+   $result = 0;
+   
+   $target_path = "../fotos/".$medio;
+
+   if(@move_uploaded_file($_FILES['myfile']['tmp_name'], $target_path)) {
+   		$SQLMP="update reino01_foto_escort set Imagen='$medio' where ID='$idImg'";	
+		mysql_query($SQLMP);		
+      $result = 1;
+   }
+   else
+   {
+      	$SQLMP="delete from reino01_foto_escort where ID='$idImg'";	
+		mysql_query($SQLMP);		
+      $result = 0;
+   }
+   
+   sleep(1);
+?>
+
+<script language="javascript" type="text/javascript">window.top.window.stopUpload(<?php echo $result; ?>,<?php echo $idEscort; ?>);</script>
