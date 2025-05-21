@@ -11,22 +11,20 @@ include ("includes/conexion.inc.php");
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reino VIP</title>
+  <title><?php echo $TituloSitio; ?></title>
    
 <style>
 .datosEspecificacion0 {
-
-	font-size: 1.1em;
-	padding-left: 5px;
-	padding-right: 5px;
 	display: inline-block;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
 	margin-left: 2px;
 	margin-right: 2px;
-	text-align: justify;	
-	color: #1C2A1D;
+	font-weight: 500;
+	min-width: 150px;
+	font-size: 13px;
+	font-family: "Raleway", sans-serif !important;
+	padding-bottom: 5px;
+	color: #333;
+
 }    
 .datosEspecificacion0 span {
     font-size: 1.0em;
@@ -279,12 +277,12 @@ include ("includes/conexion.inc.php");
  <!-- SERVICIOS -->
       <div class="section-box">
         <h2 class="section-title">Servicios</h2>
-                    <div class="login-box-detail" style="padding:20px;font-size:.8rem;">
+                    <div class="login-box-detail">
                         <?php		
                             $i=1;		
                                 while($arryServiciosEscort = mysqli_fetch_array($ejecServicios)){ 
                                     
-                                    echo '<div class="datosEspecificacion0" style="color:#2b2b2b;min-width:150px;line-height:25px;"><span>&raquo;&nbsp;</span>'.mb_convert_encoding($arryServiciosEscort["Nombre"], 'UTF-8').'</div>'; 
+                                    echo '<div class="datosEspecificacion0"><i class="fas fa-check" style="color: #793a57;"></i> '.mb_convert_encoding($arryServiciosEscort["Nombre"], 'UTF-8').'</div>'; 
                                     if($i==4 or $i==8 or $i==12){
                                          echo '<br>';
                                     }
