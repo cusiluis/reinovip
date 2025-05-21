@@ -437,6 +437,43 @@ ol, ul {
   }
 }
 
+/*contenedor texto solo*/
+ .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .content-container h1{
+      color: #793a57;
+      margin-top: 1.5em;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+.content-container h2{
+      color: #793a57;
+      margin-top: 1.5em;
+       font-size: 1.2rem;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+      margin-top: 1em;
+      text-align: justify;
+    }
+    .content-container ul li{
+     list-style-type: circle !important;  
+    }
+
+    @media (max-width: 600px) {
+      .content-container {
+        padding: 20px;
+      }
+    }
+
 /*verificacion de edad*/
 
 
