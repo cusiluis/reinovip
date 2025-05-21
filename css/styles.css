@@ -136,6 +136,7 @@ header.py-3 {
   text-decoration: none;
   font-size: 14px;
   text-transform: uppercase;
+  font-weight: 300;
       }
       .button-buscar:hover {
       background-color: #FFC20B;
@@ -193,7 +194,7 @@ header.py-3 {
       .card1 {
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      /*box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);*/
       position: relative;
       transition: transform 0.2s ease;
       --bs-card-spacer-y: 1rem;
@@ -216,7 +217,7 @@ header.py-3 {
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   min-width: 0;
   height: var(--bs-card-height);
@@ -268,11 +269,11 @@ header.py-3 {
 
 /*pagina scort individual*/
 .section-box {
-      background: white;
-  border-radius: 3px;
-  padding: 14px 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
+    background: #fff;
+  border-radius: 6px;
+  padding: 15px 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
     }
     .section-box2 {
       background:   #faf9f9;
@@ -282,48 +283,65 @@ header.py-3 {
   margin-bottom: 10px;
     }
       .section-box-galeria {
-      background:   #faf9f9;
-  border-radius: 3px;
-  padding: 14px 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
+     padding: 8px 10px;
+  margin-bottom: 5px;
+  text-align: center !important;
+  margin-left: 44px;
     }
     .section-box1 {
-      background:   #faf9f9;
+     /* background:   #faf9f9;
       border-radius: 3px;
   padding: 14px 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      margin-bottom: 20px;*/
     }
+    .section-box-datos {
+     
+  padding: 14px 15px;
+  
+  margin-bottom: 10px;
+    }
+    .card1 .rounded {
+  border-radius: 15px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+ .section-box-galeria {
+    padding: 18px 8px !important;
+    margin-bottom: 5px;
+    text-align: center !important;
+   margin-left: 45px !important;
+  }
     .section-box h1{
-        color: #793a57;
-  font-size: 1.5rem;
-  font-weight: 500;
-  font-family: Roboto,sans-serif !important;
-    }
-    .section-box h2{
         color: #793a57;
   font-size: 1.2rem;
   font-weight: 500;
-  font-family: Roboto,sans-serif !important;
+   font-family: "Raleway", sans-serif !important;
     }
-       .section-box h3{
+    .section-box h2{
         color: #793a57;
   font-size: 1rem;
   font-weight: 500;
-  font-family: Roboto,sans-serif !important;
+   font-family: "Raleway", sans-serif !important;
+    }
+       .section-box h3{
+        color: #793a57;
+  font-size: 0.8rem;
+  font-weight: 500;
+   font-family: "Raleway", sans-serif !important;
     }
     .section-box p{
         color: #333;
   font-size: 14px;
   font-weight: 500;
-  font-family: Roboto,sans-serif !important;
+   font-family: "Raleway", sans-serif !important;
     }
     .gallery img {
-      height: 170px;
+      height: 143px;
       object-fit: cover;
-      border-radius: 3px;
+      border-radius: 10px;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
     .section-title {
      font-weight: 500;
@@ -331,24 +349,13 @@ header.py-3 {
   margin-bottom: 10px;
   font-size: 17px;
     }
-    a.btn-chat {
-      font-size: 18px;
-  background: #793a57;
-  color: #fff;
-  padding: 7px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: lighter !important;
-    }
-     a:hover.btn-chat {
-      font-size: 18px;
-  background: #FFC20B;
-  color: #333;
-  padding: 7px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: lighter !important;
-    }
+  .btn-chat {
+   font-size: 1.3rem;
+  font-weight: 400;
+  text-align: center;
+   color: #6e294a;
+      }
+   
 .tex-data{
       color: #793a57;
   font-size: 15px;
@@ -429,7 +436,143 @@ ol, ul {
   }
 }
 
+/*verificacion de edad*/
 
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 20px;
+}
+
+.pagination .page-item {
+  list-style: none;
+}
+
+.pagination .page-link {
+  color: #a66396;
+  background-color: #fff;
+  border: 1px solid #a66396;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+  background-color: #a66396;
+  color: #fff;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #a66396;
+  color: #fff;
+  border-color: #a66396;
+  font-weight: bold;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #eee;
+  color: #999;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+
+#age-verification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(40, 40, 40, 0.9);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  z-index: 90000001;
+  
+  display: none;
+}
+
+.age-verification-main {
+  background-color: #fff;
+  color: black;
+  font-size: .9rem;
+  text-align: justify;
+  padding: 25px;
+  border-radius:5px;
+  position: relative;
+  top: 10px;
+  width: 900px;
+  max-width: 80%;
+  margin: 0 auto;
+  -webkit-box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+  box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+}
+@media only screen and (min-height: 400px) {
+  .age-verification-main {
+    top: 1%;
+  }
+}
+
+.age-title, .age-main-text {
+  display: block;
+  margin-bottom: 1em;
+}
+.age-title {
+  font-size: 24pt;
+  margin-bottom: 0.5em;
+}
+
+.age-button {
+  -webkit-box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+  box-shadow: 1px 2px 9px 0px rgba(0,0,0,0.3);
+  border-radius:5px;
+}
+
+.age-button {
+  
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  
+  color: #000;
+  
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+  margin: 5px 10px;
+}
+
+.age-credits {
+  /** credits are not required, but are appreciated **/
+   font-family: "Raleway", sans-serif !important;
+  color: white;
+  display: block;
+  font-size: 12px;
+  text-decoration: normal;
+  text-align: right;
+  margin-top: 20px;
+  margin-bottom: -15px;
+}
+.age-credits a {
+  color: white;
+}
+ul.lista-condicion li{
+    list-style: square;
+    margin-left:30px;
+}
+
+
+
+
+
+/*footer*/
 
     
     .footer {
@@ -460,6 +603,11 @@ ol, ul {
   .col-md-7 {
         width: 70% !important;
      }
+     .section-box-galeria {
+padding: 10px 10px !important;
+    margin-bottom: 5px;
+    text-align: center !important;
+}
     
     }
     @media (min-width: 768px) {
@@ -529,6 +677,12 @@ ol, ul {
    width: 100%;
 
 }
+.section-box-galeria {
+ padding: 0 18px 10px 18px !important;
+    margin-bottom: 5px;
+    text-align: center !important;
+    margin-left: 0 !important;
+}
   a.btn-cuenta {
 
   padding: 0;
@@ -544,6 +698,9 @@ ol, ul {
   display: none !important;
 }
     }
+
+
+
 
     .footer-container {
       max-width: 1200px;
