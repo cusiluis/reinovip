@@ -13,20 +13,23 @@ class EscortService {
         $queryFiltros = $this->construirQueryFiltros($filtros);
 
         if (isset($filtros['categoria']) && $filtros['categoria'] == 4) {
-            return $this->mysqli->query("SELECT * FROM agencias");
+            return [
+                'resultados' => $this->mysqli->query("SELECT * FROM agencias"),
+                'pagina_actual' => 1,
+                'total_paginas' => 1
+            ];
         }
 
         $pagina = isset($filtros['pagina']) ? (int)$filtros['pagina'] : 1;
         $inicio = ($pagina - 1) * $this->registrosPorPagina;
 
-        // Incluyo JOIN con país para filtrar por país
         $totalSql = "SELECT COUNT(DISTINCT e.ID) as total
-                     FROM {$this->prefijo}Escort e
-                     JOIN {$this->prefijo}foto_escort fe ON e.ID = fe.IdEscort
-                     JOIN {$this->prefijo}Ciudad c ON e.CiudadID = c.ID
-                     JOIN {$this->prefijo}Provincia p ON e.ProvinciaID = p.ID
-                     JOIN {$this->prefijo}Pais pa ON e.PaisID = pa.ID
-                     WHERE fe.Principal = 1 AND e.Publico = 1 $queryFiltros";
+                    FROM {$this->prefijo}Escort e
+                    JOIN {$this->prefijo}foto_escort fe ON e.ID = fe.IdEscort
+                    JOIN {$this->prefijo}Ciudad c ON e.CiudadID = c.ID
+                    JOIN {$this->prefijo}Provincia p ON e.ProvinciaID = p.ID
+                    JOIN {$this->prefijo}Pais pa ON e.PaisID = pa.ID
+                    WHERE fe.Principal = 1 AND e.Publico = 1 $queryFiltros";
 
         $totalRes = $this->mysqli->query($totalSql);
         $totalRow = mysqli_fetch_assoc($totalRes);
@@ -42,7 +45,11 @@ class EscortService {
                 WHERE fe.Principal = 1 AND e.Publico = 1 $queryFiltros
                 LIMIT $inicio, {$this->registrosPorPagina}";
 
-        return $this->mysqli->query($sql);
+        return [
+            'resultados' => $this->mysqli->query($sql),
+            'pagina_actual' => $pagina,
+            'total_paginas' => $totalPaginas
+        ];
     }
 
     private function construirQueryFiltros($filtros) {

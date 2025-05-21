@@ -14,7 +14,7 @@
         <a href="#">Trans</a>
         <a href="#">Agencias</a>
         <a href="#">Términos y condiciones</a>
-        <a href="#">Política de GDPR</a>
+        <a href="<?php echo $URLSitio?>gdpr.php">Política de GDPR</a>
       </div>
     </div>
 

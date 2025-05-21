@@ -1,0 +1,153 @@
+AddDefaultCharset utf-8
+
+Options -Indexes
+#ErrorDocument 404 "https://www.reinovip.com/"
+#ErrorDocument 403 "Usted no esta autorizado para ingresar...!!"
+#ErrorDocument 403 "https://www.reinovip.com/"
+
+# -FrontPage-
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName reinovip.com/
+#AuthUserFile /reinovip.com/public_html/_vti_pvt/service.pwd
+#AuthGroupFile /reinovip.com/public_html/_vti_pvt/service.grp
+
+RewriteEngine on
+
+
+Rewriterule ^escort/(.+)/(.+)/(.+)\.php escort.php?id=$2
+
+Rewriterule ^escorts/provincia-ciudad/(.+)/(.+)/(.+)\.php escorts.php?provincia=$1&ciudad=$2
+Rewriterule ^escorts/provincia/(.+)/(.+)\.php escorts.php?provincia=$1
+Rewriterule ^escorts/categoria-ciudad/(.+)/(.+)/(.+)\.php escorts.php?categoria=$1&ciudad=$2
+Rewriterule ^escorts/categoria-provincia/(.+)/(.+)/(.+)\.php escorts.php?categoria=$1&provincia=$2
+Rewriterule ^escorts/categoria/(.+)/(.+)/(.+)\.php escorts.php?categoria=$1&provincia=$2
+Rewriterule ^escorts/categoria/(.+)/(.+)\.php escorts.php?categoria=$1
+Rewriterule ^escorts/tenerife/(.+)/ escorts.php?provincia=38&pag=$1
+Rewriterule ^escorts/tenerife/ escorts.php?provincia=38
+Rewriterule ^escorts/las-palmas/ escorts.php?provincia=35
+Rewriterule ^escorts/las-palmas/(.+)/ escorts.php?provincia=35&pag=$1
+Rewriterule ^escorts/madrid/(.+)/ escorts.php?provincia=28&pag=$1
+Rewriterule ^escorts/madrid/ escorts.php?provincia=28
+Rewriterule ^escorts/barcelona/(.+)/ escorts.php?provincia=8&pag=$1
+Rewriterule ^escorts/barcelona/ escorts.php?provincia=8
+Rewriterule ^escorts/valencia/(.+)/ escorts.php?provincia=46&pag=$1
+Rewriterule ^escorts/valencia/ escorts.php?provincia=46
+Rewriterule ^escorts/bilbao-vizcaya/(.+)/ escorts.php?provincia=48&pag=$1
+Rewriterule ^escorts/bilbao-vizcaya/ escorts.php?provincia=48
+Rewriterule ^escorts/murcia/(.+)/ escorts.php?provincia=30&pag=$1
+Rewriterule ^escorts/murcia/ escorts.php?provincia=30
+Rewriterule ^escorts/sevilla/(.+)/ escorts.php?provincia=41&pag=$1
+Rewriterule ^escorts/sevilla/ escorts.php?provincia=41
+Rewriterule ^escorts/malaga/(.+)/ escorts.php?provincia=29&pag=$1
+Rewriterule ^escorts/malaga/ escorts.php?provincia=29
+Rewriterule ^escorts/zaragoza/(.+)/ escorts.php?provincia=50&pag=$1
+Rewriterule ^escorts/zaragoza/ escorts.php?provincia=50
+Rewriterule ^escorts/guipuzcoa/(.+)/ escorts.php?provincia=20&pag=$1
+Rewriterule ^escorts/guipuzcoa/ escorts.php?provincia=20
+Rewriterule ^escorts/navarra/(.+)/ escorts.php?provincia=31&pag=$1
+Rewriterule ^escorts/navarra/ escorts.php?provincia=31
+Rewriterule ^escorts/asturias/(.+)/ escorts.php?provincia=33&pag=$1
+Rewriterule ^escorts/asturias/ escorts.php?provincia=33
+Rewriterule ^escorts/alava/(.+)/ escorts.php?provincia=1&pag=$1
+Rewriterule ^escorts/alava/ escorts.php?provincia=1
+Rewriterule ^escorts/albacete/(.+)/ escorts.php?provincia=2&pag=$1
+Rewriterule ^escorts/albacete/ escorts.php?provincia=2
+Rewriterule ^escorts/alicante/(.+)/ escorts.php?provincia=3&pag=$1
+Rewriterule ^escorts/alicante/ escorts.php?provincia=3
+Rewriterule ^escorts/almeria/(.+)/ escorts.php?provincia=4&pag=$1
+Rewriterule ^escorts/almeria/ escorts.php?provincia=4
+Rewriterule ^escorts/avila/(.+)/ escorts.php?provincia=5&pag=$1
+Rewriterule ^escorts/avila/ escorts.php?provincia=5
+Rewriterule ^escorts/badajoz/(.+)/ escorts.php?provincia=6&pag=$1
+Rewriterule ^escorts/badajoz/ escorts.php?provincia=6
+Rewriterule ^escorts/burgos/(.+)/ escorts.php?provincia=9&pag=$1
+Rewriterule ^escorts/burgos/ escorts.php?provincia=9
+Rewriterule ^escorts/caceres/(.+)/ escorts.php?provincia=10&pag=$1
+Rewriterule ^escorts/caceres/ escorts.php?provincia=10
+Rewriterule ^escorts/cadiz/(.+)/ escorts.php?provincia=11&pag=$1
+Rewriterule ^escorts/cadiz/ escorts.php?provincia=11
+Rewriterule ^escorts/cantabria/(.+)/ escorts.php?provincia=39&pag=$1
+Rewriterule ^escorts/cantabria/ escorts.php?provincia=39
+Rewriterule ^escorts/castellon/(.+)/ escorts.php?provincia=12&pag=$1
+Rewriterule ^escorts/castellon/ escorts.php?provincia=12
+Rewriterule ^escorts/ciudad-real/(.+)/ escorts.php?provincia=13&pag=$1
+Rewriterule ^escorts/ciudad-real/ escorts.php?provincia=13
+Rewriterule ^escorts/cordoba/(.+)/ escorts.php?provincia=14&pag=$1
+Rewriterule ^escorts/cordoba/ escorts.php?provincia=14
+Rewriterule ^escorts/la-coruna/(.+)/ escorts.php?provincia=15&pag=$1
+Rewriterule ^escorts/la-corunaa/ escorts.php?provincia=15
+Rewriterule ^escorts/cuenca/(.+)/ escorts.php?provincia=16&pag=$1
+Rewriterule ^escorts/cuenta/ escorts.php?provincia=16
+Rewriterule ^escorts/girona/(.+)/ escorts.php?provincia=17&pag=$1
+Rewriterule ^escorts/girona/ escorts.php?provincia=17
+Rewriterule ^escorts/granada/(.+)/ escorts.php?provincia=18&pag=$1
+Rewriterule ^escorts/granada/ escorts.php?provincia=18
+Rewriterule ^escorts/guadalajara/(.+)/ escorts.php?provincia=19&pag=$1
+Rewriterule ^escorts/guadalajara/ escorts.php?provincia=19
+Rewriterule ^escorts/huelva/(.+)/ escorts.php?provincia=21&pag=$1
+Rewriterule ^escorts/huelva/ escorts.php?provincia=21
+Rewriterule ^escorts/huesca/(.+)/ escorts.php?provincia=22&pag=$1
+Rewriterule ^escorts/huesca/ escorts.php?provincia=22
+Rewriterule ^escorts/baleares/(.+)/ escorts.php?provincia=7&pag=$1
+Rewriterule ^escorts/baleares/ escorts.php?provincia=7
+Rewriterule ^escorts/jaen/(.+)/ escorts.php?provincia=23&pag=$1
+Rewriterule ^escorts/jaen/ escorts.php?provincia=23
+Rewriterule ^escorts/leon/(.+)/ escorts.php?provincia=24&pag=$1
+Rewriterule ^escorts/leon/ escorts.php?provincia=24
+Rewriterule ^escorts/lleida/(.+)/ escorts.php?provincia=25&pag=$1
+Rewriterule ^escorts/lleida/ escorts.php?provincia=25
+Rewriterule ^escorts/lugo/(.+)/ escorts.php?provincia=27&pag=$1
+Rewriterule ^escorts/lugo/ escorts.php?provincia=27
+Rewriterule ^escorts/ourense/(.+)/ escorts.php?provincia=32&pag=$1
+Rewriterule ^escorts/ourense/ escorts.php?provincia=32
+Rewriterule ^escorts/palencia/(.+)/ escorts.php?provincia=34&pag=$1
+Rewriterule ^escorts/palencia/ escorts.php?provincia=34
+Rewriterule ^escorts/pontevedra/(.+)/ escorts.php?provincia=36&pag=$1
+Rewriterule ^escorts/pontevedra/ escorts.php?provincia=36
+Rewriterule ^escorts/la-rioja/(.+)/ escorts.php?provincia=26&pag=$1
+Rewriterule ^escorts/la-rioja/ escorts.php?provincia=26
+Rewriterule ^escorts/salamanca/(.+)/ escorts.php?provincia=37&pag=$1
+Rewriterule ^escorts/salamanca/ escorts.php?provincia=37
+Rewriterule ^escorts/segovia/(.+)/ escorts.php?provincia=40&pag=$1
+Rewriterule ^escorts/segovia/ escorts.php?provincia=40
+Rewriterule ^escorts/soria/(.+)/ escorts.php?provincia=42&pag=$1
+Rewriterule ^escorts/soria/ escorts.php?provincia=42
+Rewriterule ^escorts/tarragona/(.+)/ escorts.php?provincia=43&pag=$1
+Rewriterule ^escorts/tarragona/ escorts.php?provincia=43
+Rewriterule ^escorts/teruel/(.+)/ escorts.php?provincia=44&pag=$1
+Rewriterule ^escorts/teruel/ escorts.php?provincia=44
+Rewriterule ^escorts/toledo/(.+)/ escorts.php?provincia=45&pag=$1
+Rewriterule ^escorts/toledo/ escorts.php?provincia=45
+Rewriterule ^escorts/valladolid/(.+)/ escorts.php?provincia=47&pag=$1
+Rewriterule ^escorts/valladolid/ escorts.php?provincia=47
+Rewriterule ^escorts/zamora/(.+)/ escorts.php?provincia=49&pag=$1
+Rewriterule ^escorts/zamora/ escorts.php?provincia=49
+Rewriterule ^escorts/(.+)/ escorts.php?pag=$1
+Rewriterule ^escorts/ escorts.php
+
+RewriteRule ^contactos/(.+)$ contacto-con.php?contactos=$1
+
+Rewriterule ^servicio/(.+)/(.+)\.php servicio.php?id=$1
+# Rewriterule ^profesion/(.+)/(.+)\.php profesion.php?id=$1
+
+
+
+
+
+
+
+
+
+
+
