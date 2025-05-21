@@ -3,6 +3,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
 <!-- Bootstrap + Font Awesome -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -22,7 +23,7 @@
       <!-- FILTROS (2 filas) -->
       <div class="col-md-7">
         <!-- Fila 1: Selectores -->
-        <div class="row g-2">
+        <div class="row g-2" style="border-bottom: 1px solid #ccc;padding-bottom: 9px;">
 
           <div class="d-flex justify-content-end align-items-center gap-2 flex-wrap">
             <a class="btn-cuenta">
@@ -30,15 +31,13 @@
             </a>
             <span><input type="text" name="usuario" class="username form-control c-usuario" placeholder="Correo electronico"></span>
           <span><input type="password" name="contrasena" class="password form-control c-password" placeholder="Contraseña"></span>
-          <a class="button-anuncio">
-            <i class="fas fa-sign-in-alt"></i> Ingresar
+          <a class="button-ingresar">
+            Ingresar
           </a>  
           <a class="btn-ingreso">
                Olvidaste tu contraseña?
             </a>
-            <a class="button-anuncio">
-              <i class="fas fa-bullhorn"></i> PUBLICAR GRATIS
-            </a>
+           
           </div>
           
         </div>
@@ -53,7 +52,7 @@
         <div class="row mt-2 g-2" id="desktop-filters">
           <div class="col-md-3">
             <select id="selectPais" name="qs_localidad" class="form-select shadow-sm">
-              <option value="" selected>Seleccione País</option>
+              <option value="" selected> País</option>
             </select>
           </div>
           <div class="col-md-3">
@@ -75,9 +74,14 @@
             <!-- <a class="button-buscar">
               <i class="fas fa-search" style="color:#333;"></i> Buscar
             </a> -->
-            <button class="button-buscar" type="submit" name="Search"><i class="fas fa-search" style="color:#333;"></i> Buscar</button>
+            <button class="button-buscar" type="submit" name="Search"> Buscar</button>
 
           </div>
+          <div class="col-md-buscar">
+           <a class="button-anuncio">
+              PUBLICATE&nbsp;GRATIS
+            </a>
+          </div>  
         </div>
       </form> 
       </div>

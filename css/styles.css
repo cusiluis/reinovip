@@ -1,11 +1,11 @@
  body {
       background-color: #f8f8f8;
-      font-family: Roboto,sans-serif !important;
+      font-family: "Raleway", sans-serif !important;
     }
     header.bg-white {
     background: #793a57 !important;
-    border-bottom: 0px solid #F4B900;
-    box-shadow: 1px 5px 6px #F4B900 !important;
+  border-bottom: 1px solid #F4B900;
+  box-shadow: 0px 1px 4px #F4B900 !important;
     }
     h1, h2, h3, h4, h5{
         color: #793a57;
@@ -15,9 +15,10 @@
   height: auto;
   }
     .form-select {
-    font-size: 12px !important;
+    font-size: 11px !important;
     border-radius: 5px !important;
     }
+ 
     .navbar {
       background-color: #6a2e49;
     }
@@ -26,11 +27,19 @@
     .nav-link {
       color: #fff !important;
     }
+header.py-3 {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
     .g-2, .gy-2 {
     width: 96%;
 }
+  .col-md-3 {
+    width: 15% !important;
+  }
     .col-md-7 .mt-2 {
-  margin-top: 2rem !important;
+ /* margin-top: 2rem !important;*/
 }
     .btn-gold {
       background: linear-gradient(90deg, #f5d142, #f4b900);
@@ -49,6 +58,10 @@
       text-decoration: none;
       font-size: 13px;
       padding: 0 15px;
+      font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+ 
       }
       a.btn-ingreso {
       background: none;
@@ -57,43 +70,76 @@
       text-decoration: none;
       font-size: 13px;
       padding: 0 15px;
+      font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-style: normal;
       }
       a:hover.btn-cuenta {
        color: #f5d142;
+       text-decoration: underline;
             }
       a:hover.btn-ingreso {
         color:#f5d142;
+        text-decoration: underline;
           }
 
       .button-anuncio {
-      padding: 3px 8px;
-      background-color: #ccc;
-      color: #333;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 12px;
+    padding: 6px 14px 8px 14px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+      }
+       .button-ingresar {
+     padding:1px 17px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-style: normal;
       }
       .button-anuncio:hover {
       background-color: #FFC20B;
+      text-decoration: underline;
       }
       .button-anuncio:active {
       background-color: #FFC20B;
       }
+     .button-ingresar:hover {
+      background-color: #FFC20B;
+      text-decoration: underline;
+      }
+      .button-ingresar:active {
+      background-color: #FFC20B;
+      }  
 
       .button-buscar {
-      padding: 5px 10px 9px 10px;
-      background-color: #ccc;
-      color: #333;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 15px;
+     padding:6px 10px 5px 10px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
       }
       .button-buscar:hover {
       background-color: #FFC20B;
+      text-decoration: underline;
       }
       .button-buscar:active {
       background-color: #FFC20B;
@@ -112,14 +158,14 @@
   }
 
   .c-usuario{
-    padding: 2px 10px !important;
-  font-size: 12px !important;
+    padding: 1px 10px !important;
+  font-size: 11px !important;
   border-radius: 5px !important;
   }
 
   .c-password{
-    padding: 2px 10px !important;
-  font-size: 12px !important;
+    padding: 1px 10px !important;
+  font-size: 11px !important;
   border-radius: 5px !important;
   }
     .form-select,
@@ -138,9 +184,10 @@
     .card {
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+     /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);*/
       position: relative;
       transition: transform 0.2s ease;
+      border: none !important;
     }
 
       .card1 {
@@ -187,20 +234,22 @@
     }
 
     .card-img-top {
-  width: 100%;
-  height: 350px;
+  width: 85% !important;
+  height: 320px;
+  border-radius: 15px !important;
+  box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
     h3.card-title {
       font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: #793a57;
-  text-align: center;
+  text-align: left;
     }
     p.card-text{
       font-weight: 500;
-  font-size: 14px;
-  text-align: center;
+  font-size: 12px;
+  text-align: left;
     }
 
     .vip-ribbon {
@@ -415,7 +464,7 @@ ol, ul {
     }
     @media (min-width: 768px) {
   .col-md-3 {
-       width: 20% !important;
+       width: 15% !important
   }
 }
 
