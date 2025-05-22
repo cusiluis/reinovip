@@ -12,7 +12,7 @@
 	$error_telefono = "Error: Debe completar su Teléfono";
 	$error_email = "Error: Debe completar su cuenta de E-Mail";
 	$error_email_invalido = "Error: La cuenta de E-Mail no tiene un formato válido";
-	//print_r($_POST); exit;
+	
 	function enviarmail($myname,$myemail,$contactname,$contactemail,$subject,$message) {
 		$headers = '';
 		$headers.="MIME-Version: 1.0\n";
@@ -41,7 +41,7 @@
 	$pass   = $_POST['contrasena1'];
 	$sql    = "INSERT reino01_escort_usuarios (nombre_modelo,email,contrasena,token,habilitado,tipo)
 			   VALUES ('$nombre','$correo','$pass','$token',0,'$tipo')";
-
+	
 	$mysqli->query($sql);
 	$idInsert=$mysqli->insert_id;
 	if(isset($_POST['agencia'])){
