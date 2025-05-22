@@ -86,7 +86,7 @@ include ("includes/conexion.inc.php");
 
 <p>Nos reservamos el derecho de modificar esta Política de Privacidad. Cualquier cambio será publicado en esta página y, si corresponde, se notificará a los usuarios.</p>
 
-<p>Al utilizar este sitio, usted acepta los términos de esta Política de Privacidad.</p>
+<p><strong>Al utilizar este sitio, usted acepta los términos de esta Política de Privacidad.</strong></p>
   </div>
  
 </div>
