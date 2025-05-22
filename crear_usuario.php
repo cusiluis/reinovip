@@ -23,6 +23,43 @@ include ("includes/conexion.inc.php");
 ?>
 
 <style>
+  .content-container-crear {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 36px;
+  margin-top: 2em;
+  }
+ .content-container-crear h1{
+      color: #793a57;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+.content-container-crear h2{
+    color: #793a57;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+      margin-top: 1em;
+      text-align: justify;
+    }
+    .content-container-crear ul.listado li{
+      font-size: 0.9rem;
+    list-style-type: square !important;
+  display: list-item;
+  border: none;
+  padding: 0;
+  margin: 10px 18px;
+    }
+
+    @media (max-width: 600px) {
+      .content-container-crear {
+        padding: 20px;
+      }
+    }
+
     .login-box {
         background-color: #fff;
         padding: 30px;
@@ -76,19 +113,18 @@ include ("includes/conexion.inc.php");
 }
 </style>
 <!-- Cards -->
-<div class="container mt-4">
-   <div class="content-container">
+<div class="container">
+   <div class="content-container-crear">
 
-                           <h2>CREAR CUENTA COMO: </h2>
+                           <h1>CREAR CUENTA COMO: </h1>
  
                         <div class="login-box">
 
-                          <h2 style="margin:0 0 20px 0;">ESCORT INDEPENDIENTE</h2>
-                            <br>
+                          <h2>ESCORT INDEPENDIENTE</h2>
                             <ul class="listado">
-                                <li style="font-size: .9rem;">Inscripción gratuita</li><br>
-                                <li style="font-size: .9rem;">Gestione su perfil</li><br>
-                                <li style="font-size: .9rem;">Anuncie sus servicios</li>
+                                <li>Inscripción gratuita</li>
+                                <li>Gestione su perfil</li>
+                                <li>Anuncie sus servicios</li>
                             </ul>
                             <a href="crear_usuario_escort.php">
                               <button type="submit" class="submit-btn">Crear cuenta</button>
@@ -97,14 +133,12 @@ include ("includes/conexion.inc.php");
 
                         <div class="login-box" >
 
-                          <h2 style="margin:0 0 20px 0;">AGENCIA</h2>                                
-
-                            <br>
+                          <h2>AGENCIA</h2>                                
                             <ul class="listado">
-                                <li style="font-size: .9rem;">Inscripción gratuita</li><br>
-                                <li style="font-size: .9rem;">Gestione su perfil</li><br>
-                                <li style="font-size: .9rem;">Añadir escorts</li><br>
-                                <li style="font-size: .9rem;">Promocionar su agencia</li>
+                                <li>Inscripción gratuita</li>
+                                <li>Gestione su perfil</li>
+                                <li>Añadir escorts</li>
+                                <li>Promocionar su agencia</li>
                             </ul>
                             <a href="crear_usuario_agencia.php">
                                     <button type="submit" class="submit-btn">Crear cuenta</button>
