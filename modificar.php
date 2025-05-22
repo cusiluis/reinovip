@@ -232,6 +232,42 @@ function enviarmail($myname,$myemail,$contactname,$contactemail,$subject,$messag
   
 ?>
 <style>
+	 .content-container-crear {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 36px;
+  margin-top: 2em;
+  }
+ .content-container-crear h1{
+      color: #793a57;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+.content-container-crear h2{
+    color: #793a57;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+      margin-top: 1em;
+      text-align: justify;
+    }
+    .content-container-crear ul.listado li{
+      font-size: 0.9rem;
+    list-style-type: square !important;
+  display: list-item;
+  border: none;
+  padding: 0;
+  margin: 10px 18px;
+    }
+
+    @media (max-width: 600px) {
+      .content-container-crear {
+        padding: 0;
+      }
+    }
     .login-box {
         background-color: #fff;
         padding: 30px;
@@ -342,8 +378,8 @@ function enviarmail($myname,$myemail,$contactname,$contactemail,$subject,$messag
 a:hover{color:#fff;text-decoration:none;}
 </style>  
 <!-- Cards -->
-<div class="container mt-4">
-   <div class="content-container">
+<div class="container">
+   <div class="content-container-crear">
 
 
     <div class="login-box">
