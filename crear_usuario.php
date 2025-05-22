@@ -56,7 +56,7 @@ include ("includes/conexion.inc.php");
 
     @media (max-width: 600px) {
       .content-container-crear {
-        padding: 20px;
+        padding: 0;
       }
     }
 
