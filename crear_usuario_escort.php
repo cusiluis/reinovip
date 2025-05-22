@@ -22,6 +22,42 @@ include ("includes/conexion.inc.php");
   
 ?>
  <style>
+   .content-container-crear {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 36px;
+  margin-top: 2em;
+  }
+ .content-container-crear h1{
+      color: #793a57;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+.content-container-crear h2{
+    color: #793a57;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+      margin-top: 1em;
+      text-align: justify;
+    }
+    .content-container-crear ul.listado li{
+      font-size: 0.9rem;
+    list-style-type: square !important;
+  display: list-item;
+  border: none;
+  padding: 0;
+  margin: 10px 18px;
+    }
+
+    @media (max-width: 600px) {
+      .content-container-crear {
+        padding: 20px;
+      }
+    }
     .login-box {
         background-color: #fff;
         padding: 30px;
@@ -38,7 +74,7 @@ include ("includes/conexion.inc.php");
 
     .input-group label {
         font-size: .8rem !important;
-        color: #666;
+        color: #333;
     }
 
     .input-group input {
@@ -74,6 +110,50 @@ include ("includes/conexion.inc.php");
   transition: background-color 0.4s ease, transform 0.3s ease;
   width: 100%;
   margin-top: 30px;
+}
+
+
+::before, ::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.elemento {
+  width: auto;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -22px;
+  margin-top: 10px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: .8rem;
+}
+input[type="radio"], input[type="checkbox"] {
+  margin: 4px 0 0;
+    margin-top: 4px;
+    margin-left: 0px;
+  margin-top: 1px \9;
+  line-height: normal;
+  -ms-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  padding: 10px;
 }
 
 /* Hover: agrandar y tono más claro */
@@ -114,7 +194,7 @@ include ("includes/conexion.inc.php");
     </style>
 <!-- Cards -->
 <div class="container mt-4">
-   <div class="content-container">
+   <div class="content-container-crear">
 
    
                         <div class="login-box">
@@ -147,7 +227,7 @@ include ("includes/conexion.inc.php");
                     <input name="correo1" id="correo1" type="email" class="form_celdainput_ingreso" required/>
                     <small id="password-error" class="error-message"></small>
                 </div>
-                <span class="error" id="emailError">No se permiten correos temporales.</span><br>
+                <span class="error" id="emailError">No se permiten correos temporales.</span>
                 <div class="input-group">
                     <label for="password">Volver a colocar el email</label>
                     <input name="correo2" id="correo2"  type="email" class="form_celdainput_ingreso" required />
@@ -155,26 +235,26 @@ include ("includes/conexion.inc.php");
                 </div>
 				<p id="mensajeError2" class="error">Los campos de correo  no coinciden.</p>
                
-                <div class="input-group" style="margin-left:25px;">
+                <div class="input-group" style="margin-left: 21px;">
                     <label class="checkbox">
                         <input type="checkbox" name="condition" style="width:auto" id="frm-signUpForm-condition"
                             required="" data-lfv-initialized="true"
                             data-lfv-message-id="frm-signUpForm-condition_message">
                         <span class="checkmark"></span>
                         He leído y acepto las
-                        <a class="formlink" href="/policy-conditions/" target="_blank">Términos y condiciones, política de privacidad</a>
+                        <a class="formlink" href="/policy-conditions/" target="_blank"><strong>Términos y condiciones, política de privacidad</strong></a>
                     </label>
                     <label class="checkbox">
                         <input type="checkbox" name="condition1" style="width:auto" id="frm-signUpForm-condition1"
                             required="" data-lfv-initialized="true"
                             data-lfv-message-id="frm-signUpForm-condition1_message">
                         <span class="checkmark"></span>
-                        Acepto el procesamiento de mis datos personales <a class="formlink" href="/gdpr/" target="_blank">(GDPR)</a>
+                        Acepto el procesamiento de mis datos personales <a class="formlink" href="/gdpr/" target="_blank"><strong>(GDPR)</strong></a>
                     </label>
                     <span id="frm-signUpForm-condition_message"></span><span
                         id="frm-signUpForm-condition1_message"></span>
                 </div>
-                <button style="width:200px;" type="submit"  class="submit-btn">Finalizar el registro</button>
+                <button type="submit"  class="submit-btn">Finalizar el registro</button>
 				<br>
 				
             </form>
