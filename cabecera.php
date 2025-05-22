@@ -31,14 +31,14 @@
                 <a class="btn-cuenta">
                   <i class="fas fa-user"></i> <?php print_r($_SESSION['nombre']); ?>
                 </a>
-          <a href="/salir.php" class="button-ingresar"  name="Search">Salir</a> 
+          <a href="<?php echo $URLSitio?>salir.php" class="button-ingresar"  name="Search">Salir</a> 
               </div>		
           <?php else:?>
             <div class="d-flex justify-content-end align-items-center gap-2 flex-wrap">
-                <a class="btn-cuenta">
+                <a href="<?php echo $URLSitio?>crear_usuario.php" class="btn-cuenta">
                   <i class="fas fa-user-plus"></i> Crear cuenta
                 </a>
-                <form action="/login_usuario.php" method="POST" style="display: contents;">
+                <form action="<?php echo $URLSitio?>login_usuario.php" method="POST" style="display: contents;">
                   <span><input type="text" name="usuario" class="username form-control c-usuario" placeholder="Correo electronico" require></span>
                   <span><input type="password" name="contrasenia" class="password form-control c-password" placeholder="Contraseña" require></span>
                   <button class="button-ingresar" type="submit" name="Search">
