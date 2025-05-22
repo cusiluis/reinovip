@@ -1,6 +1,7 @@
  body {
       background-color: #f8f8f8;
       font-family: "Raleway", sans-serif !important;
+     
     }
     header.bg-white {
     background: #793a57 !important;
@@ -617,7 +618,9 @@ ul.lista-condicion li{
     
     .footer {
       background-color: #6a2e49;
-      color: #fff;
+  color: #fff;
+ 
+  width: 100%;
     }
 
     .footer a {
@@ -736,8 +739,15 @@ padding: 10px 10px !important;
   }
   a.btn-ingreso {
   display: none !important;
-}
+  }
+  
+.footer {
+      background-color: #6a2e49;
+  color: #fff;
+    width: 100%;
+    position: inherit;
     }
+}
 
 
 

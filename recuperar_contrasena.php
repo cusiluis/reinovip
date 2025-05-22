@@ -193,6 +193,8 @@ a:hover{color:#fff;text-decoration:none;}
  
 </div>
 
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <!-- Footer -->
 <?php include ('footer.php') ?>
