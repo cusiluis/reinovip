@@ -109,12 +109,49 @@
   
 ?>
 <style>
+	   .content-container-crear {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 36px;
+  margin-top: 2em;
+  }
+ .content-container-crear h1{
+      color: #793a57;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+.content-container-crear h2{
+    color: #793a57;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+      margin-top: 1em;
+      text-align: justify;
+	  font-size: 0.9rem;
+    }
+    .content-container-crear ul.listado li{
+      font-size: 0.9rem;
+    list-style-type: square !important;
+  display: list-item;
+  border: none;
+  padding: 0;
+  margin: 10px 18px;
+    }
+
+    @media (max-width: 600px) {
+      .content-container-crear {
+        padding: 20px;
+      }
+    }
     .login-box {
         background-color: #fff;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 400px;
+        width: 480px;
         max-width: 100%;
     }
 
@@ -169,19 +206,17 @@
 }
 </style>
 <!-- Cards -->
-<div class="container mt-4">
-   <div class="content-container">
+<div class="container">
+   <div class="content-container-crear">
 
    				<div class="login-box">
 						<h2>REGISTRO COMPLETADO</h2>
-						<br>
-						<p>
-								Gracias por registrarte<br><br>
-							Un mensaje con un enlace de confirmación ha sido enviado a su dirección de correo electrónico .<br><br>
-							Para completar el registro, solo haga clic en el enlace o copie y pegue el enlace en su navegador.<br><br>
-							A veces puede pasar que el mensaje termine en el correo basura(spam), no olvide revisarlo.<br><br>
-							Si por algún motivo no recibe la confirmación, por favor contáctenos.<br><br>
-							</p>
+						<p>Gracias por registrarte</p>
+						<p>	Un mensaje con un enlace de confirmación ha sido enviado a su dirección de correo electrónico .</p>
+						<p>	Para completar el registro, solo haga clic en el enlace o copie y pegue el enlace en su navegador.</p>
+						<p>	A veces puede pasar que el mensaje termine en el correo basura(spam), no olvide revisarlo.</p>
+						<p>	Si por algún motivo no recibe la confirmación, por favor contáctenos.</p>
+							
 							<a href="/">
                  <button class="submit-btn">Volver a la pagina de inicio</button>
               </a>
