@@ -108,169 +108,188 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content rounded-4">
       <div class="modal-header">
-        <h5 class="modal-title" id="filtersModalLabel">Filtros de Búsqueda</h5>
+        <h5 class="modal-title" id="filtersModalLabel" style="color: #793a57 !important;">Filtros de Búsqueda</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <form class="row g-2">
+        <form class="row g-2" name="qsearchm" id="qsearchm" method="GET" action="<?php echo $URLSitio?>index.php">
           <div class="col-12">
-            <select class="form-select rounded-pill">
-              <option selected>España</option>
+            <select id="selectPaisM" name="qs_localidad" class="form-select shadow-sm">
+              <option value="" selected> País</option>
             </select>
           </div>
           <div class="col-12">
-            <select class="form-select rounded-pill">
-              <option selected>Categoría</option>
+            <select id="selectCategoriaM" name="qs_categoria" class="form-select shadow-sm" disabled>
+              <option value="">Seleccione Categoría</option>
             </select>
           </div>
           <div class="col-12">
-            <select class="form-select rounded-pill">
-              <option selected>Provincia</option>
+            <select id="selectProvinciaM" name="qs_provincia" class="form-select shadow-sm" disabled>
+              <option value="" selected>Seleccione Provincia</option>
             </select>
           </div>
           <div class="col-12">
-            <select class="form-select rounded-pill">
-              <option selected>Ciudad</option>
+            <select id="selectCiudadM" name="qs_ciudad" class="form-select shadow-sm" disabled>
+              <option value="" selected>Seleccione Ciudad</option>
             </select>
           </div>
-          <div class="col-12">
-            <input type="text" class="form-control rounded-pill" placeholder="Buscar...">
-          </div>
-        </form>
+        
       </div>
       <div class="modal-footer">
-        <button class="btn btn-gold w-100" data-bs-dismiss="modal"><i class="bi bi-search"></i> Buscar</button>
+        <button class="btn btn-gold w-100" type="submit" name="Searchm"><i class="bi bi-search"></i> Buscar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const getlocalidad = '<?php print_r($_GET['qs_localidad']) ?>';
-    const getprovincias = '<?php print_r($_GET['qs_provincia']) ?>';
-    const getciudad = '<?php print_r($_GET['qs_ciudad']) ?>';
-    const selectPais = document.getElementById('selectPais');
-    const selectProvincia = document.getElementById('selectProvincia');
-    const selectCiudad = document.getElementById('selectCiudad');
-    const selectCategoria = document.getElementById('selectCategoria');  
+document.addEventListener('DOMContentLoaded', () => {
+  const URLSitio = '<?php echo $URLSitio ?>';
 
-    function resetSelect(selectElement, placeholder) {
-      selectElement.innerHTML = `<option value="" selected>${placeholder}</option>`;
-      selectElement.disabled = true;
-    }
+  // Obtener parámetros de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  //const getLocalidad = urlParams.get('qs_localidad') || '';
+  const getLocalidad = 41;
+  const getProvincia = urlParams.get('qs_provincia') || '';
+  const getCiudad = urlParams.get('qs_ciudad') || '';
+  const getCategoria = urlParams.get('qs_categoria') || '';
 
-    // Cargar Paises al cargar la página
-    fetch('<?php echo $URLSitio?>includes/get_paises.php')
+  // Referencias a los selects de escritorio
+  const selectPais = document.getElementById('selectPais');
+  const selectProvincia = document.getElementById('selectProvincia');
+  const selectCiudad = document.getElementById('selectCiudad');
+  const selectCategoria = document.getElementById('selectCategoria');
+
+  // Referencias a los selects de móvil
+  const selectPaisM = document.getElementById('selectPaisM');
+  const selectProvinciaM = document.getElementById('selectProvinciaM');
+  const selectCiudadM = document.getElementById('selectCiudadM');
+  const selectCategoriaM = document.getElementById('selectCategoriaM');
+
+  // Función para resetear un select
+  function resetSelect(selectElement, placeholder) {
+    selectElement.innerHTML = `<option value="">${placeholder}</option>`;
+    selectElement.disabled = true;
+  }
+
+  // Función para cargar opciones en un select
+  function populateSelect(selectElement, data, selectedValue = '') {
+    data.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.ID;
+      option.textContent = item.Nombre;
+      if (item.ID == selectedValue) {
+        option.selected = true;
+      }
+      selectElement.appendChild(option);
+    });
+    selectElement.disabled = false;
+  }
+
+  // Función para cargar países
+  function loadPaises() {
+    fetch(`${URLSitio}includes/get_paises.php`)
       .then(res => res.json())
       .then(data => {
-        data.forEach(pais => {
-          const option = document.createElement('option');
-          option.value = pais.ID;
-          option.textContent = pais.Nombre;
-          if (pais.ID == getlocalidad){
-            option.selected = true;
-            getProvincias(getlocalidad);
-          }
-          selectPais.appendChild(option);
-        });
-      });
+        // Cargar países en ambos selects
+        populateSelect(selectPais, data, getLocalidad);
+        populateSelect(selectPaisM, data, getLocalidad);
 
-    selectPais.addEventListener('change', () => {
-      resetSelect(selectProvincia, "Seleccione Provincia");
-      resetSelect(selectCiudad, "Seleccione Ciudad");
+        // Si hay una localidad seleccionada, cargar provincias
+        if (getLocalidad) {
+          loadProvincias(getLocalidad);
+        }
+      })
+      .catch(error => console.error('Error al cargar los países:', error));
+  }
 
-      if (!selectPais.value) return;
+  // Función para cargar provincias
+  function loadProvincias(paisID) {
+    fetch(`${URLSitio}includes/get_provincias.php?paisID=${paisID}`)
+      .then(res => res.json())
+      .then(data => {
+        // Resetear y cargar provincias en ambos selects
+        resetSelect(selectProvincia, 'Seleccione Provincia');
+        resetSelect(selectProvinciaM, 'Seleccione Provincia');
+        populateSelect(selectProvincia, data, getProvincia);
+        populateSelect(selectProvinciaM, data, getProvincia);
 
-      fetch(`<?php echo $URLSitio?>includes/get_provincias.php?paisID=${selectPais.value}`)
-        .then(res => res.json())
-        .then(data => {
-          data.forEach(provincia => {
-            const option = document.createElement('option');
-            option.value = provincia.ID;
-            option.textContent = provincia.Nombre;
-            selectProvincia.appendChild(option);
-          });
-          selectProvincia.disabled = false;
-        });
-    });
+        // Si hay una provincia seleccionada, cargar ciudades
+        if (getProvincia) {
+          loadCiudades(getProvincia);
+        }
+      })
+      .catch(error => console.error('Error al cargar las provincias:', error));
+  }
 
-    selectProvincia.addEventListener('change', () => {
-      resetSelect(selectCiudad, "Seleccione Ciudad");
+  // Función para cargar ciudades
+  function loadCiudades(provinciaID) {
+    fetch(`${URLSitio}includes/get_ciudades.php?provinciaID=${provinciaID}`)
+      .then(res => res.json())
+      .then(data => {
+        // Resetear y cargar ciudades en ambos selects
+        resetSelect(selectCiudad, 'Seleccione Ciudad');
+        resetSelect(selectCiudadM, 'Seleccione Ciudad');
+        populateSelect(selectCiudad, data, getCiudad);
+        populateSelect(selectCiudadM, data, getCiudad);
+      })
+      .catch(error => console.error('Error al cargar las ciudades:', error));
+  }
 
-      if (!selectProvincia.value) return;
+  // Función para cargar categorías
+  function loadCategorias() {
+    fetch(`${URLSitio}includes/get_categorias.php`)
+      .then(res => res.json())
+      .then(data => {
+        // Cargar categorías en ambos selects
+        populateSelect(selectCategoria, data, getCategoria);
+        populateSelect(selectCategoriaM, data, getCategoria);
+      })
+      .catch(error => console.error('Error al cargar las categorías:', error));
+  }
 
-      fetch(`<?php echo $URLSitio?>includes/get_ciudades.php?provinciaID=${selectProvincia.value}`)
-        .then(res => res.json())
-        .then(data => {
-          data.forEach(ciudad => {
-            const option = document.createElement('option');
-            option.value = ciudad.ID;
-            option.textContent = ciudad.Nombre;
-            selectCiudad.appendChild(option);
-          });
-          selectCiudad.disabled = false;
-        });
-    });
-
-    
-
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('<?php echo $URLSitio?>includes/get_categorias.php')
-        .then(res => {
-          if (!res.ok) throw new Error("Error cargando categorías");
-          return res.json();
-        })
-        .then(data => {
-          data.forEach(categoria => {
-            const option = document.createElement('option');
-            option.value = categoria.ID;
-            option.textContent = categoria.Nombre;
-            if (categoria.ID == `<?php print_r($_GET['qs_categoria']) ?>`){
-            option.selected = true;
-            }
-            selectCategoria.appendChild(option);
-          });
-          selectCategoria.disabled = false;
-        })
-        .catch(err => {
-          console.error("Error al cargar categorías:", err);
-        });
-    });
+  // Event listeners para cambios en selects de escritorio
+  selectPais.addEventListener('change', () => {
+    const paisID = selectPais.value;
+    resetSelect(selectProvincia, 'Seleccione Provincia');
+    resetSelect(selectCiudad, 'Seleccione Ciudad');
+    if (paisID) {
+      loadProvincias(paisID);
+    }
   });
-  function getProvincias(pais){
-         fetch(`<?php echo $URLSitio?>includes/get_provincias.php?paisID=${pais}`)
-        .then(res => res.json())
-        .then(data => {
-          data.forEach(provincia => {
-            const option = document.createElement('option');
-            option.value = provincia.ID;
-            option.textContent = provincia.Nombre;
-            if (provincia.ID == `<?php print_r($_GET['qs_provincia']) ?>`){
-            option.selected = true;
-            getCiudades(`<?php print_r($_GET['qs_provincia']) ?>`);
-            }
-            selectProvincia.appendChild(option);
-          });
-          selectProvincia.disabled = false;
-        });
-  }
-    function getCiudades(prov){
-      fetch(`<?php echo $URLSitio?>includes/get_ciudades.php?provinciaID=${prov}`)
-        .then(res => res.json())
-        .then(data => {
-          data.forEach(ciudad => {
-            const option = document.createElement('option');
-            option.value = ciudad.ID;
-            option.textContent = ciudad.Nombre;
-            if (ciudad.ID == `<?php print_r($_GET['qs_ciudad']) ?>`){
-            option.selected = true;
-            }
-            selectCiudad.appendChild(option);
-          });
-          selectCiudad.disabled = false;
-        });
-  }
+
+  selectProvincia.addEventListener('change', () => {
+    const provinciaID = selectProvincia.value;
+    resetSelect(selectCiudad, 'Seleccione Ciudad');
+    if (provinciaID) {
+      loadCiudades(provinciaID);
+    }
+  });
+
+  // Event listeners para cambios en selects de móvil
+  selectPaisM.addEventListener('change', () => {
+    const paisID = selectPaisM.value;
+    resetSelect(selectProvinciaM, 'Seleccione Provincia');
+    resetSelect(selectCiudadM, 'Seleccione Ciudad');
+    if (paisID) {
+      loadProvincias(paisID);
+    }
+  });
+
+  selectProvinciaM.addEventListener('change', () => {
+    const provinciaID = selectProvinciaM.value;
+    resetSelect(selectCiudadM, 'Seleccione Ciudad');
+    if (provinciaID) {
+      loadCiudades(provinciaID);
+    }
+  });
+
+  // Inicializar carga de datos
+  loadPaises();
+  loadCategorias();
+});
 </script>
+
 </header>
 
 

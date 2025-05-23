@@ -402,7 +402,7 @@ a:hover{color:#fff;text-decoration:none;}
 								<button type="submit" class="submit-btn">Ingresar</button>
 								</p>
 								<div class="forgot-password">
-									<a style="color:#793a57;" href="/recuperar_contrasena.php">Olvidaste tu contraseña?</a>
+									<a style="color:#793a57;" href="<?php echo $URLSitio?>recuperar_contrasena.php">Olvidaste tu contraseña?</a>
 								</div>
 							</form>
 							<br>
@@ -413,7 +413,7 @@ a:hover{color:#fff;text-decoration:none;}
 
 						<div class="login-box">
 							<p style="text-align:center;font-weight:600;">
-								¿No tienes cuenta? <a style="color:#28a745;background-color:#FFF;font-weight:700;"  class="submit-btn2" href="/crear_usuario.php">Crear cuenta</a>
+								¿No tienes cuenta? <a style="color:#28a745;background-color:#FFF;font-weight:700;"  class="submit-btn2" href="<?php echo $URLSitio?>crear_usuario.php">Crear cuenta</a>
 							</p>
 						</div>
 
