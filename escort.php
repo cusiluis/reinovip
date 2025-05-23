@@ -295,8 +295,8 @@ include ("includes/conexion.inc.php");
      
       <!-- CONTACTO -->
       <div class="section-box d-flex justify-content-between align-items-center">
-         <a href="https://api.whatsapp.com/send/?phone=34<?php echo trim($telefono);?>&amp;text=Hola!+te+he+visto+en+Reino+Vip+y+me+gustaria+ir.+Cuando+estas+disponible?&amp;type=phone_number&amp;app_absent=0" target="_blank" title="Share this post on Whatsapp" class="whatsapp" style="text-decoration:none;">
-                          <span class="btn-chat"><?php echo trim($telefono);?></span>      <img src="http://reinovip.com/img/chat2.png" style="width: 90px;" alt="Whatsapp">
+         <a href="https://api.whatsapp.com/send/?phone=34<?php $cadena =str_replace(' ', '', $telefono); echo $cadena;?>&amp;text=Hola!+te+he+visto+en+Reino+Vip+y+me+gustaria+ir.+Cuando+estas+disponible?&amp;type=phone_number&amp;app_absent=0" target="_blank" title="Share this post on Whatsapp" class="whatsapp" style="text-decoration:none;">
+                          <span class="btn-chat"><?php echo trim($telefono);?></span>      <img src="http://reinovip.com/img/chat2.png" style="width: 98px;" alt="Whatsapp">
                             </a>
          <span > <i class="fas fa-map-marker-alt" style="color: #793a57;font-size: 20px;"></i>  España - <?php echo $ciudadEscort ?></span>
          

@@ -127,7 +127,7 @@ class EscortService {
             <img src="$foto" class="card-img-top" alt="Modelo">
             <div class="card-body p-2">
                 <h3 class="card-title mb-1">$nombre</h3>
-                <p class="card-text small text-muted">Escort $provincia $ciudad, $pais</p>
+                <p class="card-text small text-muted">Escort $provincia $ciudad</p>
             </div>
             </div>
         </a>

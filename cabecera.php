@@ -1,5 +1,5 @@
  <link rel="shortcut icon" href="<?php echo $URLSitio?>images/favicon.ico">
- <link href="<?php echo $URLSitio?>css/styles.css?ver=1.5" rel="stylesheet" />
+ <link href="<?php echo $URLSitio?>css/styles.css?ver=1.6" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
                   <button class="button-ingresar" type="submit" name="Search">
                     Ingresar
                   </button>  
-                  <a class="btn-ingreso">
+                  <a href="<?php echo $URLSitio?>recuperar_contrasena.php" class="btn-ingreso">
                       Olvidaste tu contraseña?
                     </a>
                 </form>
@@ -89,7 +89,7 @@
 
           </div>
           <div class="col-md-buscar">
-           <a class="button-anuncio">
+           <a href="<?php echo $URLSitio?>modificar.php" class="button-anuncio">
               PUBLICATE&nbsp;GRATIS
             </a>
           </div>  

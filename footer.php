@@ -13,7 +13,7 @@
         <a href="#">Escort Chicos</a>
         <a href="#">Trans</a>
         <a href="#">Agencias</a>
-        <a href="#">Términos y condiciones</a>
+        <a href="<?php echo $URLSitio?>terminos.php">Términos y condiciones</a>
         <a href="<?php echo $URLSitio?>gdpr.php">Política de GDPR</a>
       </div>
     </div>
