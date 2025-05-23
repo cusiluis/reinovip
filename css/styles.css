@@ -475,8 +475,7 @@ ol, ul {
       .content-container {
         padding: 20px;
       }
-    }
-
+    }  
 /*verificacion de edad*/
 
 
@@ -701,7 +700,16 @@ padding: 10px 10px !important;
   flex: 0 0 auto;
   width: 50% !important;
 }
-          
+
+a.btn-publim {
+    background: linear-gradient(90deg, #f5d142, #f4b900) !important;
+    color: #333 !important;
+    font-weight: 400 !important;
+    font-size: 0.9rem !important;
+}  
+   img.logop{
+    display: none !important;
+   }       
    .card-img-top {
    height: 250px !important;
    }

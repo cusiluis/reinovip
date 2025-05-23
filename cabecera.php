@@ -1,5 +1,5 @@
  <link rel="shortcut icon" href="<?php echo $URLSitio?>images/favicon.ico">
- <link href="<?php echo $URLSitio?>css/styles.css?ver=1.6" rel="stylesheet" />
+ <link href="<?php echo $URLSitio?>css/styles.css?ver=1.7" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
       
       <!-- LOGO -->
       <div class="col-md-2 d-flex align-items-center">
-        <a href="<?php echo $URLSitio?>"><img src="<?php echo $URLSitio?>images/logo-reino-vip.png" alt="Logo" class="img-fluid1"></a>
+        <a href="<?php echo $URLSitio?>"><img src="<?php echo $URLSitio?>images/logo-reino-vip.png" alt="Logo" class="logop img-fluid1"></a>
       </div>
 
       <!-- FILTROS (2 filas) -->
@@ -53,11 +53,27 @@
           
         </div>
         <!-- Botón de filtros para móvil -->
-        <div class="container mt-3 d-md-none text-end">
-          <button id="mobile-filters-btn" class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#filtersModal">
-            <i class="bi bi-sliders"></i> Filtros
-          </button>
+      <div class="container mt-3 d-md-none">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Logo -->
+          <a href="<?php echo $URLSitio ?>">
+            <img src="<?php echo $URLSitio ?>images/logo-reino-vip.png" alt="Logo Reino VIP" class="img-fluid" style="max-height: 40px;">
+          </a>
+
+          <div class="d-flex align-items-center gap-2">
+            <!-- Botón Filtros -->
+            <button id="mobile-filters-btn" class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#filtersModal">
+              <i class="bi bi-sliders"></i> Filtros
+            </button>
+
+            <!-- Botón Publicate Gratis -->
+            <a href="<?php echo $URLSitio ?>modificar.php" class="btn btn-outline-warning fw-bold btn-publim">
+              PUBLICATE&nbsp;GRATIS
+            </a>
+          </div>
         </div>
+      </div>
+
         <!-- Fila 2: Buscador -->
        <form name="qsearch" id="qsearch" method="GET" action="<?php echo $URLSitio?>index.php">  
         <div class="row mt-2 g-2" id="desktop-filters">
