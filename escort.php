@@ -38,7 +38,7 @@ include ("includes/conexion.inc.php");
 				$id=$_GET['id'];
 				//$foto=$_GET['foto'];
 				  //echo "llololo*-";
-				  $URLSitio2 = "https://reinovip.com/";
+				//  $URLSitio2 = "https://reinovip.com/";
 				$EscortT=$Prefijo."Escort";
 				$EscortC=$Prefijo."Ciudad";
 				$EscortP=$Prefijo."Provincia";
@@ -165,7 +165,7 @@ include ("includes/conexion.inc.php");
 					else
 					{
 						if ($cantImPrinc>0) {
-							$fotoPrinc=$URLSitio2.'fotos/'.$arryFotoPrinc['Imagen'];
+							$fotoPrinc=$URLSitio.'fotos/'.$arryFotoPrinc['Imagen'];
 						}	else {
 							$fotoPrinc=$URLSitio.'img/nofoto306x407.jpg';
 						}
@@ -212,7 +212,7 @@ include ("includes/conexion.inc.php");
 				if(strstr($arryGaleria['Imagen'],'http')){ 
 					$urlIMGrv=$arryGaleria['Imagen'];
 				}else{
-						$urlIMGrv=$URLSitio2."resize/perfil/".$arryGaleria['Imagen'];
+						$urlIMGrv=$URLSitio."resize/perfil/".$arryGaleria['Imagen'];
 						$gal[$poc]= $arryGaleria['Imagen'];
 						$poc++;
 						}

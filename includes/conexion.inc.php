@@ -10,11 +10,11 @@ $mysqli = new mysqli($HostPrincipal, $UsuarioPrincipal,$ClavePrincipal, $BasePri
 global $mysqli;
 
 if ($mysqli -> connect_errno) {
-die( "Fallo la conexión a MySQL: (" . $mysqli -> mysqli_connect_errno() 
+die( "Fallo la conexiï¿½n a MySQL: (" . $mysqli -> mysqli_connect_errno() 
 . ") " . $mysqli -> mysqli_connect_error());
 }
 else
-//echo "Conexión exitosa!";
+//echo "Conexiï¿½n exitosa!";
 //$mysqli -> mysqli_close();
 
 // $ErrorConexion=mysql_connect($HostPrincipal,$UsuarioPrincipal,$ClavePrincipal);
@@ -23,6 +23,6 @@ else
 // if ($ErrorConexion!=0) {
 //      $MensajeDeErrorConexion="Error ".$ErrorConexion.": ".mysql_error();
 // } else {
-// 	 $MensajeDeErrorConexion="Conexión Exitosa";
+// 	 $MensajeDeErrorConexion="Conexiï¿½n Exitosa";
 // }
 ?>

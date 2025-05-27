@@ -28,7 +28,7 @@
         <?php if(isset($_SESSION['nombre']) and $_SESSION['nombre']!=''):?>
 
               <div class="d-flex justify-content-end align-items-center gap-2 flex-wrap">
-                <a class="btn-cuenta">
+                <a href="<?php echo $URLSitio?>publicaciones.php" class="btn-cuenta">
                   <i class="fas fa-user"></i> <?php print_r($_SESSION['nombre']); ?>
                 </a>
           <a href="<?php echo $URLSitio?>salir.php" class="button-ingresar"  name="Search">Salir</a> 

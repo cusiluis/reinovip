@@ -1,0 +1,328 @@
+.container{
+	/* background: yellow; */
+	/* width: 100%; */
+}
+.banner {
+    margin-right: 0px !important;
+}
+#mapa img{
+    max-width: none !important;
+}
+.conBannerPublicidad{
+	padding-left: 0px !important;
+	margin: 0 auto !important;
+	text-align: center !important;
+	padding-top: 12px;
+}
+.flex-col {
+	flex-direction: row;
+  }
+  .flex {
+	display: flex;
+  }
+.conBannerPublicidad img{
+	/* height: '';  */
+	/* max-width: none !important; */
+}
+.publicidad{
+	width: 94% !important;
+}
+.contProvincias{
+	/* margin: 0 auto !important;
+	text-align: center !important; */
+}
+
+.titulosProvinciasInicio {
+    width: 96.6% !important;
+    background: #047b92;
+}
+.modelo-inicio .top {
+    background-size: cover;
+    height: 25px !important;
+    padding: 2px 0px 0px 0px !important;
+    width: 160.9px !important;
+    text-align: center !important;
+}
+.modelo-inicio{
+	float:none !important;
+	display: inline-block !important;
+	width: 205px !important;
+}
+.modelo-inicio .medio {
+
+}
+.modelo-inicio .medio .ciudad {
+    padding: 2px 0 5px 0px !important;
+	margin:5px;
+}
+.medio>a>img{
+	border:0px !important; 
+	width:100% !important; 
+	height:300px !important;
+}
+.verMasInicio{
+	font-size: 0.89em !important;
+}
+.contVerMasInicio{
+	padding-right: 35px !important;
+	float: right !important;
+	/* font-size: .80em !important; */
+}
+.verMasInicio a:hover {
+    text-decoration: none;
+    color: #A8A3A3;
+    transition: all 0.8s;
+    /* font-size: .80em !important; */
+}
+.ciudad a{
+	color: #383838;
+	font-size: .9375rem;
+	margin: 0px !important;
+	padding: 0px !important;
+	font-weight: 300;
+}
+.contNombreCiudad{
+	font-weight: 900;
+	margin: 0px !important;
+	padding: 0px !important;
+	line-height: 014px !important;
+	font-size: 13px;
+}
+.myprovincias {
+    margin: 0 10% !important;
+}
+.provinciasCategorias {
+    width: 172px !important;
+    color: #383838 !important;
+}
+.provinciasCategorias a {
+    color: #383838 !important;
+}
+#pie #palabrasClave {
+    height: auto;
+}
+#pie {
+    background: #036577;
+}
+#resultadoBusqueda{
+	position: absolute;
+	color: #0A0909;
+	z-index: 1000;
+	margin-left: 63.8px;
+    margin-top: -17px;
+    width: 405.5px;
+}
+.form-control{
+	border-radius: 5px;
+}
+.contBuscador .buscadorText{
+    font-size: 17px !important;
+}
+.input-group-addon{
+	background: #08768a;
+	color: #fff;
+	border-radius: 2px;
+}
+
+
+
+
+/*************************/
+/********** MOBILE *******/
+/*************************/
+.search{
+	width: 100% !important;
+	padding: 10px 0px 0px 0px !important;
+	background: #6c7577 ;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+    height: 52px;
+    margin-top: 4px;
+}
+#anuncioAcceso{
+	text-align: center !important;
+}
+#anuncioAcceso>a{
+	display: block !important;
+	padding: 5px 0px 5px 12px !important;
+	font-size: 14px !important;
+	color: #FFFFFF !important;
+	background: #047b92 !important;
+	border-top:1px solid #CEC9C9 !important;
+}
+#anuncioAcceso>a:last-child {
+    border-bottom: 1px solid #CEC9C9 !important;
+}
+#anuncioAcceso span{
+	color: #D31313 !important;
+	font-weight: 900 !important;
+	font-size: 16px !important;
+}
+#anuncioAcceso i{
+	margin-bottom: 10px !important;
+}
+#mobile-menu-button{
+	float: right !important;
+	margin-top: 5% !important;
+	margin-bottom: 7px !important;
+	background: #08768a !important;
+	border-color: #08768a !important;
+	color: #D4D4DB;
+}
+.contLogo{
+	width: 65% !important;
+}
+#wrapper {
+    margin-bottom: 0px !important;
+}
+#mobile-main-menu{
+	display: none ;
+	padding-top: 2px;
+}
+.btn-primary {
+    background: #fff !important;
+    border-color: #fff !important;
+	color:#000;
+}
+.Aux{
+	margin-top: 6px;
+}
+
+
+/*************************/
+/***** Media Queries *****/
+/*************************/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.container{
+		/* background: green; */
+		/* width: 100%; */
+	}
+	.col_lateral_izq {
+		float: none;
+	    width: 100% !important;
+	    margin: 0 auto !important;
+	    text-align: center !important;
+	}
+	.banner {
+	    float: none;
+	}
+	.conBannerPublicidad {
+	    /* padding-left: 0px !important;
+	    margin: 0 auto !important;
+	    text-align: center !important; */
+	}
+	.titulosProvinciasInicio {
+	    width: 100% !important;
+	}
+	.contVerMasInicio {
+	    padding-right: 0px !important;
+	}
+	
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+	.container{
+		/* background: blue; */
+		/* width: 100%; */
+	}
+	.col_lateral_izq {
+		float: none;
+	    width: 100% !important;
+	    margin: 0 auto !important;
+	    text-align: center !important;
+	}
+	.banner {
+	    float: none;
+	}
+	.publicidad {
+	    width: 100% !important;
+	    padding-top: 10px !important;
+	}
+	.titulosProvinciasInicio {
+	    width: 100% !important;
+	    margin-top: 0px !important;
+	}
+	.contVerMasInicio {
+	    padding-right: 0px !important;
+	}
+	#pie #palabrasClave {
+	    padding: 7px 10px 4px 10px;
+	}
+	.table-responsive {
+	    border: 10px !important;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.container{
+		/* background: red; */
+	}
+	.col_lateral_izq {
+	    width: 100% !important;
+	    margin: 0 auto !important;
+	    text-align: center !important;
+	}
+	.publicidad {
+	    width: 100% !important;
+	    padding-top: 10px !important;
+	}
+	.banner {
+	    float: none;
+	}
+	.titulosProvinciasInicio {
+	    width: 100% !important;
+	    margin-top: 35px !important;
+	   padding: 5px !important;
+	}
+	.contVerMasInicio {
+	    margin: 0 auto;
+    	text-align: center;
+	}
+	#pie #palabrasClave {
+	    padding: 33px 3px 4px 3px;
+	}
+	.table-responsive {
+	    border: 10px !important;
+	}
+	.contAux{
+		/* padding-left: 5px !important;
+		padding-right: 5px !important; */
+	}
+	.modelo-inicio .top {
+	    width: 179.9px !important;
+	}
+	.modelo-inicio {
+	    width: 46% !important;
+	    margin: 1px 8px 15px 0;
+		
+	}
+	.contProvincias {
+	    margin: 0 auto;
+	    text-align: center;
+	}
+	.myprovincias {
+	    margin: 0 0% !important;
+	}
+
+	.search {
+	    height: auto;
+	    margin-top: 4px;
+	    margin-bottom: -13px;
+	}
+	.auxPB{
+		padding-bottom: 4px;
+	}
+	.searcAux{
+		height: 90px;
+	    margin-top: 4px;
+	}
+	#pie #direccion {
+	    font-size: 11px;
+	}
+	#pie #palabrasClave {
+	    font-size: 10px;
+	    padding: 7px 2px 4px 2px;
+	}
+
+}
