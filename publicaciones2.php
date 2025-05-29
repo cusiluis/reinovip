@@ -122,7 +122,9 @@ $usuario_id=$_SESSION['usuario_id'];
   <meta name="description" content="Guía Erótica de España donde encontraras acompañantes vip, chicas, escorts, travestis, eros,  etc.  Publica tu anuncio GRATIS">
   <meta name="keywords" content="acompañantes vip, chicas, escorts, travestis, eros, gays, chicas en las palmas, transexuales,">
 
-   
+   <link href="css/dropzone.css" rel="stylesheet" type="text/css">
+    <link href="css/formulario.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 
 <?php 
   include ('cabecera.php');
@@ -164,7 +166,9 @@ $usuario_id=$_SESSION['usuario_id'];
         padding: 20px;
       }
     }
-
+.contSubirFoto {
+  text-align: center;
+}
     .login-box {
         background-color: #fff;
         padding: 10px;
@@ -224,9 +228,25 @@ a.botones{
     border-radius:5px;
    
 }
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.table > :not(caption) > * > * {
+  padding: 10px 35px !important;
+  border:none;
+}
+.table > thead {
+  vertical-align: bottom;
+  border-bottom:1px solid #ddd;
+}
 table.table tr th{
     color:#793a57;
     font-size:0.8rem;
+}
+table.table tr {
+  text-align: left !important;
 }
 table.table tr td{
     
@@ -413,6 +433,7 @@ a.pack:hover { background-color: #218838; }
     padding-left: 50px;
     padding-bottom: 20px;
 }
+
 </style>    
 <!-- Cards -->
 <div class="container">
@@ -627,7 +648,7 @@ a.pack:hover { background-color: #218838; }
                         
                         
                             </div>
-                            <div class="tab-content" id="tab2" style="max-width: 87%;margin: 30px 0 0 0;"">
+                            <div class="tab-content" id="tab2" style="max-width: 87%;margin: 30px 0 0 0;">
                                 <div class="login-box">
                                 <table class="table table-condensed" width="100%">
                                 <?php if(!empty($list)):?>
@@ -642,7 +663,7 @@ a.pack:hover { background-color: #218838; }
 
                                     <?php foreach ($list as $data):?>
                                         <tr>
-                                            <td><img src="https://reinovip.com/fotos/<?php echo $data['imagen']?>" style='width:150px;'></td>
+                                            <td ><img src="https://reinovip.com/fotos/<?php echo $data['imagen']?>" style='width:150px;'></td>
                                         
                                             <td width="300"><b><?php echo $data['nombre']?></b> <br><br> <?php echo $data['comentario']?></td>
                                         
@@ -1395,7 +1416,7 @@ a.pack:hover { background-color: #218838; }
                         </div>
                     </div>	
                                         </form>
-                    <div class="pictures" style="display: none;">
+                    <div class="pictures" >
                         <form class="formRegistro" action="editar_imagen_principal.php" enctype="multipart/form-data" name="formC" id="formC" method="POST" onsubmit="">
                         <div class="col-lg-12">
                             <div class="login-box">	
@@ -1420,7 +1441,7 @@ a.pack:hover { background-color: #218838; }
                                                     <img style="width:120px;border: 2px solid #000;border-radius:5px;" src="https://reinovip.com/fotos/<?php echo $list[0]['imagen']?>" id="item-img-output" data-src="" class="imgpreviewPrf img-fluid" alt="">
                                                 </div>
                                                 <input type="file" class="item-img file center-block filepreviewprofile" style="display:inherit;" name="file">IMAGEN PRINCIPAL
-                                                <div class="login-box">
+                                                <div class="login-box" style="width:400px;float:right;border-radius:5px;">
                                                 <p style="text-align:center;">
                                                     <span styl class="submit-btn2">Selecciona tu archivo o Sube tu foto ahora</span>
                                                 </p><br>
@@ -1480,8 +1501,8 @@ a.pack:hover { background-color: #218838; }
                                 <tr>
 								<?php foreach ($list[0]['imagenes'] as $data):?>
 									
-                                        <td style="text-align: center;"><img src="https://reinovip.com/fotos/<?php echo $data['imagen'];?>" style='width:90px;'>
-                                        <br>    
+                                        <td style="text-align: center;"><img src="https://reinovip.com/fotos/<?php echo $data['imagen'];?>" style='width:90px; height: 140px;'>
+                                        <br>  
                                         <br>    
                                         <a class="botones" href="http://reinovip.com/borrar_imagenes.php?id=<?php echo $data['id']?>" onclick="return confirm('esta seguro de eliminar la imagen?');">BORRAR IMAGEN</a>
                                         </td>
