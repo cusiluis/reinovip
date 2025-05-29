@@ -953,7 +953,7 @@ table.table tr td a{
                                                    Nos encargamos de 📝 Publicar 🔄 Posicionar y 🎯 Mantener tus Anuncios en el 🔝 Top de las mejores Páginas de Contactos.
                                                 </p>
                                                 <div class="publicate-logos">
-                                                   <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/publicidad-reinovip.png" /></a>
+                                                   <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/publicidad-reinovip2.png" /></a>
                                                 </div>
                                                  <p style="text-align: center;" >* Portales de Anuncios con los que trabajamos</p>
                                             </div>
