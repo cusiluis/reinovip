@@ -935,7 +935,8 @@ table.table tr td a{
                                             <tr >
                                                 <td colspan="3" style="border-bottom:none;">
                                                 <style>
-                                                
+                                                p.text-publi{font-size: 1rem;}
+                                                .publicate-logos{text-align: center;}
                                                     .paquete { border: 1px solid #ddd; padding: 20px; margin:10px 15px; display: inline-block; width: 300px; }
                                                     .paquete_personalizado{ border: 1px solid #ddd; padding: 20px; margin: 10px; display: inline-block; width: 972px;  }
                                                     a.pack { background-color: #28a745; color: white; padding: 10px; border: none; cursor: pointer; }
@@ -943,8 +944,15 @@ table.table tr td a{
                                                 </style>
 
 
-                                                <h2 style="margin:30px 0 0 0;padding:0;text-align:left;color:#793a57;font-size:1rem;">SELECCIONA TU PAQUETE <?php echo $_GET['token'];?></h2>
-
+                                                <h2 style="margin:30px 0 0 0;padding:0;text-align:left;color:#793a57;font-size:1.5rem;">Publicate con nosotros <?php echo $_GET['token'];?></h2>
+                                                <p class="text-publi">Publicate con nosotros, podras anunciarte en todos estos sitios</p>
+                                                <p class="text-publi">
+                                                   Nos encargamos de 📝 Publicar 🔄 Posicionar y 🎯 Mantener tus Anuncios en el 🔝 Top de las mejores Páginas de Contactos.
+                                                </p>
+                                                <div class="publicate-logos">
+                                                   <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/publicidad-reinovip.png" /></a>
+                                                </div>
+                                                 <p style="text-align: center;" >* Portales de Anuncios con los que trabajamos</p>
                                                 <div class="paquete" id="paquete1">
                                                     <h3>Paquete Básico</h3>
                                                     <p>Incluye 10% de descuento.</p>
