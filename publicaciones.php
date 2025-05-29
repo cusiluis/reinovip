@@ -497,9 +497,7 @@ table.table tr td a{
     .login-box{}
     }
 @media (min-width:300px) and (max-width: 550px){
-    .login-box{
-       
-    }
+    
     .detail-profile .params > div > span{
         flex-basis:55px;
     }
@@ -531,7 +529,7 @@ table.table tr td a{
         text-align:center !important;
     }
     .login-box{
-        margin-left:30px;
+        margin-left:0px;
     }
   }
  @media (min-width: 350px) {
@@ -902,7 +900,10 @@ table.table tr td a{
                                                 float: left !important;
                                             }
                                             }
-                                        </style>
+
+                                          
+
+                                               </style>
                                         <?php foreach ($list as $data):?>
                                             <tr style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
                                                 <td width="250"><img src="<?php echo $URLSitio?>fotos/<?php echo $data['imagen']?>" style='width:250px;'></td>
@@ -935,16 +936,18 @@ table.table tr td a{
                                             <tr >
                                                 <td colspan="3" style="border-bottom:none;">
                                                 <style>
-                                                p.text-publi{font-size: 1rem;}
-                                                .publicate-logos{text-align: center;}
+                                                 .contenedor-publicate{width: 100%;}   
+                                                 .publicate-logos{text-align: center;}
                                                     .paquete { border: 1px solid #ddd; padding: 20px; margin:10px 15px; display: inline-block; width: 300px; }
                                                     .paquete_personalizado{ border: 1px solid #ddd; padding: 20px; margin: 10px; display: inline-block; width: 972px;  }
                                                     a.pack { background-color: #28a745; color: white; padding: 10px; border: none; cursor: pointer; }
                                                     a.pack:hover { background-color: #218838; }
+                                                   
                                                 </style>
 
 
-                                                <h2 style="margin:30px 0 0 0;padding:0;text-align:left;color:#793a57;font-size:1.5rem;">Publicate con nosotros <?php echo $_GET['token'];?></h2>
+                                            <div class="contenedor-publicate">
+                                                <h2 style="margin:30px 0 0 0;padding:0;text-align:left;color:#793a57;font-size:1.4rem;">Publicate con nosotros <?php echo $_GET['token'];?></h2>
                                                 <p class="text-publi">Publicate con nosotros, podras anunciarte en todos estos sitios</p>
                                                 <p class="text-publi">
                                                    Nos encargamos de 📝 Publicar 🔄 Posicionar y 🎯 Mantener tus Anuncios en el 🔝 Top de las mejores Páginas de Contactos.
@@ -953,7 +956,9 @@ table.table tr td a{
                                                    <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/publicidad-reinovip.png" /></a>
                                                 </div>
                                                  <p style="text-align: center;" >* Portales de Anuncios con los que trabajamos</p>
-                                                <div class="paquete" id="paquete1">
+                                            </div>
+                                                <!-- 
+                                                 <div class="paquete" id="paquete1">
                                                     <h3>Paquete Básico</h3>
                                                     <p>Incluye 10% de descuento.</p>
                                                     <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"  class="pack">Comprar</a>
@@ -974,7 +979,7 @@ table.table tr td a{
                                                     <h3>Paquete Personalizado</h3>
                                                     <p>Arma tu propio paque a la mejor conveniencia.</p>
                                                     <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL" class="pack">Comprar</a>
-                                                </div>
+                                                </div>-->
                                                 </td>		      	
                                         <?php endforeach;?>
                                     <?php else:?>
@@ -984,8 +989,7 @@ table.table tr td a{
 						    </table>
                         </div>
 						<?php endif;?>
-						
-                           
+                      
                             <?php if($_SESSION['tipo']!='AGENCIA'):?>    
                             <?php if(count($list)<1 ):?>
                             <a  style="margin-top:30px;color:#fff;padding:10px 30px;border-radius:5px; width:300px;margin-left: 30px;" href="<?php echo $URLSitio?>registro.php?id=<?php echo $usuario_id;?>" class="submit-btn" role="button">REGISTRAR NUEVO ANUNCIO</a>
