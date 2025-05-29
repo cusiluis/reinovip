@@ -168,7 +168,9 @@ input[type="radio"], input[type="checkbox"] {
 <!-- Cards -->
 <div class="container">
    <div class="content-container-crear">
-
+                            <?php if ($_GET['error'] == '1') { ?>
+                        <div class="login-box"><p id="mensajeError" class="error" style="display: block;">Por favor, debe completar todos los campos obligatorios.</p></div><br>
+                        <?php } ?>
                            <div class="login-box">
                             <h2>Registrar una agencia:</h2>
                             <form action="creacion_usuario_completado.php" id="registroForm" method="post" name="frmIngreso">

@@ -1,97 +1,110 @@
 <?php
-	include ("includes/globales.inc.php");
-	include ("includes/conexion.inc.php");
-	include('phpmailer/src/Exception.php');
-	include('phpmailer/src/PHPMailer.php');
-	//include('phpmailer/src/SMTP.php');
-	$respuestaautomatica="Reino Vip PUBLICIDAD";
-	$gracias = "Gracias por contactarte con ".$TituloSitio;
-	$mensajeenvio ="Tu información ha sido modificada con éxito.";
-	$err_errorenvio = "No se ha podido enviar su email: ";
-	$error_nombre = "Error: Debe completar su Nombre";
-	$error_telefono = "Error: Debe completar su Teléfono";
-	$error_email = "Error: Debe completar su cuenta de E-Mail";
-	$error_email_invalido = "Error: La cuenta de E-Mail no tiene un formato válido";
-	
-	function enviarmail($myname,$myemail,$contactname,$contactemail,$subject,$message) {
-		$headers = '';
-		$headers.="MIME-Version: 1.0\n";
-		$headers.="Content-type: text/html; charset=utf-8\n";
-		$headers.="X-Priority: 1\n";
-		$headers.="X-MSMail-Priority: High\n";
-		$headers.="X-Mailer: php\n";
-		$headers.="From: \"".$myname."\" <".$myemail.">\n";
-		return(mail("\"".$contactname."\" <".$contactemail.">",$subject,$message,$headers));
-	}
+include("includes/globales.inc.php");
+include("includes/conexion.inc.php");
+include('phpmailer/src/Exception.php');
+include('phpmailer/src/PHPMailer.php');
 
-    $caracteres = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $token = '';
-    for ($i = 0; $i < 16; $i++) {
-        $token .= $caracteres[rand(0, strlen($caracteres) - 1)];
+use PHPMailer\PHPMailer\PHPMailer;
+
+
+if (empty($_POST['usuario']) || empty($_POST['correo1']) || empty($_POST['contrasena1'])) {
+    // echo "Error: Debes completar todos los campos obligatorios.";
+    if (isset($_POST['escort'])) {
+      header("Location: crear_usuario_escort.php?error=1");
+      exit;
+    }else{
+      header("Location: crear_usuario_agencia.php?error=1");
+      exit;
     }
-    if(isset($_POST['escort'])){
-		$tipo = 'ESCORT';
-	}
-	if(isset($_POST['agencia'])){
-		$tipo = 'AGENCIA';
-		
-	}
-    $nombre = $_POST['usuario'];
-	$correo = $_POST['correo1'];
-	$pass   = $_POST['contrasena1'];
+    
+}
+// Variables
+$respuestaautomatica = "Reino Vip PUBLICIDAD";
+$TituloSitio = "Reino Vip"; // Asegúrate de definir esto en globales.inc.php
+$gracias = "Gracias por contactarte con " . $TituloSitio;
+// $fechaActual = date("Y-m-d H:i:s");
+
+$nombre = $_POST['usuario'];
+$correo = $_POST['correo1'];
+$pass   = $_POST['contrasena1'];
+$tipo   = isset($_POST['escort']) ? 'ESCORT' : (isset($_POST['agencia']) ? 'AGENCIA' : '');
+$token  = strtoupper(bin2hex(random_bytes(8))); // token seguro
+
+// Verificar si ya existe el correo
+$check = $mysqli->prepare("SELECT id FROM reino01_escort_usuarios WHERE email = ?");
+$check->bind_param("s", $correo);
+$check->execute();
+$check->store_result();
+
+if ($check->num_rows > 0) {
+    //echo "Error: Ya existe un usuario registrado con ese correo.";
+    header("Location: existe_usuario.php");
+    exit;
+}
+
+// Insertar nuevo usuario
+// $sql = "INSERT INTO reino01_escort_usuarios 
+//         (nombre_modelo, email, contrasena, token, habilitado, tipo) 
+//         VALUES (?, ?, ?, ?, 0, ?)";
+// $stmt = $mysqli->prepare($sql);
+// $stmt->bind_param("ssssss", $nombre, $correo, $pass, $token, $tipo);
+// $stmt->execute();
+// $idInsert = $stmt->insert_id;
+
+
 	$sql    = "INSERT reino01_escort_usuarios (nombre_modelo,email,contrasena,token,habilitado,tipo)
 			   VALUES ('$nombre','$correo','$pass','$token',0,'$tipo')";
-	
 	$mysqli->query($sql);
 	$idInsert=$mysqli->insert_id;
-	if(isset($_POST['agencia'])){
-		
-		$sql1   = "INSERT agencias (usuario_id,nombre_agencia)
-			   VALUES ('$idInsert','$nombre')";
+
+
+
+// Insertar agencia si corresponde
+if ($tipo === 'AGENCIA') {
+    // $sql2 = "INSERT INTO agencias (usuario_id, nombre_agencia)
+    //          VALUES (?, ?)";
+    // $stmt2 = $mysqli->prepare($sql2);
+    // $stmt2->bind_param("iss", $idInsert, $nombre);
+    // $stmt2->execute();
+    $sql1   = "INSERT agencias (usuario_id,nombre_agencia)
+		VALUES ('$idInsert','$nombre')";
 
 		$mysqli->query($sql1);
-		
-	} 
-	$mail = new PHPMailer\PHPMailer\PHPMailer();
+}
 
-	try {
-		//Server settings
-		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-		//$mail->isSMTP();                                            //Send using SMTP
-		$mail->Host       = 'smtp.reinovip.com';                     //Set the SMTP server to send through
-		$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-		$mail->Username   = 'soporte@reinovip.com';                     //SMTP username
-		$mail->Password   = 'Ypfb2010!';                               //SMTP password
-		//$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-		$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+// Enviar correo de confirmación
+$mail = new PHPMailer();
+try {
+    $mail->Host       = 'smtp.reinovip.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'soporte@reinovip.com';
+    $mail->Password   = 'Ypfb2010!';
+    $mail->Port       = 465;
 
-		//Recipients
-		$mail->setFrom('soporte@reinovip.com', 'Reino Vip');
-		$mail->addAddress($correo);     //Add a recipient
-		//$mail->addAddress('mauricio.ayllon@gmail.com');               //Name is optional
-		//$mail->addReplyTo('info@example.com', 'Information');
-		//$mail->addCC('cc@example.com');
-		//$mail->addBCC('bcc@example.com');
+    $mail->setFrom('soporte@reinovip.com', 'Reino Vip');
+    $mail->addAddress($correo);
 
-		//Attachments
-		//$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    $mail->isHTML(true);
+    $mail->Subject = 'Confirma tu direccion de correo electronico';
+    $mail->Body    = '
+        <h1>Registro en Reino Vip</h1>
+        Hola,<br>Gracias por registrarte en nuestra página <strong>www.reinovip.com</strong>. 
+        Para activar tu cuenta, haz clic en el siguiente enlace:<br><br>
+        <a href="https://reinovip.com/validacion_correo.php?token=' . $token . '">Validar mi correo electrónico</a><br><br>
+        Recuerda que tienes 24 horas para confirmar, caso contrario se eliminará el registro.<br><br>
+        Nuestros mejores deseos desde Reino Vip<br>
+        <a href="https://www.reinovip.com">www.reinovip.com</a><br><br>
+        ¡Gracias por confiar en nosotros!';
+    $mail->AltBody = 'Gracias por registrarte. Valida tu correo en www.reinovip.com';
 
-		//Content
-		
-		$mail->isHTML(true);                                  //Set email format to HTML
-		$mail->Subject = 'Confirma tu direccion de correo electronico';
-		$mail->Body    = '<h1>Registro en Reino Vip</h1>Hola,<br>Gracias por registrarte en nuestra pagina www.reinovip.com. Para activar tu cuenta, por favor, haz clic en el siguiente enlace:<br><br>
-		                  <a href="https://reinovip.com/validacion_correo.php?token='.$token.'">Validar mi correo electrónico</a><br><br>Recuerda que tienes 24 horas para confimar, caso contrario se eliminara el registro<br><br>Nuetros mejores deseos desde Reino Vip <br><br><a href="https://www.reinovip.com">www.reinovip.com</a>.<br>
-							¡Gracias por confiar en nosotros!';
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->send();
+} catch (Exception $e) {
+    echo "No se pudo enviar el correo. Error: {$mail->ErrorInfo}";
+}
 
-		$mail->send();
-		//echo 'Message has been sent';
-	} catch (Exception $e) {
-		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-	}
-	//$URLSitio = 'https://reinovip.com/'
+// Redireccionar a página de agradecimiento
+// header("Location: gracias.php");
+// exit;
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -196,7 +196,9 @@ input[type="radio"], input[type="checkbox"] {
 <div class="container mt-4">
    <div class="content-container-crear">
 
-   
+                        <?php if ($_GET['error'] == '1') { ?>
+                        <div class="login-box"><p id="mensajeError" class="error" style="display: block;">Por favor, debe completar todos los campos obligatorios.</p></div><br>
+                        <?php } ?>
                         <div class="login-box">
                         <h2 style="text-align:left;color:#793a57;font-size:18px;">REGISTRO ESCORT INDEPENDIENTE: </h2>
                         

@@ -167,11 +167,11 @@ $Prefijo="reino01_";
 //$HostPrincipal="201.235.253.67";
 //$HostPrincipal="167.250.5.10";
 
-$HostPrincipal="172.17.0.3";
+$HostPrincipal="172.17.0.2";
 $UsuarioPrincipal="root";
 // $ClavePrincipal="5CJPPYUR6h";
 $ClavePrincipal="root";
-$BasePrincipal="reinovip";
+$BasePrincipal="reinovip4";
 
 
 $MensajeDeErrorConexion = "";
