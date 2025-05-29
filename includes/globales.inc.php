@@ -167,7 +167,7 @@ $Prefijo="reino01_";
 //$HostPrincipal="201.235.253.67";
 //$HostPrincipal="167.250.5.10";
 
-$HostPrincipal="172.17.0.2";
+$HostPrincipal="192.168.0.123";
 $UsuarioPrincipal="root";
 // $ClavePrincipal="5CJPPYUR6h";
 $ClavePrincipal="root";
@@ -196,7 +196,7 @@ $NombreSitio = "Reino Vip";
 
 $TituloSitio = "Reino Vip";
 
-$URLSitio = "http://local.siscap3.com/";
+$URLSitio = "http://localhost/reinovip/";
 
 $EmailSitio = "publicidad@reinovip.com";
 
