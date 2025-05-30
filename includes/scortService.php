@@ -176,6 +176,7 @@ class EscortService {
         $href = "{$URLSitio}agencia/{$url_ciudad}/{$id}/{$url_nombre}.php";
 
         echo <<<HTML
+        <a href="$href" class="text-decoration-none text-dark">
         <div class="listing-card">
         <div class="listing-image">
             <img src="$foto" alt="">
@@ -195,6 +196,7 @@ class EscortService {
             </p>
         </div>
         </div>
+        </a>
         HTML;
     }    
 }
