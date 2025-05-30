@@ -26,6 +26,7 @@ RewriteEngine on
 
 
 Rewriterule ^escort/(.+)/(.+)/(.+)\.php escort.php?id=$2
+Rewriterule ^agencia/(.+)/(.+)/(.+)\.php agencias.php?id=$2
 
 Rewriterule ^escorts/provincia-ciudad/(.+)/(.+)/(.+)\.php escorts.php?provincia=$1&ciudad=$2
 Rewriterule ^escorts/provincia/(.+)/(.+)\.php escorts.php?provincia=$1
