@@ -165,7 +165,8 @@ class EscortService {
         $ciudad = htmlspecialchars($escort['ciudadNombre'], ENT_QUOTES);
         $provincia = htmlspecialchars($escort['nombre_provincia'], ENT_QUOTES);
         $pais = htmlspecialchars($escort['nombre_pais'], ENT_QUOTES);
-        $foto = "http://reinovip.com/fotos/" . $escort['Imagen'];
+        $descripcion = htmlspecialchars($escort['descripcion'], ENT_QUOTES);
+        $foto = $URLSitio."fotos/" . $escort['imagen_principal'];
 
         // URLs amigables
         $url_ciudad = urls_amigables($escort['ciudadNombre']);
@@ -190,10 +191,7 @@ class EscortService {
             escorts: <span class="number">5</span>, 
             verified: <span class="verified">1</span>
             </p>
-            <p class="description">
-            The customer will be hosted at the reception and then taken to the room with maximum discretion. We have sensual and pretty girls highly prepared to master the art of erotic and sensual massage and show that the whole body is a field of pleasure.
-            Erotic massage involves the use of the hands and body. The masseuse will be completely naked during the massage. After massaging the client's entire body, the masseuse will use her naked body to caress the client's entire body through a body slide. <strong>... more</strong>
-            </p>
+            <p class="description">$descripcion</p>
         </div>
         </div>
         </a>
