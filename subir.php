@@ -3,8 +3,8 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-//echo '<pre>';print_r($_FILES);
-//echo '<pre>';print_r($_POST);exit;
+// echo '<pre>';print_r($_FILES);
+// echo '<pre>';print_r($_POST);
 //echo '<pre>';print_r($_FILES);exit;
 session_start();
 include ("includes/globales.inc.php");
@@ -69,12 +69,12 @@ function enviarmail($myname,$myemail,$contactname,$contactemail,$subject,$messag
 	$f_nacionalidad=$_POST["f_nacionalidad"];
 	$f_ojos=$_POST["f_ojos"];
 	$f_pelo=$_POST["f_pelo"];
-	$f_idiomas = explode(',',$_POST['f_idiomas']);
+	$f_idiomas = $_POST['f_idiomas'];
 	$f_horarios = $_POST["f_horario"];
-	$f_lugares = explode(',',$_POST['f_lugares']);
+	$f_lugares = $_POST['f_lugares'];
 	$f_whatsapp = $_POST["f_whatsapp"];
 	$f_telegram = $_POST["f_telegram"];
-	$f_forma_pago = explode(',',$_POST["f_forma_pago"]);
+	$f_forma_pago = $_POST["f_forma_pago"];
 	
 $mensaje="";
 $urlCliente="";
@@ -129,7 +129,7 @@ $idInsert=0;
 			Nacionalidad,
 			ojos,
 			pelo,
-			
+			Idioma,
 			Viaje,
 			Web,
 			Horario)
@@ -161,11 +161,12 @@ $idInsert=0;
 			'$f_nacionalidad',
 			'$f_ojos',
 			'$f_pelo',
-			
+			'$f_idiomas',
 			'text',
 			'text',
 			'$f_horario')";
 	//echo $sqlCli;die();
+	//print_r($sqlCli); exit;
 			if($mysqli->query($sqlCli))
 			{
 				$idInsert=$mysqli->insert_id;

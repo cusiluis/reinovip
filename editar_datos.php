@@ -51,7 +51,7 @@ $correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
 	$f_pelo=$_POST["f_pelo"];
 	$f_idiomas = $_POST['f_idiomas'];
 	$f_horarios = $_POST["f_horario"];
-	$f_lugares = explode(',',$_POST['f_lugares']);
+	$f_lugares = $_POST['f_lugares'];
 	$f_whatsapp = $_POST["f_whatsapp"]=='on'?1:0;
 	$f_telegram = $_POST["f_telegram"]=='on'?1:0;
     $f_forma_pagos = $_POST["forma_pago"];

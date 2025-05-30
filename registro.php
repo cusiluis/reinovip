@@ -283,7 +283,7 @@ $idInsert=0;
   <meta name="keywords" content="acompañantes vip, chicas, escorts, travestis, eros, gays, chicas en las palmas, transexuales,">
 
 	<link href="css/formulario.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css?ver=1.0" rel="stylesheet" type="text/css" />
 	<link href="css/dropzone.css" rel="stylesheet" type="text/css" />
 	<link href="css/cropper.css" rel="stylesheet" type="text/css" />
 	<link href="css/jquery.validate.css" rel="stylesheet" type="text/css" />
@@ -319,54 +319,299 @@ $idInsert=0;
   
 ?>
 <style>
-								
-					
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
 
-								/* .container {
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								}
+.input-group label {
+  font-size: 14px;
+  color: #666;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  border-color: #78787a;
+  outline: none;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+
+.select2-container .select2-selection--single {
+  height: 35px !important;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  color: #00a850;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup-link a {
+  color: #00a850;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+    display: inline-block;
+    margin: 0 !important;
+    width: 92% !important;
+  }
+
+  .submit-btn {
+    width: 170px !important;
+    display: inline-block;
+  }
+
+  .ci-user-picture {
+    margin-left: -10px;
+  }
+
+  .services {
+    min-height: 350px;
+    padding: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 86%;
+    max-width: 86%;
+    margin-top: 29px;
+    padding-top: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-9 {
+    margin-left: 120px;
+  }
+
+  .services {
+    margin-left: 17px;
+    min-height: 350px;
+    padding: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 96%;
+    max-width: 100%;
+    margin-top: 10px;
+    padding-top: 29px;
+    padding-left: 50px;
+  }
+}
+
+.form-group label {
+  font-size: .8rem;
+}
+
+.form-control {
+  height: 35px !important;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+    margin: 10px !important;
+  }
+
+  .titulo {
+    color: #793a57;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 0 20px;
+  }
+
+  .form-control {
+    width: 350px !important;
+  }
+}
+
+.services {
+  min-height: 350px;
+  padding: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 96%;
+  max-width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-left: 17px;
+}
+
+.titulo {
+  text-align: left;
+  color: #793a57;
+  font-size: 1.1rem;
+  margin-top: 35px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .form-control {
+    width: 200px !important;
+  }
+
+  .services {
+    margin-left: 17px;
+    min-height: 350px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 96%;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.filepreviewprofile {
+  /**   position: absolute;
+    top: 0;
+    right: 30px;
+    width: 100%;
+    height: 250px; */
+  opacity: 0;
+}
+
+.ci-user-picture {
+  min-width: 250px;
+  margin-right: 16px;
+  display: inline-block;
+}
+
+.ci-user-picture {
+  width: 250px;
+
+  border-radius: 50%;
+}
+
+.btn-default {
+  display: inline-block;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.5s;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.form-group input:focus {
+border-color: #00a850;
+outline: none;
+}
+.form-group select:focus {
+border-color: #00a850;
+outline: none;
+}
+.form-control {
+  display: inline !important;
+  width: 100% !important;
+  height: 34px !important;
+  padding: 6px 12px !important;
+  font-size: 0.7rem !important;
+  line-height: 1.42857143 !important;
+  color: #555 !important;
+  background-color: #fff !important;
+  background-image: none !important;
+  border: 1px solid #ccc;
+  border-radius: 4px !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}  
+.submit-btn {
+  background-color: #702343;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Hover: agrandar y tono más claro */
+.submit-btn:hover {
+  background-color: #8a2d52;
+  /* transform: scale(1.05); */
+}
+
+/* Línea brillante dorada */
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.6),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+/* Animación al pasar el mouse */
+.submit-btn:hover::before {
+  left: 100%;
+}
 					
-					
-					
-								h2 {
-								text-align: center;
-								margin-bottom: 20px;
-								color: #333;
-								} */
-					
-								.input-group {
-								margin-bottom: 20px;
-								width: 100%;
-								}
-					
-								.input-group label {
-								font-size: 14px;
-								color: #666;
-								}
-					
-								.input-group input {
-								width: 100%;
-								padding: 12px;
-								border: 1px solid #ddd;
-								border-radius: 5px;
-								margin-top: 5px;
-								font-size: 14px;
-								}
-					
-								.input-group input:focus {
-								border-color: #78787a;
-								outline: none;
-								}
-					
-								.error-message {
-								color: red;
-								font-size: 12px;
-								margin-top: 5px;
-								}
-					
-								.submit-btn {
+.submit-btn2 {
   width: 190px !important;
   padding: 12px;
   background-color: #78787a !important;
@@ -376,165 +621,8 @@ $idInsert=0;
   cursor: pointer;
   border-radius: 5px;
 }
-.select2-container .select2-selection--single{
-	height:35px !important;
-}
-					
-								.forgot-password {
-								text-align: center;
-								margin-top: 10px;
-								}
-					
-								.forgot-password a {
-								color: #00a850;
-								text-decoration: none;
-								}
-					
-								.forgot-password a:hover {
-								text-decoration: underline;
-								}
-					
-								.signup-link {
-								text-align: center;
-								margin-top: 15px;
-								}
-					
-								.signup-link a {
-								color: #00a850;
-								text-decoration: none;
-								}
-					
-								.signup-link a:hover {
-								text-decoration: underline;
-								}
-					
-								@media (max-width: 480px) {
-								.login-box {
-									padding: 20px;
-									display: inline-block;
-									margin:0 !important;
-									width:92% !important;
-								}
-								.submit-btn{
-									width: 170px  !important;
-									display:inline-block;
-								}
-								.ci-user-picture{
-									margin-left: -10px;
-								}
-								.services{
-									min-height:350px;
-									padding: 0px;
-									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-									width: 86%;
-									max-width: 86%;
-									margin-top: 29px;
-									padding-top: 10px;
-								}
-								}
-								@media (min-width: 992px) {
-									.col-lg-9 {
-									margin-left:120px;
-									}
-									.services{
-					margin-left:17px; 
-					min-height:350px;
-					padding: 0px;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-					width: 96%;
-					max-width: 100%;
-					margin-top: 10px;
-					padding-top: 29px;
-					padding-left:50px;
-				}
-									}
-									.form-group label{
-										font-size:.8rem;
-									}
-.form-control {
-    height: 35px !important;
-}
-
-@media (max-width: 480px) {
-    .login-box {
-        padding: 20px;
-        margin: 10px !important;
-    }
-    .titulo {
-        color: #793a57;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        padding: 0 20px;
-    }
-
-    .form-control {
-        width: 350px !important;
-    }
-}
-
-.services {
-    min-height: 350px;
-    padding: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 96%;
-    max-width: 100%;
-    margin-top: 10px;
-    padding-top: 10px;
-    margin-left: 17px;
-}
-
-.titulo {
-    text-align: left;
-    color: #793a57;
-    font-size: 1.1rem;
-    margin-top: 35px;
-    text-transform: uppercase;
-}
-
-@media (min-width: 992px) {
-    .form-control {
-        width: 200px !important;
-    }
-
-    .services {
-        margin-left: 17px;
-        min-height: 350px;
-        padding: 0px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        width: 96%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-}  
-.filepreviewprofile {
- /**   position: absolute;
-    top: 0;
-    right: 30px;
-    width: 100%;
-    height: 250px; */
-    opacity: 0;
-}
-.ci-user-picture {
-    min-width: 250px;
-    margin-right: 16px;
-    display: inline-block;
-}
-.ci-user-picture {
-    width: 250px;
-    
-    border-radius: 50%;
-}  
-.btn-default {
-    display: inline-block;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: 0.5s;
-    text-align: center;
-    text-transform: capitalize;
-}              
 </style>
+
 		<script language="JavaScript">
  	
 		function validar() {			
@@ -832,7 +920,7 @@ $idInsert=0;
 				<div class="row">
 					<!-- <form class="formRegistro" action="subir.php"  name="formC" id="formC" method="post" onsubmit=" validar(); return false;" enctype="multipart/form-data">-->
 					
-					<form class="formRegistro" action="subir.php"  name="formC" id="formC" method="POST" onsubmit="" enctype="multipart/form-data">
+					<form class="" action="subir.php"  name="formC" id="formC" method="POST" onsubmit="" enctype="multipart/form-data">
 						<div class="">
 							<div class="col-lg-12">
 								<h2 class="titulo" style="text-align:center;color:#793a57;font-size:18px;margin-top:29px;text-transform:uppercase;">Utiliza este formulario para subir tus anuncios</h2>
@@ -841,8 +929,8 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="categoria">Categoria:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<select name="f_categoria" class="form-control" id="f_categoria" style="height: 35px !important;width: 80% !important;">
-									<option value="0" >---o---</option>
+								<select name="f_categoria" class="form_celdainput_ingreso" id="f_categoria" style="height: 35px !important;width: 80% !important;" required>
+									<option value="" >---o---</option>
 										<?php
 										$catT=$Prefijo."Categoria";
 										$SQLcat="SELECT * FROM $catT WHERE Publico=1 ORDER BY Nombre";
@@ -862,7 +950,7 @@ $idInsert=0;
 							<div class="col-lg-4">
 							<div class="form-group">
 								<label for="nombre">Nombre (Sin Adjetivos):<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<input type="text" value="" class="form-control form_celdainput" style="height: 35px !important;width: 80% !important;" maxlength="20" id="f_nombre" name="f_nombre">
+								<input type="text" value="" class="form_celdainput_ingreso" style="height: 35px !important;width: 80% !important;" maxlength="20" id="f_nombre" name="f_nombre" required>
 							</div>
 						</div>
 						
@@ -871,7 +959,7 @@ $idInsert=0;
 							<div class="form-group" style="text-align:left;display:inline-block">
 							<div style="float:left;width:130px;">
 								<label for="fono">Tel&eacute;fono a publicar:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<input name="f_telefono" id="f_telefono" style="height: 35px !important;width: 130px !important;" type="text" class="form-control form_celdainput" maxlength="9" />
+								<input name="f_telefono" id="f_telefono" style="height: 35px !important;width: 130px !important;" type="text" class="form_celdainput_ingreso" maxlength="9" required />
 								</div>
 								<div style="float:left;width:100px;margin-top: 16px;margin-left: 10px;">
 								<input style="width:10px;" type="checkbox" name="f_whatsapp" id="f_whatsapp" value="1"/><img src="img/wp.png" style="width:14px;margin: 0 4px;"><label style="width:65px;font-size:.7rem;">Whatsapp </label>
@@ -883,7 +971,7 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="edad">Edad:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<select name="f_edad" id="f_edad" style="width: 80% !important;" class="edad form-control">
+								<select name="f_edad" id="f_edad" style="width: 80% !important;" class="edad form_celdainput_ingreso" required>
 									<option value=""></option>
 									<option value="18">18</option>
 									<option value="19">19</option>
@@ -910,7 +998,7 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 							<label for="atencion">Lugares de atenci&oacute;n:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								 <select name="f_lugares[]" id="f_lugares" class="lugares form-control" multiple="multiple" style="width: 80% !important;height:35px !important;">
+								 <select name="f_lugares[]" id="f_lugares" class="lugares form_celdainput_ingreso" multiple="multiple" style="width: 80% !important;height:35px !important;" required>
                                        
                                    								
                                     <?php 
@@ -935,7 +1023,7 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="horarios">Horarios de trabajo:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<input name="f_horario" id="f_horario" type="text" maxlength="40"  class="form-control form_celdainput" style="height: 35px !important;width: 80% !important;" />
+								<input name="f_horario" id="f_horario" type="text" maxlength="40"  class="form_celdainput_ingreso" style="height: 35px !important;width: 80% !important;" required />
 							</div>
 						</div>
 						<div class="col-lg-12">
@@ -943,7 +1031,7 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="pais">Pais:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<select name="f_pais" class="form-control form_selector pais" id="f_pais" onchange="verProvincias(this.value,0)" style="height: 35px !important;width: 80% !important;">
+								<select name="f_pais" class="form_celdainput_ingreso pais" id="f_pais" onchange="verProvincias(this.value,0)" style="height: 35px !important;width: 80% !important;" required>
 									
 									<?php
 										$paisSeleccionado=$f_pais;
@@ -964,8 +1052,8 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="provincia">Provincia:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<select name="f_provincia" id="f_provincia" onChange="verCiudades(this.value,0)" class="form-control form_selector f_provincia" id="f_provincia" disabled="disabled" style="height: 35px !important;width: 80% !important;margin-left:10px;">
-									<option value="0">---o---</option>
+								<select name="f_provincia" id="f_provincia" onChange="verCiudades(this.value,0)" class="form_celdainput_ingreso f_provincia" id="f_provincia" disabled="disabled" style="height: 35px !important;width: 80% !important;margin-left:10px;" required >
+									<option value="">---o---</option>
 								</select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargProv" />
 								
 							</div>
@@ -973,8 +1061,8 @@ $idInsert=0;
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="ciudad">Ciudad:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-								<select name="f_ciudad" class="form-control form_selector f_ciudad" id="f_ciudad" disabled="disabled" style="height: 35px !important;width: 80% !important;">
-									<option value="0">---o---</option>
+								<select name="f_ciudad" class="form_celdainput_ingreso f_ciudad" id="f_ciudad" disabled="disabled" style="height: 35px !important;width: 80% !important;" required >
+									<option value="">---o---</option>
 								</select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargCiu" />
 								
 							</div>
@@ -1002,7 +1090,7 @@ $idInsert=0;
 											</p>
 											<div class="login-box" style="width:400px;float:right;border-radius:5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
 											<p style="text-align:center;margin-top:30px;">
-												<span styl class="submit-btn">Selecciona tu archivo o Sube tu foto ahora</span>
+												<span styl class="submit-btn2">Selecciona tu archivo o Sube tu foto ahora</span>
 											</p><br>
 											<p style="text-align:center;">
 												Arrastra tu archivo aqui
@@ -1051,7 +1139,7 @@ $idInsert=0;
 						<div class="form-group">
 							<label for="peso">Texto a publicar:<span class="campObligatorio">&nbsp;&nbsp;* </span><span id="numcar" class="texto"></span></label>
 							
-							<textarea style="height:100px;width:96% !important;" name="f_descripcion" id="f_descripcion" cols="70" rows="6" maxleng class="form-control-2 form_campo_comentarios"></textarea>
+							<textarea style="height:100px;width:96% !important;" name="f_descripcion" id="f_descripcion" cols="70" rows="6" maxleng class="form-control-2 form_campo_comentarios form_celdainput_ingreso" required></textarea>
 						</div>
 						</div>
 						<div class="col-lg-12">
@@ -1104,7 +1192,7 @@ $idInsert=0;
 						
 							<div class="form-group">
 								<label for="idiomas">Idiomas:</label><br>
-								<select nam="f_idiomas[]" id="f_idiomas" class="idioma form-control" multiple="multiple" style="height: 35px !important;width: 80% !important;">
+								<select name="f_idiomas[]" id="f_idiomas" class="idioma form-control" multiple="multiple" style="height: 35px !important;width: 80% !important;">
 									<?php 
 									$sql = $mysqli->query("select * from reino01_escort_idiomas where publico='1'");
 									
@@ -1542,8 +1630,8 @@ $idInsert=0;
 						<div class="col-lg-12">
 							<div class="form-group form-inline">
 								
-								<input class="submit-btn" style="background:#793a57 !important;padding:5px;" type="submit" name="bt_enviar2" id="submit-all" value="PUBLICAR ANUNCIO" style="padding: 10px;"  />
-								
+								<!-- <input class="submit-btn" style="background:#793a57 !important;padding:5px;" type="submit" name="bt_enviar2" id="submit-all" value="PUBLICAR ANUNCIO" style="padding: 10px;"  /> -->
+								<button type="submit"  class="submit-btn">Finalizar el registro</button>
 							</div>
 							<div class="form-group">
 								<div class="info-line clearfix">

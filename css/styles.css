@@ -820,4 +820,90 @@ a.btn-publim {
         gap: 10px;
       }
     }  
+
     
+/*Agencias*/
+.listing-card {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 900px;
+ margin: 16px auto;
+}
+
+.listing-image {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.listing-image img {
+  width: 160px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listing-content h2 {
+  background: #793a57;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 15px;
+  margin: 0;
+  zoom: 1;
+  border-radius: 6px;
+}
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e0b24f;
+  color: #000;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 3px 8px;
+  transform: rotate(45deg);
+  transform-origin: top right;
+  margin: 5px;
+}
+
+.listing-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.listing-content h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+}
+
+.location {
+  margin: 0;
+  font-size: 14px;
+}
+
+.country {
+  color: #793a57;
+  font-weight: bold;
+}
+
+.city {
+  color: #793a57;
+  font-weight: bold;
+}
+
+.number {
+  color: #793a57;
+  font-weight: bold;
+}
+
+.verified {
+  color: #3333cc;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 10px;
+}

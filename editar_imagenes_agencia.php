@@ -103,33 +103,30 @@ $usuario_id=$_GET['id'];
 //echo 123;exit;
     //echo '<pre>';print_r($list);exit;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<!-- ########################## -->
-	<title><?php echo $TituloSitio?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><?php echo $TituloSitio; ?></title>
+  <meta name="description" content="Guía Erótica de España donde encontraras acompañantes vip, chicas, escorts, travestis, eros,  etc.  Publica tu anuncio GRATIS">
+  <meta name="keywords" content="acompañantes vip, chicas, escorts, travestis, eros, gays, chicas en las palmas, transexuales,">
 
-	<link href="reinovip.css?v=1.1" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="styles.css?v=1.0" />
-	<link href="formulario.css" rel="stylesheet" type="text/css" />
-	<link href="css/bootstrap.css?v=1.2" rel="stylesheet" type="text/css" />
+	<link href="css/formulario.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="css/dropzone.css" rel="stylesheet" type="text/css" />
 	<link href="css/cropper.css" rel="stylesheet" type="text/css" />
 	<link href="css/jquery.validate.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="CssRegistro.css" />
+	<link rel="stylesheet" href="css/CssRegistro.css?v=2.1" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css" rel="stylesheet" type="text/css" />
 	
 
-	<script src="js/ajax.js?v=1.0" type="text/javascript"></script>
+	<script src="js/ajax.js?v=2.0" type="text/javascript"></script>
 	
 	
 	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 	<script src="js/jquery.validate.js" type="text/javascript"></script>
-	<script src="js/bootstrap.js" type="text/javascript"></script>
-	
+
 	<script src="js/dropzone.js" type="text/javascript"></script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" type="text/javascript"></script>
@@ -137,355 +134,347 @@ $usuario_id=$_GET['id'];
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="http://reinovip.com/jqueryscrollTo-min.js" type="text/javascript"></script>
+    <script src="<?php echo $URLSitio?>css/jqueryscrollTo-min.js" type="text/javascript"></script>
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!-- ####### ED- ######## -->
-        <link rel="stylesheet" href="http://reinovip.oceanovirtual.es/css/jquery-ui.css" />
-        <link rel="stylesheet" href="http://reinovip.oceanovirtual.es/CssIndex.css?v=1.4" />
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/CssIndex.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" />
+	 
 
-	
-	
-<!-- ########################## -->
-	<script>
-	function cargarmy() {	
-		// Wait for window load
-		// Animate loader off screen
-		$( ".holas" ).show();
-		$(".holas").animate({
-		}, 1500);
-	}
-	</script>
+<?php 
+  include ('cabecera.php');
+  
+?>
 <style>
-								
-					
-
-								.container {
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								}
-					
-					
-					
-								h2 {
-								text-align: center;
-								margin-bottom: 20px;
-								color: #333;
-								}
-					
-								.input-group {
-								margin-bottom: 20px;
-								width: 100%;
-								}
-					
-								.input-group label {
-								font-size: 14px;
-								color: #666;
-								}
-					
-								.input-group input {
-								width: 100%;
-								padding: 12px;
-								border: 1px solid #ddd;
-								border-radius: 5px;
-								margin-top: 5px;
-								font-size: 14px;
-								}
-					
-								.input-group input:focus {
-								border-color: #78787a;
-								outline: none;
-								}
-					
-								.error-message {
-								color: red;
-								font-size: 12px;
-								margin-top: 5px;
-								}
-					
-								.submit-btn {
-  width: 190px !important;
-  padding: 12px;
-  background-color: #78787a !important;
-  border: none;
-  color: white !important;
-  font-size: .8rem;
-  cursor: pointer;
-  border-radius: 5px;
+.input-group {
+margin-bottom: 20px;
+width: 100%;
 }
-.select2-container .select2-selection--single{
-	height:35px !important;
-}
-					
-								.forgot-password {
-								text-align: center;
-								margin-top: 10px;
-								}
-					
-								.forgot-password a {
-								color: #00a850;
-								text-decoration: none;
-								}
-					
-								.forgot-password a:hover {
-								text-decoration: underline;
-								}
-					
-								.signup-link {
-								text-align: center;
-								margin-top: 15px;
-								}
-					
-								.signup-link a {
-								color: #00a850;
-								text-decoration: none;
-								}
-					
-								.signup-link a:hover {
-								text-decoration: underline;
-								}
-					
-								@media (max-width: 480px) {
-								.login-box {
-									padding: 20px;
-								}
-								.services{
-									min-height:350px;
-									padding: 0px;
-									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-									width: 86%;
-									max-width: 86%;
-									margin-top: 29px;
-									padding-top: 10px;
-								}
-								}
-								@media (min-width: 992px) {
-									.col-lg-9 {
-									margin-left:120px;
-									}
-									.services{
-					margin-left:17px; 
-					min-height:350px;
-					padding: 0px;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-					width: 96%;
-					max-width: 100%;
-					margin-top: 10px;
-					padding-top: 29px;
-					padding-left:50px;
-				}
-									}
-									.form-group label{
-										font-size:.8rem;
-									}
-						</style>
- 
-		
-		<style>
-			.form-control {
- 			 height: 35px !important;
-				}
-			@media (max-width: 480px) {
-						.login-box {
-							padding: 20px;
-							margin:  10px !important;
-						}
-						.titulo {
-							;color:#793a57;font-size:1.1rem;text-transform:uppercase;padding:0 20px;
-						}
-						.form-control{
-							width: 350px !important;
-						}
-			.login-box {
-				padding: 0px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-				width: 97%;
-				max-width: 100%;
-				margin-top: 29px;
-			}
-			.services{
-				min-height:350px;
-				padding: 0px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-				width: 96%;
-				max-width: 100%;
-				margin-top: 10px;
-				padding-top: 10px;
-				margin-left:17px; 
-			}
-			.titulo {
-				text-align:left;color:#793a57;font-size:1.1rem;margin-top:35px;text-transform:uppercase;
-			}
-			@media (min-width: 992px) {
-				.form-control{
-					width: 200px !important;
-				}
-				.services{
-					margin-left:17px; 
-					min-height:350px;
-					padding: 0px;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-					width: 96%;
-					max-width: 100%;
-					margin-top: 10px;
-				}
-			}
-			
-			</style>
-</head>
 
-<body>
-<div class="container" style="padding-bottom: 200px;">
-<div class="row" style="width:100%;">
-				<div class="col-xs-12 hidden-xs col-sm-2 col-md-2 col-lg-2-home" style="padding:0;">
-                    <?php include_once("col_izq.inc.php")?>
-                </div>
-				<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10-home" style="padding:0 auto;">
-                    
-					<?php include("cabecera.php");?>             
-                    <form class="formRegistro" action="editar_imagen_principal.php" enctype="multipart/form-data" name="formC" id="formC" method="POST" onsubmit="">
+.input-group label {
+font-size: 14px;
+color: #666;
+}
+
+.input-group input {
+width: 100%;
+padding: 12px;
+border: 1px solid #ddd;
+border-radius: 5px;
+margin-top: 5px;
+font-size: 14px;
+}
+
+.input-group input:focus {
+border-color: #78787a;
+outline: none;
+}
+
+.error-message {
+color: red;
+font-size: 12px;
+margin-top: 5px;
+}
+
+.submit-btn {
+    width: 190px !important;
+    padding: 12px;
+    background-color: #78787a !important;
+    border: none;
+    color: white !important;
+    font-size: .8rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .select2-container .select2-selection--single{
+  	height:35px !important;
+  }
+
+.forgot-password {
+text-align: center;
+margin-top: 10px;
+}
+
+.forgot-password a {
+color: #00a850;
+text-decoration: none;
+}
+
+.forgot-password a:hover {
+text-decoration: underline;
+}
+
+.signup-link {
+text-align: center;
+margin-top: 15px;
+}
+
+.signup-link a {
+color: #00a850;
+text-decoration: none;
+}
+
+.signup-link a:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+.login-box {
+	padding: 20px;
+}
+.services{
+	min-height:350px;
+	padding: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	width: 86%;
+	max-width: 86%;
+	margin-top: 29px;
+	padding-top: 10px;
+}
+}
+@media (min-width: 992px) {
+	.col-lg-9 {
+	margin-left:120px;
+	}
+	.services{
+margin-left:17px;
+min-height:350px;
+padding: 0px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+width: 96%;
+max-width: 100%;
+margin-top: 10px;
+padding-top: 29px;
+padding-left:50px;
+}
+	}
+	.form-group label{
+		font-size:.8rem;
+	}
+
+.form-control {
+height: 35px !important;
+}
+@media (max-width: 480px) {
+	.login-box {
+		padding: 20px;
+		margin:  10px !important;
+	}
+	.titulo {
+		color:#793a57;font-size:1.1rem;text-transform:uppercase;padding:0 20px;
+	}
+	.form-control{
+		width: 350px !important;
+	}
+.login-box {
+padding: 0px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+width: 97%;
+max-width: 100%;
+margin-top: 29px;
+}
+.services{
+min-height:350px;
+padding: 0px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+width: 96%;
+max-width: 100%;
+margin-top: 10px;
+padding-top: 10px;
+margin-left:17px;
+}
+.titulo {
+text-align:left;color:#793a57;font-size:1.1rem;margin-top:35px;text-transform:uppercase;
+}
+}
+@media (min-width: 992px) {
+.form-control{
+width: 200px !important;
+}
+.services{
+margin-left:17px;
+min-height:350px;
+padding: 0px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+width: 96%;
+max-width: 100%;
+margin-top: 10px;
+}
+}
+
+
+.login-box {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	max-width: 100%;
+	padding: 22px 15px;
+	margin-bottom: 17px;
+}
+.filepreviewprofile {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 100%;
+  height: 250px; 
+  opacity: 0;
+    }
+button.botones {
+	color: #fff;
+	background-color: #793a57;
+	padding: 5px 10px;
+	border-radius: 5px;
+}  
+    a.botones {
+    	color: #fff;
+    	background-color: #793a57;
+    	padding: 5px 10px;
+    	border-radius: 5px;
+    	text-decoration: none;
+
+    }
+
+</style>
+
+<!-- Cards -->
+<div class="container mt-4">
+   <div class="content-container">
+
+
+                <form class="formRegistro" action="editar_imagen_principal.php" enctype="multipart/form-data" name="formC" id="formC" method="POST" onsubmit="">
                        
-					<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 col-xl-10" >
-							<div class="col-xs-12 col-sm-8 col-md-10 col-lg-12 col-xl-12" style="text-align:center;">
 		
-                                <div class="login-box" style="width:87%;margin:30px auto; 0 auto;" >	
-                                    <h2 style="margin:0;padding:0;text-align:left;color:#793a57;font-size:1rem;text-transform:uppercase;">
+             <div class="login-box">	
+                                    <h2 style="margin:0;">
                                         EDITAR IMAGENES
                                     </h2>	
                                 </div>
-                                <div class="login-box" style="width:87%;margin-bottom:50px;display: inline-block;">
-                            <div class="content">
-                                <div class="row">
-                                   <input type="hidden" name="id_escort" value="<?php echo  $escort_id;?>">
-                                    <div class="form-group">
-                                        <div class="confirm-identity">
-                                        
-                                        <div class="ci-user-btn text-center mt-4">
-                                        <div class="ci-user d-flex align-items-center justify-content-center">
-                                            
-                                        </div>
-                                            <a style="width:100%;color:#793a57 !important; !important; font-size:.8rem;" href="javascript:;" class="userEditeBtn btn-default bg-blue position-relative">
-                                                <div class="ci-user-picture" style="float:left;">
-                                                   <input type="hidden" name="imagen_principal_edit" id="imagen_principal_edit" value="">
-                                                    <img style="width:120px;border: 2px solid #000;border-radius:5px;" src="fotos/<?php echo $list[0]['imagen']?>" id="item-img-output" data-src="" class="imgpreviewPrf img-fluid" alt="">
+                                <div class="login-box" style="min-height: 800px;">
+                                  <div class="content">
+                                      <div class="row">
+                                        <input type="hidden" name="id_escort" value="<?php echo  $escort_id;?>">
+                                          <div class="form-group">
+                                              <div class="confirm-identity">
+                                              
+                                              <div class="ci-user-btn text-center mt-4">
+                                                <div class="ci-user d-flex align-items-center justify-content-center">
+                                                    
+                                                  </div>
+                                                      <a style="width:100%;color:#793a57 !important; !important; font-size:.8rem; text-decoratio: none;" href="javascript:;" class="userEditeBtn btn-default bg-blue position-relative">
+                                                          <div class="ci-user-picture" style="float:left;">
+                                                            <input type="hidden" name="imagen_principal_edit" id="imagen_principal_edit" value="">
+                                                              <img style="width:120px;border: 2px solid #000;border-radius:5px;" src="fotos/<?php echo $list[0]['imagen']?>" id="item-img-output" data-src="" class="imgpreviewPrf img-fluid" alt="">
+                                                          </div>
+                                                          <input type="file" class="item-img file center-block filepreviewprofile" style="display:inherit;" name="file">IMAGEN PRINCIPAL
+                                                          <div class="login-box" style="width:400px;float:right;border-radius:5px;">
+                                                            <p style="text-align:center; color:#793a57 !important;">
+                                                                <span styl class="submit-btn2">Selecciona tu archivo o Sube tu foto ahora</span>
+                                                            </p><br>
+                                                            <p style="text-align:center; color:#793a57 !important;">
+                                                                Arrastra tu archivo aqui
+                                                            </p>
+                                                          </div>
+                                                      </a>
+                                                      
+                                                  </div>
                                                 </div>
-                                                <input type="file" class="item-img file center-block filepreviewprofile" style="display:inherit;" name="file">IMAGEN PRINCIPAL
-                                                <div class="login-box" style="width:400px;float:right;border-radius:5px;">
-                                                <p style="text-align:center;">
-                                                    <span styl class="submit-btn2">Selecciona tu archivo o Sube tu foto ahora</span>
-                                                </p><br>
-                                                <p style="text-align:center;">
-                                                    Arrastra tu archivo aqui
-                                                </p>
-                                                </div>
-                                            </a>
-                                            
-                                        </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                    <div class="col-lg-12">
-                                <div class="form-group form-inline" style="text-align:center">
-                                    <button  type="submit"  class="botones" >EDITAR IMAGEN PRINCIPAL </button>
-                                </div>
-						    </div>
+                                              
+                                              
+                                              </div>
+                                              <div class="col-lg-12">
+                                                  <div class="form-group form-inline" style="text-align:center">
+                                                      <button  type="submit"  class="botones" >EDITAR IMAGEN PRINCIPAL </button>
+                                                  </div>
+                                              </div>
                                     
                                 </div>
                                 </div>
 
                                 <div class="modal fade cropImageModal" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <button type="button" class="close-modal-custom" data-dismiss="modal" aria-label="Close"><i class="feather icon-x"></i></button>
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    <div class="modal-body p-0">
-                                        <div class="modal-header-bg"></div>
-                                        <div class="up-photo-title">
-                                        <h3 class="modal-title">Subir foto de perfil</h3>
-                                        </div>
-                                        <div class="up-photo-content pb-5">
-                                        <div id="upload-demo" class="center-block">
-                                            <!-- <h5><i class="fas fa-arrows-alt mr-1"></i> Drag your photo as you require</h5>-->
-                                        </div>
-                                        <div class="upload-action-btn text-center px-2">
-                                            <button type="button" id="cropImageBtn" class="btn btn-default btn-medium bg-blue px-3 mr-2">Guardar foto</button>
-                                            <!-- <button type="button" class="btn btn-default btn-medium bg-default-light px-3 ml-sm-2 replacePhoto position-relative">Replace Photo</button>-->
-                                        </div>
+                                  <button type="button" class="close-modal-custom" data-dismiss="modal" aria-label="Close"><i class="feather icon-x"></i></button>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-body p-0">
+                                              <div class="modal-header-bg"></div>
+                                              <div class="up-photo-title">
+                                                <h3 class="modal-title">Subir foto de perfil</h3>
+                                              </div>
+                                              <div class="up-photo-content pb-5">
+                                                <div id="upload-demo" class="center-block">
+                                                    <!-- <h5><i class="fas fa-arrows-alt mr-1"></i> Drag your photo as you require</h5>-->
+                                                </div>
+                                                <div class="upload-action-btn text-center px-2">
+                                                    <button type="button" id="cropImageBtn" class="btn btn-default btn-medium bg-blue px-3 mr-2">Guardar foto</button>
+                                                    <!-- <button type="button" class="btn btn-default btn-medium bg-default-light px-3 ml-sm-2 replacePhoto position-relative">Replace Photo</button>-->
+                                                </div>
+                                              </div>
+                                          </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
-                                </div>
-                    </form>
+                </form>
                 <form class="formRegistro" action="editar_imagenes.php" enctype="multipart/form-data" name="formC" id="formC" method="POST" onsubmit="">
-                                <table class="table table-condensed" width="100%">
-							    <?php if(!empty($list)):?>
-								<thead>
-								<tr>
-                                    <th>FOTO GALERIA</th>
-								
-								</tr>
-								</thead>
-								<tbody>
-                                <tr>
-								<?php foreach ($list[0]['imagenes'] as $data):?>
-									
-                                        <td style="text-align: center;"><img src="fotos/<?php echo $data['imagen'];?>" style='width:90px;'>
-                                        <br>    
-                                        <br>    
-                                        <a class="botones" href="http://reinovip.com/borrar_imagenes.php?id=<?php echo $data['id']?>" onclick="return confirm('esta seguro de eliminar la imagen?');">BORRAR IMAGEN</a>
-                                        </td>
-									
-								<?php endforeach;?>
-                                </tr>			      	
-							<?php else:?>
-								<tr><td>USTED NO TIENE NINGUN ANUNCIO EN SUS LISTAS</td></tr>
-							<?php endif;?>
-								</tbody>
-							</table>
-                            <input type="hidden" name="id_escort_imagen" id="id_escort_imagen"  value="<?php echo  $escort_id;?>">
-							<div class="col-lg-12">
-							<div class="contSubirFoto" style="margin-left:15px;margin-top:10px;">
-								<div class="form-group">
-									<label for="fotos">IMAGENES PARA GALERIA FOTOGRAFICA</label>
-									<div class="dropzone" id="my-dropzone" name="mainFileUploader" style="width:98%;">
-										<div class="fallback">
-											<input name="file[]" type="file" multiple />
-										</div>
-										<span style="text-align:center;">SUBIR MAS FOTOS</span><br>
-									</div>  
-								</div>
-							</div>
-						    </div>
-                            <div class="col-lg-12">
-                            <div class="form-group form-inline" style="text-align:center">
-                                    <button  id="submit-all"  type="submit"  class="botones" >EDITAR IMAGENES GALERIA</button>
-                                </div>
-						    </div>
+                    <table class="table table-condensed" width="100%">
+                          <?php if(!empty($list)):?>
+                        <thead>
+                        <tr>
+                                            <th>FOTO GALERIA</th>
+                        
+                        </tr>
+                        </thead>
+                        <tbody>
+                                        <tr>
+                        <?php foreach ($list[0]['imagenes'] as $data):?>
+                          
+                                                <td style="text-align: center;"><img src="fotos/<?php echo $data['imagen'];?>" style='width:90px;'>
+                                                <br>    
+                                                <br>    
+                                                <a class="botones" href="http://reinovip.com/borrar_imagenes.php?id=<?php echo $data['id']?>" onclick="return confirm('esta seguro de eliminar la imagen?');">BORRAR IMAGEN</a>
+                                                </td>
+                          
+                        <?php endforeach;?>
+                                        </tr>			      	
+                      <?php else:?>
+                        <tr><td>USTED NO TIENE NINGUN ANUNCIO EN SUS LISTAS</td></tr>
+                      <?php endif;?>
+                    </tbody>
+                  </table>
+                    <input type="hidden" name="id_escort_imagen" id="id_escort_imagen"  value="<?php echo  $escort_id;?>">
+                    <div class="col-lg-12">
+                      <div class="contSubirFoto" style="margin-left:15px;margin-top:10px;">
+                        <div class="form-group">
+                          <label for="fotos">IMAGENES PARA GALERIA FOTOGRAFICA</label>
+                          <div class="dropzone" id="my-dropzone" name="mainFileUploader" style="width:98%;">
+                            <div class="fallback">
+                              <input name="file[]" type="file" multiple />
+                            </div>
+                            <span style="text-align:center;">SUBIR MAS FOTOS</span><br>
+                          </div>  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group form-inline" style="text-align:center">
+                          <button  id="submit-all"  type="submit"  class="botones" >EDITAR IMAGENES GALERIA</button>
+                      </div>
+                    </div>
                             </div>
                             
                             </div>
 
                            
 							
-                            </form>
-                       
-				
-		</div> <!-- /container -->
-		</div>
-	</div>
-    </div>
-    </div>
-    </div>
-    </div>
-	
-	<?php include('pie.inc.php');?>
-</body>
+                </form>
+
+
+  </div>
+ 
+</div>
+
 <script type="text/javascript">
        
           
@@ -755,5 +744,8 @@ inputFile.addEventListener('change', function () {
 		}, 1500);
 	}
 	</script>
-    <div class="holas"><!-- Place at bottom of page --><span>POR FAVOR ESPERE MIENTRAS SE GUARDAN LOS DATOS</span></div>
-</html>
+    <div class="holas" style="display:none"><!-- Place at bottom of page --><span>POR FAVOR ESPERE MIENTRAS SE GUARDAN LOS DATOS</span></div>
+
+<!-- Footer -->
+<?php include ('footer.php') ?>
+

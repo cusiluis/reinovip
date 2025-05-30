@@ -42,6 +42,9 @@ $filtros = [
 
 // Detecta si hay filtros activos
 $hayFiltros = $filtros['ciudad'] || $filtros['provincia'] || $filtros['localidad'] || $filtros['categoria'];
+$hayCategoria = $filtros['categoria'];
+
+
 
 if ($hayFiltros) {
     $datos = $escortService->buscarEscorts($filtros);
@@ -49,10 +52,20 @@ if ($hayFiltros) {
     $pagina_actual = $datos['pagina_actual'];
     $total_paginas = $datos['total_paginas'];
 
-    while ($escort = mysqli_fetch_assoc($resultados)) {
+  if ($filtros['categoria'] == '12') {
+    //print_r($resultados);
+        while ($escort = mysqli_fetch_assoc($resultados)) {
+        $escortService->renderAgencias($escort, $URLSitio);
+    }
+  }else{
+        while ($escort = mysqli_fetch_assoc($resultados)) {
         $escortService->renderEscort($escort, $URLSitio);
     }
-} else {
+  }
+
+
+
+}else {
     $limiteProv = $escortService->getConfiguracion("CANT_PROV_INICIO_LISTA_ESCORTS") ?? 5;
     $limiteEscorts = $escortService->getConfiguracion("CANT_ESCORTS_INICIO") ?? 10;
 

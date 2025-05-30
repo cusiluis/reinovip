@@ -12,11 +12,35 @@ class EscortService {
     public function buscarEscorts($filtros) {
         $queryFiltros = $this->construirQueryFiltros($filtros);
 
-        if (isset($filtros['categoria']) && $filtros['categoria'] == 4) {
+        if (isset($filtros['categoria']) && $filtros['categoria'] == 12) {
+                $pagina = isset($filtros['pagina']) ? (int)$filtros['pagina'] : 1;
+                $inicio = ($pagina - 1) * $this->registrosPorPagina;  
+               
+                $totalSql = "SELECT COUNT(DISTINCT a.id) as total
+                FROM agencias a
+                JOIN {$this->prefijo}Ciudad c ON a.ciudad_id = c.ID
+                JOIN {$this->prefijo}Provincia p ON a.provincia_id = p.ID
+                JOIN {$this->prefijo}Pais pa ON a.pais_id = pa.ID
+                WHERE 1 = 1 
+                LIMIT $inicio, {$this->registrosPorPagina}";
+
+                $totalRes = $this->mysqli->query($totalSql);
+                $totalRow = mysqli_fetch_assoc($totalRes);
+                $totalPaginas = ceil($totalRow['total'] / $this->registrosPorPagina);
+               
+               $sql = "SELECT DISTINCT a.id, a.nombre_agencia, a.descripcion, a.imagen_principal, a.web, 
+                  p.Nombre as nombre_provincia, c.Nombre AS ciudadNombre, pa.Nombre as nombre_pais
+                FROM agencias a
+                JOIN {$this->prefijo}Ciudad c ON a.ciudad_id = c.ID
+                JOIN {$this->prefijo}Provincia p ON a.provincia_id = p.ID
+                JOIN {$this->prefijo}Pais pa ON a.pais_id = pa.ID
+                WHERE 1 = 1 
+                LIMIT $inicio, {$this->registrosPorPagina}";
+           //print_r($sql);
             return [
-                'resultados' => $this->mysqli->query("SELECT * FROM agencias"),
-                'pagina_actual' => 1,
-                'total_paginas' => 1
+                'resultados' => $this->mysqli->query($sql),
+                'pagina_actual' => $pagina,
+                'total_paginas' => $totalPaginas
             ];
         }
 
@@ -134,5 +158,44 @@ class EscortService {
         </div>
         HTML;
     }
+    
+    public function renderAgencias($escort, $URLSitio) {
+        // Escapar datos
+        $nombre = htmlspecialchars($escort['nombre_agencia'], ENT_QUOTES);
+        $ciudad = htmlspecialchars($escort['ciudadNombre'], ENT_QUOTES);
+        $provincia = htmlspecialchars($escort['nombre_provincia'], ENT_QUOTES);
+        $pais = htmlspecialchars($escort['nombre_pais'], ENT_QUOTES);
+        $foto = "http://reinovip.com/fotos/" . $escort['Imagen'];
+
+        // URLs amigables
+        $url_ciudad = urls_amigables($escort['ciudadNombre']);
+        $url_nombre = urls_amigables($escort['nombre_agencia']);
+        $id = $escort['id'];
+
+        // Construcción de enlace
+        $href = "{$URLSitio}agencia/{$url_ciudad}/{$id}/{$url_nombre}.php";
+
+        echo <<<HTML
+        <div class="listing-card">
+        <div class="listing-image">
+            <img src="$foto" alt="">
+            </div>
+            <div class="listing-content">
+        
+            <h2>$nombre</h2>
+            <p class="location">
+            <span class="country">Portugal</span> / 
+            <span class="city">Lisbon</span>, 
+            escorts: <span class="number">5</span>, 
+            verified: <span class="verified">1</span>
+            </p>
+            <p class="description">
+            The customer will be hosted at the reception and then taken to the room with maximum discretion. We have sensual and pretty girls highly prepared to master the art of erotic and sensual massage and show that the whole body is a field of pleasure.
+            Erotic massage involves the use of the hands and body. The masseuse will be completely naked during the massage. After massaging the client's entire body, the masseuse will use her naked body to caress the client's entire body through a body slide. <strong>... more</strong>
+            </p>
+        </div>
+        </div>
+        HTML;
+    }    
 }
 ?>

@@ -163,410 +163,451 @@ $usuario_id=$_SESSION['usuario_id'];
   include ('cabecera.php');
 ?>
 
-    <style>
+<style>
+.content-container-perfil {
+    	max-width: 1100px;
+    	margin: 0 auto;
 
-        .content-container-perfil {
-     max-width: 1100px;
-  margin: 0 auto;
- 
-  padding: 20px;
- 
-     
+    	padding: 20px;
+
+
     }
 
-    .content-container-perfil h1{
-      color: #793a57;
-      margin-top: 1.5em;
-      font-size: 1.5rem;
-      text-align: center;
+    .content-container-perfil h1 {
+    	color: #793a57;
+    	margin-top: 1.5em;
+    	font-size: 1.5rem;
+    	text-align: center;
     }
-.content-container-perfil h2{
-      color: #793a57;
-      margin-top: 1.5em;
-       font-size: 1.2rem;
+
+    .content-container-perfil h2 {
+    	color: #793a57;
+    	margin-top: 1.5em;
+    	font-size: 1.2rem;
     }
+
     p {
-      color: #333;
-      line-height: 1.6;
-      margin-top: 1em;
-      text-align: justify;
+    	color: #333;
+    	line-height: 1.6;
+    	margin-top: 1em;
+    	text-align: justify;
     }
-    .content-container-perfil ul li{
-     list-style-type: circle !important;  
+
+    .content-container-perfil ul li {
+    	list-style-type: circle !important;
     }
 
 
     @media (max-width: 600px) {
-      .content-container-perfil {
-        padding: 20px;
-      }
-}
+    	.content-container-perfil {
+    		padding: 20px;
+    	}
+    }
 
 
-      
-        @media (max-width: 480px) {
-            
-								.login-box {
-									padding: 20px;
-								}
-								.services{
-									min-height:350px;
-									padding: 0px;
-									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-									width: 86%;
-									max-width: 86%;
-									margin-top: 29px;
-									padding-top: 10px;
-								}
-								}
-                                .services{
-					margin-left:17px; 
-					
-					padding: 0px;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-					width: 96%;
-					max-width: 100%;
-					margin-top: 10px;
-					padding-top: 29px;
-					padding-left:50px;
-                    padding-bottom:20px;
-				}
-    
 
-   .login-box {
- background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
-  padding: 22px 15px;
-  margin-bottom: 17px;
-}
+    @media (max-width: 480px) {
 
-   
+    	.login-box {
+    		padding: 20px;
+    	}
+
+    	.services {
+    		min-height: 350px;
+    		padding: 0px;
+    		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    		width: 86%;
+    		max-width: 86%;
+    		margin-top: 29px;
+    		padding-top: 10px;
+    	}
+    }
+
+    .services {
+    	margin-left: 17px;
+
+    	padding: 0px;
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    	width: 96%;
+    	max-width: 100%;
+    	margin-top: 10px;
+    	padding-top: 29px;
+    	padding-left: 50px;
+    	padding-bottom: 20px;
+    }
+
+
+    .login-box {
+    	background-color: #fff;
+    	border-radius: 10px;
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    	max-width: 100%;
+    	padding: 22px 15px;
+    	margin-bottom: 17px;
+    }
+
+
     .input-group {
-        margin-bottom: 20px;
-        width: 100%;
+    	margin-bottom: 20px;
+    	width: 100%;
     }
 
     .input-group label {
-        font-size: .8rem !important;
-        color: #666;
+    	font-size: .8rem !important;
+    	color: #666;
     }
 
     .input-group input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 5px;
-        font-size: .8rem;
+    	width: 100%;
+    	padding: 12px;
+    	border: 1px solid #ddd;
+    	border-radius: 5px;
+    	margin-top: 5px;
+    	font-size: .8rem;
     }
 
     .input-group input:focus {
-        border-color: #00a850;
-        outline: none;
+    	border-color: #00a850;
+    	outline: none;
     }
 
     .error-message {
-        color: red;
-        font-size: .7rem;
-        margin-top: 5px;
+    	color: red;
+    	font-size: .7rem;
+    	margin-top: 5px;
     }
 
     .submit-btn {
-        width: 100%;
-        padding: 12px;
-        background-color: #00a850;
-        border: none;
-        color: white;
-        font-size: .8rem;
-        cursor: pointer;
-        border-radius: 5px;
+    	width: 100%;
+    	padding: 12px;
+    	background-color: #00a850;
+    	border: none;
+    	color: white;
+    	font-size: .8rem;
+    	cursor: pointer;
+    	border-radius: 5px;
     }
 
     .submit-btn:hover {
-        background-color: #00a850;
+    	background-color: #00a850;
     }
 
     .forgot-password {
-        text-align: center;
-        margin-top: 10px;
+    	text-align: center;
+    	margin-top: 10px;
     }
 
     .forgot-password a {
-        color: #00a850;
-        text-decoration: none;
+    	color: #00a850;
+    	text-decoration: none;
     }
 
     .forgot-password a:hover {
-        text-decoration:underline;
+    	text-decoration: underline;
     }
 
     .signup-link {
-        text-align: center;
-        margin-top: 15px;
+    	text-align: center;
+    	margin-top: 15px;
     }
 
     .signup-link a {
-        color: #059b9a;
-        text-decoration: none;
+    	color: #059b9a;
+    	text-decoration: none;
     }
 
     .signup-link a:hover {
-        text-decoration: underline;
+    	text-decoration: underline;
     }
 
     @media (max-width: 480px) {
-        .login-box {
-            padding: 20px;
-        }
+    	.login-box {
+    		padding: 20px;
+    	}
     }
+
     .submit-btn {
-  width: 100px;
-  padding: 12px;
-  background-color: #78787a;
-  border: none;
-  color: white;
-  font-size: .8rem;
-  cursor: pointer;
-  border-radius: 5px;
-  display:inline-block;
-}
-button.botones{
-    color:#fff;
-    background-color:#793a57;
-    padding:5px 10px;
-    border-radius:5px;
-   
-}
-a.botones{
-    color:#fff;
-    background-color:#793a57;
-    padding:5px 10px;
-    border-radius:5px;
-    text-decoration: none;
-   
-}
-a:hover{
-    color:#fff;
-    background-color:#793a57;
-   
-    border-radius:5px;
-    text-decoration:none;
-}
-table.table tr th{
-    color:#793a57;
-    font-size:0.8rem;
-}
-table.table tr td{
-    
-    font-size:0.8rem;
-}
-table.table tr td a{
-    
-    font-size:0.8rem;
-    text-decoration:none;
-}
-.imagen_principal{
-    width: 450px;
-}
-.img-area {
-	position: relative;
-	
-	height: 240px;
-	background: var(--grey);
-	margin-bottom: 30px;
-	border-radius: 15px;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
-.img-area .icon {
-	font-size: 100px;
-}
-.img-area h3 {
-	font-size: 20px;
-	font-weight: 500;
-	margin-bottom: 6px;
-}
-.img-area p {
-	color: #999;
-}
-.img-area p span {
-	font-weight: 600;
-}
-.img-area img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	
-	object-fit: cover;
-	object-position: center;
-	z-index: 100;
-}
-.img-area::before {
-	content: attr(data-img);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, .5);
-	color: #fff;
-	font-weight: 500;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	pointer-events: none;
-	opacity: 0;
-	transition: all .3s ease;
-	z-index: 200;
-}
-.img-area.active:hover::before {
-	opacity: 1;
-}
-.select-image {
-	display: block;
-	width: 100%;
-	padding: 16px 0;
-	border-radius: 15px;
-	background: var(--blue);
-	color: #fff;
-	font-weight: 500;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-	transition: all .3s ease;
-}
-.select-image:hover {
-	background: var(--dark-blue);
-}
-.img-circle{
-    border-radius: 10px !important;
-}
+    	width: 100px;
+    	padding: 12px;
+    	background-color: #78787a;
+    	border: none;
+    	color: white;
+    	font-size: .8rem;
+    	cursor: pointer;
+    	border-radius: 5px;
+    	display: inline-block;
+    }
 
-.tab-container {
-    max-width: 88%;
-    margin: 30px 0 0 0px;
-}
+    button.botones {
+    	color: #fff;
+    	background-color: #793a57;
+    	padding: 5px 10px;
+    	border-radius: 5px;
 
-.tabs {
-    display: flex;
-}
+    }
 
-.tab-btn {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background-color: #f1f1f1;
-    font-size:.8rem;
-}
+    a.botones {
+    	color: #fff;
+    	background-color: #793a57;
+    	padding: 5px 10px;
+    	border-radius: 5px;
+    	text-decoration: none;
 
-.tab-btn:hover {
-    background-color: #ddd;
-}
+    }
 
-.tab-btn.active {
-    background-color: #793a57;
-    color:#fff;
-    font-size:.8rem;
-}
+    a:hover {
+    	color: #fff;
+    	background-color: #793a57;
 
-.tab-content {
-    display: none;
-    padding: 20px;
-    
-}
+    	border-radius: 5px;
+    	text-decoration: none;
+    }
 
-.tab-content p {
-    margin: 0;
-}
-@media (min-width: 992px) {
-    .col-lg-10{
-        margin-left:170px;
+    table.table tr th {
+    	color: #793a57;
+    	font-size: 0.8rem;
     }
-    .table-responsive{
-        
+
+    table.table tr td {
+
+    	font-size: 0.8rem;
     }
-    .login-box{}
+
+    table.table tr td a {
+
+    	font-size: 0.8rem;
+    	text-decoration: none;
     }
-@media (min-width:300px) and (max-width: 550px){
-    
-    .detail-profile .params > div > span{
-        flex-basis:55px;
+
+    .imagen_principal {
+    	width: 450px;
     }
-    .col-xs-12{
-       
+
+    .img-area {
+    	position: relative;
+
+    	height: 240px;
+    	background: var(--grey);
+    	margin-bottom: 30px;
+    	border-radius: 15px;
+    	overflow: hidden;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
     }
-    .detail-profile .params > div{
-        padding:5px 5px;
+
+    .img-area .icon {
+    	font-size: 100px;
     }
-    .detail-profile{
-        padding: 30px;
+
+    .img-area h3 {
+    	font-size: 20px;
+    	font-weight: 500;
+    	margin-bottom: 6px;
     }
-    .bot{
-        float:left;
+
+    .img-area p {
+    	color: #999;
     }
-    .bot2{
-        margin-top:20px;
-        margin-left:20px !important;
-        float:left;
+
+    .img-area p span {
+    	font-weight: 600;
     }
-    .inx{
-        
+
+    .img-area img {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+
+    	object-fit: cover;
+    	object-position: center;
+    	z-index: 100;
     }
-    table.table tr{text-align:center;}
-    table.table tr td{
-        width:100% !important;
-        float:left;
-        display:block;
-        text-align:center !important;
+
+    .img-area::before {
+    	content: attr(data-img);
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	background: rgba(0, 0, 0, .5);
+    	color: #fff;
+    	font-weight: 500;
+    	text-align: center;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	pointer-events: none;
+    	opacity: 0;
+    	transition: all .3s ease;
+    	z-index: 200;
     }
-    .login-box{
-        margin-left:0px;
+
+    .img-area.active:hover::before {
+    	opacity: 1;
     }
-  }
- @media (min-width: 350px) {
-   .login-box {
-       padding: 20px;
-   }  
-   .login-class{
-     text-align:right;padding-top:15px;
-   }
-}  
-  .select2-container .select2-selection--single {
-    height: 34px !important;
-}
-.form-group label {
-  font-size: 0.7rem;
-  width: 100%;
-  font-weight: 400;
-  color: #793a57;
-}
-.filepreviewprofile {
- /**   position: absolute;
+
+    .select-image {
+    	display: block;
+    	width: 100%;
+    	padding: 16px 0;
+    	border-radius: 15px;
+    	background: var(--blue);
+    	color: #fff;
+    	font-weight: 500;
+    	font-size: 16px;
+    	border: none;
+    	cursor: pointer;
+    	transition: all .3s ease;
+    }
+
+    .select-image:hover {
+    	background: var(--dark-blue);
+    }
+
+    .img-circle {
+    	border-radius: 10px !important;
+    }
+
+    .tab-container {
+    	/* max-width: 88%; */
+    	margin: 30px 0 0 0px;
+    }
+
+    .tabs {
+    	display: flex;
+    }
+
+    .tab-btn {
+    	flex: 1;
+    	padding: 10px;
+    	cursor: pointer;
+    	border: none;
+    	outline: none;
+    	background-color: #f1f1f1;
+    	font-size: .8rem;
+    }
+
+    .tab-btn:hover {
+    	background-color: #ddd;
+    }
+
+    .tab-btn.active {
+    	background-color: #793a57;
+    	color: #fff;
+    	font-size: .8rem;
+    }
+
+    .tab-content {
+    	display: none;
+    	padding: 20px;
+
+    }
+
+    .tab-content p {
+    	margin: 0;
+    }
+
+    @media (min-width: 992px) {
+    	.col-lg-10 {
+    		margin-left: 170px;
+    	}
+
+    	.table-responsive {}
+
+    	.login-box {}
+    }
+
+    @media (min-width:300px) and (max-width: 550px) {
+
+    	.detail-profile .params>div>span {
+    		flex-basis: 55px;
+    	}
+
+    	.col-xs-12 {}
+
+    	.detail-profile .params>div {
+    		padding: 5px 5px;
+    	}
+
+    	.detail-profile {
+    		padding: 30px;
+    	}
+
+    	.bot {
+    		float: left;
+    	}
+
+    	.bot2 {
+    		margin-top: 20px;
+    		margin-left: 20px !important;
+    		float: left;
+    	}
+
+    	.inx {}
+
+    	table.table tr {
+    		text-align: center;
+    	}
+
+    	table.table tr td {
+    		width: 100% !important;
+    		float: left;
+    		display: block;
+    		text-align: center !important;
+    	}
+
+    	.login-box {
+    		margin-left: 0px;
+    	}
+    }
+
+    @media (min-width: 350px) {
+    	.login-box {
+    		padding: 20px;
+    	}
+
+    	.login-class {
+    		text-align: right;
+    		padding-top: 15px;
+    	}
+    }
+
+    .select2-container .select2-selection--single {
+    	height: 34px !important;
+    }
+
+    .form-group label {
+    	font-size: 0.7rem;
+    	width: 100%;
+    	font-weight: 400;
+    	color: #793a57;
+    }
+
+    .filepreviewprofile {
+    	/**   position: absolute;
     top: 0;
     right: 30px;
     width: 100%;
     height: 250px; */
-    opacity: 0;
-}
-.ci-user-picture {
-    min-width: 250px;
-    margin-right: 16px;
-    display: inline-block;
-}
-.ci-user-picture {
-    width: 250px;
-    
-    border-radius: 50%;
-}
+    	opacity: 0;
+    }
+
+    .ci-user-picture {
+    	min-width: 250px;
+    	margin-right: 16px;
+    	display: inline-block;
+    }
+
+    .ci-user-picture {
+    	width: 250px;
+
+    	border-radius: 50%;
+    }
+
 </style>
 </head>
 	<body>	
@@ -708,11 +749,16 @@ table.table tr td a{
                                                         <?php if($ciudadAgencia!=''){
                                                         //    echo "<script>verCiudades(".$provinciaAgencia.", ".$ciudadAgencia.");</script>";
                                                         }?>
+                                                             <?php 
+                                                                    $provi = $list[0]['provinciaID'];
+                                                                    echo '<script>setTimeout(function(){verProvincias(41, '.$provi.')}, 500);</script>';
+
+                                                                    ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <label for="provincia">Provincia:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
+                                                        <label for="provincia">Provincia: <?php print_r($list[0]['provinciaID']); ?><span class="campObligatorio">&nbsp;&nbsp;*</span></label>
                                                         <select name="provincia" onChange="verCiudades(this.value,0)" class="form-control form_selector f_provincia" id="f_provincia" disabled="disabled" style="height: 33px !important;width: 80% !important;">
                                                             <option value="0">---o---</option>
                                                         </select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargProv" />
@@ -771,8 +817,8 @@ table.table tr td a{
                                             
                                         </div>
 
-                                        <!-- </div>
-                                        </div> -->
+                                        </div>
+                                        </div>
                                     </form>
                             </div>
                             <div class="tab-content" id="tab2" style="margin: 30px 0 0 0;"">
@@ -792,7 +838,18 @@ table.table tr td a{
                                                 <tr>
                                                     <td><img src="<?php echo $URLSitio?>fotos/<?php echo $data['imagen']?>" style='width:150px;'></td>
                                                 
-                                                    <td width="300"><b><?php echo $data['nombre']?></b> <br><br> <?php echo $data['comentario']?></td>
+                                                    <td width="300"><b><?php echo $data['nombre']?></b> <br><br> 
+                                                    <?php
+                                                    $comentarioCompleto = $data['comentario'];
+                                                    $comentarioCorto = (mb_strlen($comentarioCompleto, 'UTF-8') > 100)
+                                                        ? mb_substr($comentarioCompleto, 0, 300, 'UTF-8') . '...'
+                                                        : $comentarioCompleto;
+                                                    ?>
+                                                    <span title="<?php echo htmlspecialchars($data['comentario']); ?>">
+                                                        <?php echo $comentarioCorto; ?>
+                                                    </span>
+
+                                                    </td>
                                                 
                                                     <td style="text-align:right;">
                                                     <a class="botones" id="editForm" style="font-size:.8rem;width:105px;display:inline-block;text-align:left;" href="editar_perfil_agencia.php?id=<?php echo $data['id'];?>"><i class="fa fa-pencil-alt" aria-hidden="true"></i>&nbsp; Editar</a><br/><br/>
@@ -801,6 +858,11 @@ table.table tr td a{
                                                     
                                                     <!--  <a class="botones" href="#" onclick="return confirm('al activar este anuncio se desactivara los demas, esta seguro?');">DESACTIVAR ANUNCIO</a>-->
                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>                                            
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
                                                 </tr>			      	
                                             <?php endforeach;?>
                                         <?php else:?>
@@ -1117,14 +1179,18 @@ table.table tr td a{
                                                     $SQL="SELECT * FROM $PaisT WHERE Publico=1 ORDER BY Nombre";
                                                     $Result=$mysqli->query($SQL);
                                                     while ($Pais=mysqli_fetch_array($Result)){
-                                                    // echo '<pre>';var_dump($list[0]['paisID']);
+                                                    //echo '<pre>';var_dump($list[0]['paisID']);
                                                     if($Pais['ID']==41){ 
                                                         //if($Pais['ID']==$list[0]['paisID']){ 
                                                         ?>
                                                         <option value="<?php echo $Pais['ID']?>" selected="selected"><?php echo $Pais['Nombre']; ?></option>
                                                         <?php } else {?>
                                                         <option value="<?php echo $Pais['ID']?>"><?php echo $Pais['Nombre']; ?></option>
-                                                <?php }} ?>
+                                                <?php }} 
+                                                $provi = $list[0]['provinciaID'];
+                                                echo '<script>setTimeout(function(){verProvinciasB(41, '.$provi.')}, 500);</script>';
+
+                                                ?>
                                                 
                                             </select>
                                         </div>
@@ -1132,10 +1198,15 @@ table.table tr td a{
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="provincia">Provincia:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-                                            <select name="f_provincia" onChange="verCiudades(this.value,0)" class="form-control form_selector f_provincia" id="f_provincia" disabled="disabled" style="height: 35px !important;width: 80% !important;">
+                                            <select name="f_provincia" onChange="verCiudadesB(this.value,0)" class="form-control form_selector f_provincia" id="f_provincia" disabled="disabled" style="height: 35px !important;width: 80% !important;">
                                                 <option value="0">---o---</option>
+                                                <?php 
+                                                $ciud = $list[0]['ciudadID'];
+                                                echo '<script>setTimeout(function(){verCiudadesB('.$provi.', '.$ciud.')}, 500);</script>';
+
+                                                ?>
                                             </select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargProv" />
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
