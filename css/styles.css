@@ -839,14 +839,16 @@ a.btn-publim {
 }
 
 .listing-image img {
-  width: 160px;
+  width: 170px;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .listing-content h2 {
   background: #793a57;
-  color: #fff;
+   color: #fff;
   font-size: 14px;
   font-weight: 700;
   padding: 10px 15px;
@@ -854,6 +856,7 @@ a.btn-publim {
   zoom: 1;
   border-radius: 6px;
 }
+
 .ribbon {
   position: absolute;
   top: 0;
@@ -871,6 +874,10 @@ a.btn-publim {
 .listing-content {
   padding: 15px;
   flex: 1;
+}
+
+.listing-content:hover{
+background-color: #f9f9fd;
 }
 
 .listing-content h3 {
