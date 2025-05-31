@@ -60,6 +60,16 @@ p.text-age {
   border-radius: 10px;
   font-size: 0.9rem;
 }
+a{
+    color:#793a57;
+    text-decoration: none;
+   
+}
+a:hover{
+    color: #f4b900;
+  text-decoration: underline;
+   
+}
 .section-box p {
   color: #333;
   font-size: 1rem;
@@ -109,7 +119,7 @@ p.text-age {
       <div class="section-box1 text-center">
                                 <div class="login-box" >
                                     <img src="/fotos/<?php echo $Escort['imagen_principal'];?>">
-                                    <p class="text-age"><?php echo $Escort['descripcion'];?> <span><a href="" style="color: #793a57;font-weight: bold;">more</a></span>
+                                    <p class="text-age"><?php echo $Escort['descripcion'];?> <span><a href=""><strong>more...</strong></a></span>
                                 <br>&nbsp;
                                 </p>
                                     
@@ -128,7 +138,7 @@ p.text-age {
       <div class="section-box">
                 <div class="login-box">
                                     <h1 style="text-transform:uppercase;"><?php echo $Escort['nombre_agencia'];?></h1>
-                                    <p><span class="agencia-datos"><i class="fa-solid fa-globe" style="color: #793a57;"></i> Sitio web:</span> <a href="<?php echo $Escort['web'];?>" target="_blank"><?php echo $Escort['web'];?></a></p>
+                                    <p><span class="agencia-datos"><i class="fa-solid fa-globe" style="color: #793a57;"></i> Sitio web:</span> <a href="<?php echo $Escort['web'];?>" target="_blank"><strong><?php echo $Escort['web'];?></strong></a></p>
                                     <p><span class="agencia-datos"><i class="fa-solid fa-phone-volume" style="color: #793a57;"></i> Telefono:</span> <?php echo $Escort['telefono_1'];?></p>
                                     <p><span class="agencia-datos"><i class="fa-solid fa-earth-americas" style="color: #793a57;"></i> Country:</span> Portugal</p>
                                    <p><span class="agencia-datos"><i class="fa-solid fa-building" style="color: #793a57;"></i> City:</span> Lisbon</p>
@@ -145,9 +155,9 @@ p.text-age {
             
             
             
-            <div class="container">
+            <div class="container mt-4">
                  <h2>ESCORTS DE LA AGENCIA</h2>
-           <div class="row" style="margin-top: 1.5rem;">
+           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4" style="margin-top: 1.5rem;">
                 
                            
             
@@ -191,6 +201,28 @@ p.text-age {
               <img src="http://reinovip.com/fotos/wjqvt3.jpg" class="card-img-top" alt="Modelo VIP">
         <div class="card-body p-2">
           <h3 class="card-title mb-1">Nombre VIP</h3>
+          <p class="card-text small text-muted">Ciudad, Provincia</p>
+        </div>
+      </div>
+    </div>
+
+     <!-- Card normal -->
+     <div class="col">
+      <div class="card h-100">
+        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
+        <div class="card-body p-2">
+          <h3 class="card-title mb-1">Nombre</h3>
+          <p class="card-text small text-muted">Ciudad, Provincia</p>
+        </div>
+      </div>
+    </div>
+
+     <!-- Card normal -->
+     <div class="col">
+      <div class="card h-100">
+        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
+        <div class="card-body p-2">
+          <h3 class="card-title mb-1">Nombre</h3>
           <p class="card-text small text-muted">Ciudad, Provincia</p>
         </div>
       </div>
