@@ -148,15 +148,16 @@ $usuario_id=$_SESSION['usuario_id'];
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" />
-        <?php if($_SESSION['tipo']== 'AGENCIA'){ 
-        echo "<script>
-             $(document).ready(function(){
+        <?php 
+        // if($_SESSION['tipo']== 'AGENCIA'){ 
+        // echo "<script>
+        //      $(document).ready(function(){
            
-            verProvincias(41,".$list[0]['provinciaID'].");
-            verCiudades(".$list[0]['provinciaID'].", ".$list[0]['ciudadID'].")
-        });
-        </script>";
-        }
+        //     verProvincias(41,".$list[0]['provinciaID'].");
+        //     verCiudades(".$list[0]['provinciaID'].", ".$list[0]['ciudadID'].")
+        // });
+        // </script>";
+        // }
         ?>
 
 <?php 
@@ -327,7 +328,7 @@ $usuario_id=$_SESSION['usuario_id'];
     }
 
     .submit-btn {
-    	width: 100px;
+    	/* width: 100px; */
     	padding: 12px;
     	background-color: #78787a;
     	border: none;
@@ -607,7 +608,51 @@ $usuario_id=$_SESSION['usuario_id'];
 
     	border-radius: 50%;
     }
+.submit-btn2 {
+  background-color: #702343;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  width: 100%;
+  margin-top: 30px;
+}
 
+/* Hover: agrandar y tono más claro */
+.submit-btn2:hover {
+  background-color: #8a2d52;
+  transform: scale(1.05);
+}
+
+/* Línea brillante dorada */
+.submit-btn2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.6),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+/* Animación al pasar el mouse */
+.submit-btn2:hover::before {
+  left: 100%;
+}
+.form-control {
+ font-size: 0.7rem;
+}
 </style>
 </head>
 	<body>	
@@ -745,22 +790,38 @@ $usuario_id=$_SESSION['usuario_id'];
                                                         </select>
                                                         <?php if($provinciaAgencia!=''){
                                                         //    echo " <script>verProvincias(41,".$provinciaAgencia.");</script>";
+                                                        //echo '<script>setTimeout(function(){verProvinciasB1(41, '.$provinciaAgencia.')}, 500);</script>';
                                                         }?>
                                                         <?php if($ciudadAgencia!=''){
                                                         //    echo "<script>verCiudades(".$provinciaAgencia.", ".$ciudadAgencia.");</script>";
+                                                        //echo '<script>setTimeout(function(){verCiudadesB('.$provinciaAgencia.', '.$ciudadAgencia.')}, 500);</script>';
                                                         }?>
-                                                             <?php 
-                                                                    $provi = $list[0]['provinciaID'];
-                                                                    echo '<script>setTimeout(function(){verProvincias(41, '.$provi.')}, 500);</script>';
-
-                                                                    ?>
+                                                            
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <label for="provincia">Provincia: <?php print_r($list[0]['provinciaID']); ?><span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-                                                        <select name="provincia" onChange="verCiudades(this.value,0)" class="form-control form_selector f_provincia" id="f_provincia" disabled="disabled" style="height: 33px !important;width: 80% !important;">
-                                                            <option value="0">---o---</option>
+                                                        <label for="provincia">Provincia: <?php print_r($provinciaAgencia); ?><span class="campObligatorio">&nbsp;&nbsp;*</span></label>
+                                                        <select name="provincia" onChange="verCiudades1(this.value,0)" class="form-control form_selector f_provincia " id="f_provincia1"  style="height: 33px !important;width: 80% !important;" required>
+                                                            <option value="">---o---</option>
+                                                             <?php
+                                                                $provinciaSeleccionado=$provinciaAgencia;
+                                                                $ProvinciaT=$Prefijo."Provincia";
+                                                                $SQL="SELECT * FROM $ProvinciaT WHERE Publico=1 ORDER BY Nombre";
+                                                                $Result=$mysqli->query($SQL);
+                                                                while ($Provincia=mysqli_fetch_array($Result)){
+                                                                    if($Provincia['ID']==$provinciaAgencia){ 
+                                                                    $provinciaSeleccionado=$Provincia['ID'];
+                                                                    ?>
+                                                                    <option value="<?php echo $Provincia['ID']?>" selected="selected"><?php echo $Provincia['Nombre']; ?></option>
+                                                                    <?php } else {?>
+                                                                    <option value="<?php echo $Provincia['ID']?>"><?php echo $Provincia['Nombre']; ?></option>
+                                                            <?php }} ?>
+                                                            <?php 
+                                                            //$ciud = $list[0]['ciudadID'];
+                                                            echo '<script>setTimeout(function(){verCiudadesB1('.$provinciaAgencia.', '.$ciudadAgencia.')}, 500);</script>';
+
+                                                            ?>
                                                         </select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargProv" />
                                                         
                                                     </div>
@@ -768,8 +829,9 @@ $usuario_id=$_SESSION['usuario_id'];
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <label for="ciudad">Ciudad:<span class="campObligatorio">&nbsp;&nbsp;*</span></label>
-                                                        <select name="ciudad" class="form-control form_selector f_ciudad" id="f_ciudad" disabled="disabled" style="height: 35px !important;width: 80% !important;">
-                                                            <option value="0">---o---</option>
+                                                        <select name="ciudad" class="form-control form_selector f_ciudad" id="f_ciudad1"  style="height: 35px !important;width: 80% !important;" required>
+                                                            <option value="">---o---</option>
+                                                       
                                                         </select>&nbsp;&nbsp;<img src="images/cargando.gif" width="15" height="15" style="display:none" id="cargCiu" />
                                                         
                                                     </div>
@@ -829,7 +891,7 @@ $usuario_id=$_SESSION['usuario_id'];
                                             <tr>
                                                 <th>FOTO PRINCIPAL</th>
                                                 <th style="width:400px">DESCRIPCION</th>
-                                                <th>ACCION</th>
+                                                <th>&nbsp;</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -852,9 +914,9 @@ $usuario_id=$_SESSION['usuario_id'];
                                                     </td>
                                                 
                                                     <td style="text-align:right;">
-                                                    <a class="botones" id="editForm" style="font-size:.8rem;width:105px;display:inline-block;text-align:left;" href="editar_perfil_agencia.php?id=<?php echo $data['id'];?>"><i class="fa fa-pencil-alt" aria-hidden="true"></i>&nbsp; Editar</a><br/><br/>
-                                                    <a id="editImages" class="botones" style="font-size:.8rem;width:105px;display:inline-block;text-align:left;" href="editar_imagenes_agencia.php?id=<?php echo $data['id'];?>"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp; Editar fotos</a><br/><br/><br/><br/>
-                                                    <a class="botones" style="font-size:.8rem;width:105px;display:inline-block;text-align:left;" href="borrar.php?id=<?php echo  $data['id'];?>" onclick="return confirm('esta seguro de eliminar el anuncio?');"><i class="fa fa-times" aria-hidden="true"></i> &nbsp;Borrar Perfil</a>
+                                                    <a class="botones" id="editForm" style="font-size:.8rem;width:110px;display:inline-block;text-align:left;" href="editar_perfil_agencia.php?id=<?php echo $data['id'];?>"><i class="fa fa-pencil-alt" aria-hidden="true"></i>&nbsp; Editar</a><br/><br/>
+                                                    <a id="editImages" class="botones" style="font-size:.8rem;width:110px;display:inline-block;text-align:left;" href="editar_imagenes_agencia.php?id=<?php echo $data['id'];?>"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp; Editar fotos</a><br/><br/><br/><br/>
+                                                    <a class="botones" style="font-size:.8rem;width:110px;display:inline-block;text-align:left;" href="borrar.php?id=<?php echo  $data['id'];?>" onclick="return confirm('esta seguro de eliminar el anuncio?');"><i class="fa fa-times" aria-hidden="true"></i> &nbsp;Borrar Perfil</a>
                                                     
                                                     <!--  <a class="botones" href="#" onclick="return confirm('al activar este anuncio se desactivara los demas, esta seguro?');">DESACTIVAR ANUNCIO</a>-->
                                                     </td>
@@ -871,7 +933,9 @@ $usuario_id=$_SESSION['usuario_id'];
                                             </tbody>
                                     </table>
                                 </div>
-                                <a  style="margin-top:30px;color:#fff;padding:10px 30px;border-radius:5px; width:300px; margin-left:30px;" href="<?php echo $URLSitio?>registro.php?id=<?php echo $usuario_id;?>" class="submit-btn" role="button">REGISTRAR NUEVO ANUNCIO</a>
+                                <a href="<?php echo $URLSitio?>registro.php?id=<?php echo $usuario_id;?>">
+                                     <button type="submit" class="submit-btn2">REGISTRAR NUEVO ANUNCIO</button>
+                                </a>
                             </div>
                         </div>    
                             <?php endif;?>
@@ -1015,7 +1079,7 @@ $usuario_id=$_SESSION['usuario_id'];
                                                    Nos encargamos de 📝 Publicar 🔄 Posicionar y 🎯 Mantener tus Anuncios en el 🔝 Top de las mejores Páginas de Contactos.
                                                 </p>
                                                 <div class="publicate-logos">
-                                                   <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/publicidad-reinovip2.png" /></a>
+                                                   <a target="_blank" href="https://www.publicateplus.com/ads?token=HAKJHDIUSAHDSADAL"> <img s src="<?php echo $URLSitio?>images/logo-anuncios.png" /></a>
                                                 </div>
                                                  <p style="text-align: center;" >* Portales de Anuncios con los que trabajamos</p>
                                             </div>
@@ -1714,7 +1778,7 @@ $usuario_id=$_SESSION['usuario_id'];
 
                                                 <div class="login-box" style="width: 400px; float:right; border-radius:5px;">
                                                     <p style="color:#793a57 !important; font-size:.8rem; text-align:center;">
-                                                    <span class="submit-btn2">Selecciona tu archivo o Sube tu foto ahora</span>
+                                                    <span class="item-img file center-block filepreviewprofile" style="opacity:1;">Selecciona tu archivo o Sube tu foto ahora</span>
                                                     </p>
                                                     <p style="color:#793a57 !important; font-size:.8rem; text-align:center;">
                                                     Arrastra tu archivo aquí
