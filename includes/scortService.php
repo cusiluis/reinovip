@@ -188,9 +188,8 @@ class EscortService {
             <p class="location">
             <span class="country">$pais</span> / 
             <span class="city">$provincia</span>, 
-            escorts: <span class="number">5</span>, 
-            verified: <span class="verified">1</span>
-            </p>
+            escorts: <span class="number">5</span> 
+                     </p>
             <p class="description">$descripcion</p>
         </div>
         </div>
