@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 // echo '<pre>';print_r($_FILES);
 // echo '<pre>';print_r($_POST);
-//echo '<pre>';print_r($_FILES);exit;
+// echo '<pre>';print_r($_FILES);exit;
 session_start();
 include ("includes/globales.inc.php");
 include ("includes/conexion.inc.php");

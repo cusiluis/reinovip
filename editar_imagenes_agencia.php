@@ -150,6 +150,46 @@ $usuario_id=$_GET['id'];
   
 ?>
 <style>
+.content-container-perfil {
+    	max-width: 1100px;
+    	margin: 0 auto;
+
+    	padding: 20px;
+
+
+    }
+
+    .content-container-perfil h1 {
+    	color: #793a57;
+    	margin-top: 1.5em;
+    	font-size: 1.5rem;
+    	text-align: center;
+    }
+
+    .content-container-perfil h2 {
+    	color: #793a57;
+    	margin-top: 1.5em;
+    	font-size: 1.2rem;
+    }
+
+    p {
+    	color: #333;
+    	line-height: 1.6;
+    	margin-top: 1em;
+    	text-align: justify;
+    }
+
+    .content-container-perfil ul li {
+    	list-style-type: circle !important;
+    }
+
+
+    @media (max-width: 600px) {
+    	.content-container-perfil {
+    		padding: 20px;
+    	}
+    }
+
 .input-group {
 margin-bottom: 20px;
 width: 100%;
@@ -337,12 +377,26 @@ button.botones {
     	text-decoration: none;
 
     }
+    table.table tr th {
+    	color: #793a57;
+    	font-size: 0.8rem;
+    }
 
+    table.table tr td {
+
+    	font-size: 0.8rem;
+    }
+
+    table.table tr td a {
+
+    	font-size: 0.8rem;
+    	text-decoration: none;
+    }
 </style>
 
 <!-- Cards -->
 <div class="container mt-4">
-   <div class="content-container">
+   <div class="content-container-perfil">
 
 
                 <form class="formRegistro" action="editar_imagen_principal.php" enctype="multipart/form-data" name="formC" id="formC" method="POST" onsubmit="">

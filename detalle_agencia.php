@@ -4,7 +4,43 @@ include ("includes/globales.inc.php");
 include ("includes/conexion.inc.php");
 
 $donde='mapa.php';
+//print_r($_SESSION);exit;
+//print_r($_GET);
+$idag = isset($_GET['id']) ? intval($_GET['id']) : 0; // Seguridad básica: solo enteros
 
+$prefijo = "reino01_";
+
+$sql = "SELECT DISTINCT a.id, a.nombre_agencia, a.descripcion, a.imagen_principal, a.web, 
+               a.telefono_1, a.direccion, a.pais_id, a.provincia_id, a.ciudad_id, a.usuario_id,
+               p.Nombre AS nombre_provincia,
+               c.Nombre AS ciudadNombre,
+               pa.Nombre AS nombre_pais
+        FROM agencias a
+        JOIN {$prefijo}Ciudad c ON a.ciudad_id = c.ID
+        JOIN {$prefijo}Provincia p ON a.provincia_id = p.ID
+        JOIN {$prefijo}Pais pa ON a.pais_id = pa.ID
+        WHERE a.id = ?";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("i", $idag);
+$stmt->execute();
+$res = $stmt->get_result();
+
+if ($res && $agencia = $res->fetch_assoc()) {
+    $nombreAgencia     = $agencia['nombre_agencia'];
+    $descrAgencia      = $agencia['descripcion'];
+    $telefonoAgencia   = $agencia['telefono_1'];
+    $direccionAgencia  = $agencia['direccion'];
+    $webAgencia        = $agencia['web'];
+    $paisAgencia       = $agencia['nombre_pais'];
+    $provinciaAgencia  = $agencia['nombre_provincia'];
+    $ciudadAgencia     = $agencia['ciudadNombre'];
+    $imagenAgencia     = $agencia['imagen_principal'];
+    $usuarioId     = $agencia['usuario_id'];
+} else {
+    echo "Agencia no encontrada.";
+}
+//print_r($sql);exit;
 ?>
 
 <!DOCTYPE html>
@@ -84,31 +120,12 @@ a:hover{
   color: #793a57;
 }
     </style>
-<!-- Modal para filtros móviles -->
-<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4">
-      <div class="modal-header">
-        <h5 class="modal-title" id="filtersModalLabel">Filtros de Búsqueda</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-2">
-          <div class="col-12"><select class="form-select"><option selected>España</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Categoría</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Provincia</option></select></div>
-          <div class="col-12"><select class="form-select"><option selected>Ciudad</option></select></div>
-          <div class="col-12"><input type="text" class="form-control" placeholder="Buscar..."></div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-gold w-100" data-bs-dismiss="modal"><i class="bi bi-search"></i> Buscar</button>
-      </div>
-    </div>
-  </div>
-</div>
-            <?php $id= $_GET['id'];  $sqlEscortsProvinciaInicio= $mysqli->query("SELECT a.*, p.Nombre as provincia from agencias a left join reino01_Provincia p on a.provincia_id = p.ID WHERE a.id= ".$id."");
-             while($Escort = mysqli_fetch_array($sqlEscortsProvinciaInicio)){
+
+            <?php
+            // $id= $_GET['id'];  
+            // $sqlEscortsProvinciaInicio= $mysqli->query("SELECT a.*, p.Nombre as provincia from agencias a left join reino01_Provincia p on a.provincia_id = p.ID WHERE a.id= ".$id."");
+            // print_r($sqlEscortsProvinciaInicio); 
+            // while($Escort = mysqli_fetch_array($sqlEscortsProvinciaInicio)){
             ?>
             <div class="container my-4">
   <div class="row">
@@ -118,8 +135,9 @@ a:hover{
       <!-- MAIN IMAGE -->
       <div class="section-box1 text-center">
                                 <div class="login-box" >
-                                    <img src="/fotos/<?php echo $Escort['imagen_principal'];?>">
-                                    <p class="text-age"><?php echo $Escort['descripcion'];?> <span><a href=""><strong>more...</strong></a></span>
+                                    <img src="<?php echo $URLSitio?>fotos/<?php echo $imagenAgencia;?>">
+                                    <p class="text-age"><?php echo $descrAgencia;?> 
+                                    <!-- <span><a href=""><strong>more...</strong></a></span> -->
                                 <br>&nbsp;
                                 </p>
                                     
@@ -137,12 +155,12 @@ a:hover{
       <!-- PERFIL -->
       <div class="section-box">
                 <div class="login-box">
-                                    <h1 style="text-transform:uppercase;"><?php echo $Escort['nombre_agencia'];?></h1>
-                                    <p><span class="agencia-datos"><i class="fa-solid fa-globe" style="color: #793a57;"></i> Sitio web:</span> <a href="<?php echo $Escort['web'];?>" target="_blank"><strong><?php echo $Escort['web'];?></strong></a></p>
-                                    <p><span class="agencia-datos"><i class="fa-solid fa-phone-volume" style="color: #793a57;"></i> Telefono:</span> <?php echo $Escort['telefono_1'];?></p>
-                                    <p><span class="agencia-datos"><i class="fa-solid fa-earth-americas" style="color: #793a57;"></i> Country:</span> Portugal</p>
-                                   <p><span class="agencia-datos"><i class="fa-solid fa-building" style="color: #793a57;"></i> City:</span> Lisbon</p>
-                                   <p><span class="agencia-datos"><i class="fas fa-map-marker-alt" style="color: #793a57;"></i> Localidad:</span> <?php echo $Escort['provincia'];?></p>
+                                    <h1 style="text-transform:uppercase;"><?php  echo $nombreAgencia; ?></h1>
+                                    <p><span class="agencia-datos"><i class="fa-solid fa-globe" style="color: #793a57;"></i> Sitio web:</span> <a href="<?php echo $webAgencia;?>" target="_blank"><strong><?php echo $webAgencia;?></strong></a></p>
+                                    <p><span class="agencia-datos"><i class="fa-solid fa-phone-volume" style="color: #793a57;"></i> Telefono:</span> <?php echo $telefonoAgencia;?></p>
+                                    <p><span class="agencia-datos"><i class="fa-solid fa-earth-americas" style="color: #793a57;"></i> Country:</span> <?php echo $paisAgencia;?></p>
+                                   <p><span class="agencia-datos"><i class="fa-solid fa-building" style="color: #793a57;"></i> Provincia:</span> <?php echo $provinciaAgencia;?></p>
+                                   <p><span class="agencia-datos"><i class="fas fa-map-marker-alt" style="color: #793a57;"></i> Ciudad:</span> <?php echo $ciudadAgencia;?></p>
                                    <p><span class="agencia-datos"><i class="fa-solid fa-face-kiss-wink-heart" style="color: #793a57;"></i> Escorts:</span> 5</p>
 
                                 </div>  
@@ -160,21 +178,67 @@ a:hover{
            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4" style="margin-top: 1.5rem;">
                 
                            
-            
+    
+           
+<?php
+$sql = "SELECT DISTINCT fe.Imagen, e.Nombre, e.CategoriaID, e.ID AS id_es,
+               pa.Nombre AS nombre_pais,
+               p.Nombre AS nombre_provincia,
+               c.Nombre AS ciudadNombre,
+               pa.ID
+        FROM reino01_Escort AS e
+        JOIN {$prefijo}foto_escort AS fe ON e.ID = fe.IdEscort
+        JOIN {$prefijo}Pais AS pa ON e.PaisID = pa.ID
+        JOIN {$prefijo}Provincia AS p ON e.ProvinciaID = p.ID
+        JOIN {$prefijo}Ciudad AS c ON e.CiudadID = c.ID
+        WHERE fe.Principal = 1
+          AND e.usuario_id = {$usuarioId}
+          AND e.Publico IN (1,0)";
+//print_r($sql);
+// Ejecutar la consulta
+$resultado = $mysqli->query($sql);
 
-    <!-- Card normal -->
+if ($resultado) {
+    while ($Escort = $resultado->fetch_assoc()) {
+        $nombre = stripslashes($Escort['Nombre']);
+        $foto = $Escort['Imagen'];
+        $nombre_provincia = $Escort['nombre_provincia'];
+        $nombre_ciudad = $Escort['ciudadNombre'];
+        $id = $Escort['id_es'];
+        $url_ciudad = urls_amigables($nombre_ciudad);
+        $url_nombre = urls_amigables($nombre);
+        
+//print_r($id);
+        // Construcción de enlace
+        $href = "{$URLSitio}escort/{$url_ciudad}/{$id}/{$url_nombre}.php";
+        ?>
+
     <div class="col">
+      <a href="<?php echo $href?>" class="text-decoration-none text-dark">
       <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
+        <img src="<?php echo $URLSitio?>fotos/<?php echo $foto;?>" class="card-img-top" alt="Modelo">
         <div class="card-body p-2">
-          <h3 class="card-title mb-1">Ana paula </h3>
-          <p class="card-text small text-muted">Escort Las Palmas 7 palmas</p>
+          <h3 class="card-title mb-1"><?php echo $nombre;?></h3>
+          <p class="card-text small text-muted">Escort <?php echo $nombre_provincia;?>  </p>
         </div>
       </div>
+    </a>
     </div>
 
+
+<?php    }
+} else {
+    echo "Error en la consulta: " . $mysqli->error;
+}
+?>
+
+
+
+
+
+
     <!-- Card con VIP -->
-    <div class="col">
+    <!-- <div class="col">
       <div class="card h-100 position-relative vip-card">
              <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo VIP">
         <div class="card-body p-2">
@@ -182,122 +246,17 @@ a:hover{
           <p class="card-text small text-muted">Ciudad, Provincia</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
+  
 
-    <!-- Card con VIP -->
-    <div class="col">
-      <div class="card h-100 position-relative vip-card">
-              <img src="http://reinovip.com/fotos/wjqvt3.jpg" class="card-img-top" alt="Modelo VIP">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre VIP</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
-
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
-
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
-
-     <!-- Card normal -->
-     <div class="col">
-      <div class="card h-100">
-        <img src="http://reinovip.com/fotos/1200_480496.jpg" class="card-img-top" alt="Modelo">
-        <div class="card-body p-2">
-          <h3 class="card-title mb-1">Nombre</h3>
-          <p class="card-text small text-muted">Ciudad, Provincia</p>
-        </div>
-      </div>
-    </div>
+  
              </div>
             
             
-                            <?php }?>
                            
-                            <div class="catalogo" >
-                            <?php $URLSitio = 'http://reinovip.com/'?>   
-                            
-                            
-                            
-                            
-
-                            
                            
-                            <?php
-                            $qSearch = '';
-                           // var_dump($_GET);
-                            
-                                $EscortT=$Prefijo."Escort";
-                                $CiudadT=$Prefijo."Ciudad";
-                                $EscortImagen=$Prefijo."foto_escort";
-                                $cantMaxPublicacionesInicioEscorts = 10;
-                              //  var_dump($_GET);
-                                $agenciaId = $_GET['id'];
-                                
-                               
-                                $sqlEscortsProvinciaInicio= $mysqli->query("SELECT DISTINCT (fe.Imagen), e.ID, e.Nombre , e.CategoriaID, p.Nombre as nombre_provincia, c.Nombre AS ciudadNombre 
-                                                        FROM reino01_Escort as e 
-                                                        left JOIN reino01_foto_escort as fe ON e.ID = fe.IdEscort 
-                                                        left JOIN reino01_Provincia as p ON e.ProvinciaID = p.ID 
-                                                        left JOIN reino01_ciudad AS c ON e.CiudadID = c.ID 
-                                                        left join reino01_escort_usuarios u on u.id = e.usuario_id
-                                                        left join agencias a on a.usuario_id = u.id
-                                                        WHERE 1 = 1 AND fe.Principal = 1 AND e.Publico = 1
-                                                        AND a.id = $agenciaId ");
-                                            $i = 0;
-
-                                      
-                                    while($Escort = mysqli_fetch_array($sqlEscortsProvinciaInicio)){
-                                        
-                                    
-                                    $nombre=stripslashes($Escort['Nombre']);
-                                    //if($Escort['Id_WS']==0){
-                                    //  if(fileExists("resize/perfil/".$Escort['Imagen'])){
-                                        //    $foto='resize/perfil/'.$Escort['Imagen'];
-                                    //    }
-                                    //}else{
-                                        $foto=$Escort['Imagen'];
-                                    //}
-                                    $nombre_ciudad = $Escort['ciudadNombre'];
-                            ?>
-                            
-                            
-                            
-                          
-                           
-                        
-                        <?php  } ?>
-               
-                </div>
+                
                 </div>
            
             

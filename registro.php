@@ -920,7 +920,7 @@ outline: none;
 				<div class="row">
 					<!-- <form class="formRegistro" action="subir.php"  name="formC" id="formC" method="post" onsubmit=" validar(); return false;" enctype="multipart/form-data">-->
 					
-					<form class="" action="subir.php"  name="formC" id="formC" method="POST" onsubmit="" enctype="multipart/form-data">
+					<form class="" action="subir.php"  name="formC" id="formC" method="POST" enctype="multipart/form-data">
 						<div class="">
 							<div class="col-lg-12">
 								<h2 class="titulo" style="text-align:center;color:#793a57;font-size:18px;margin-top:29px;text-transform:uppercase;">Utiliza este formulario para subir tus anuncios</h2>
@@ -1080,12 +1080,12 @@ outline: none;
 									<div class="ci-user d-flex align-items-center justify-content-center">
 										
 									</div>
-										<a style="width:100%;color:#793a57 !important; !important;" href="javascript:;" class="userEditeBtn btn-default bg-blue position-relative" href="#">
+										<a style="width:100%;color:#793a57 !important; !important; text-decoration: none;" href="javascript:;" class="userEditeBtn btn-default bg-blue position-relative" href="#">
 											<div class="ci-user-picture" style="float:left;">
 												<img style="width:120px;border: 2px solid #000;border-radius:5px;" src="/img/fondo-chica.jpg" id="item-img-output" data-src="" class="imgpreviewPrf img-fluid" alt="">
 											</div>
 											<input type="file" id="imagen_principal1" class="item-img file center-block filepreviewprofile" style="display:inherit;" multiple name="file">
-											<p style="text-align:center;">
+											<p style="text-align:center; color:#793a57 !important;">
 											SUBE TU IMAGEN PRINCIPAL
 											</p>
 											<div class="login-box" style="width:400px;float:right;border-radius:5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
@@ -1631,7 +1631,7 @@ outline: none;
 							<div class="form-group form-inline">
 								
 								<!-- <input class="submit-btn" style="background:#793a57 !important;padding:5px;" type="submit" name="bt_enviar2" id="submit-all" value="PUBLICAR ANUNCIO" style="padding: 10px;"  /> -->
-								<button type="submit"  class="submit-btn">Finalizar el registro</button>
+								<button type="submit"  class="submit-btn" id="submit-all">Finalizar el registro</button>
 							</div>
 							<div class="form-group">
 								<div class="info-line clearfix">
@@ -1679,7 +1679,7 @@ outline: none;
 			        // Here's the change from enyo's tutorial...
 			         this.on("sending", function(file, xhr, formData) {
 						
-			         	cargarmy();
+			         	//cargarmy();
 					
 					 	var f_categoria = $('#f_categoria').val();
 					 	formData.append('f_categoria', f_categoria);    

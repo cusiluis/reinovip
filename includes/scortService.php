@@ -184,10 +184,10 @@ class EscortService {
             </div>
             <div class="listing-content">
         
-            <h2>$nombre</h2>
+            <h2 style="text-transform: uppercase;">$nombre</h2>
             <p class="location">
-            <span class="country">Portugal</span> / 
-            <span class="city">Lisbon</span>, 
+            <span class="country">$pais</span> / 
+            <span class="city">$provincia</span>, 
             escorts: <span class="number">5</span>, 
             verified: <span class="verified">1</span>
             </p>

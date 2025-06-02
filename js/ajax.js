@@ -208,6 +208,42 @@ function verCiudades(idPais,idCiudad) {
 	ajax.send('idProv='+idPais+'&idCiudad='+idCiudad);
 
 }
+function verCiudades1(idPais,idCiudad) {
+
+	document.getElementById("cargCiu").style.display="inline";
+
+	var ajax;
+
+    ajax = ajaxFunction();
+
+    ajax.open("POST", "ciudades.php", true);
+
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	
+
+    ajax.onreadystatechange = function() {
+
+		if (ajax.readyState==1){
+
+			document.getElementById("cargCiu").style.display="inline";
+
+			     }
+
+		if (ajax.readyState == 4) {
+
+				 document.getElementById("f_ciudad1").disabled=false;
+
+                 document.getElementById("f_ciudad1").innerHTML=ajax.responseText;
+
+				 document.getElementById("cargCiu").style.display="none";
+
+		     }}
+
+			 $('.f_ciudad1').select2();
+	ajax.send('idProv='+idPais+'&idCiudad='+idCiudad);
+
+}
 function verCiudadesB(idPais,idCiudad) {
 
 	document.getElementById("cargCiu").style.display="inline";
@@ -241,6 +277,43 @@ function verCiudadesB(idPais,idCiudad) {
 		     }}
 
 			 $('.f_ciudad').select2();
+	ajax.send('idProv='+idPais+'&idCiudad='+idCiudad);
+
+}
+
+function verCiudadesB1(idPais,idCiudad) {
+
+	document.getElementById("cargCiu").style.display="inline";
+
+	var ajax;
+
+    ajax = ajaxFunction();
+
+    ajax.open("POST", "ciudadesB.php", true);
+
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	
+
+    ajax.onreadystatechange = function() {
+
+		if (ajax.readyState==1){
+
+			document.getElementById("cargCiu").style.display="inline";
+
+			     }
+
+		if (ajax.readyState == 4) {
+
+				 document.getElementById("f_ciudad1").disabled=false;
+
+                 document.getElementById("f_ciudad1").innerHTML=ajax.responseText;
+
+				 document.getElementById("cargCiu").style.display="none";
+
+		     }}
+
+			 $('.f_ciudad1').select2();
 	ajax.send('idProv='+idPais+'&idCiudad='+idCiudad);
 
 }

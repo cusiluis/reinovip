@@ -25,10 +25,7 @@ include ("includes/conexion.inc.php");
 <!-- Cards -->
 <div class="container mt-4">
 
-<?php
-if ($_GET['qs_categoria'] != '12') {
-  
-?>
+<?php if ($_GET['qs_categoria'] != '12') { ?>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
 
 <?php } ?>
@@ -88,10 +85,7 @@ if ($hayFiltros) {
 
 ?>
 
-<?php
-if ($_GET['qs_categoria'] != '12') {
-  
-?>
+<?php if ($_GET['qs_categoria'] != '12') { ?>
   </div>
 <?php } ?>
 
