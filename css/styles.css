@@ -839,7 +839,7 @@ a.btn-publim {
 }
 
 .listing-image img {
-  width: 170px;
+  width: 340px;
   height: 181px;
   object-fit: cover;
   border-radius: 12px;
@@ -898,6 +898,12 @@ background-color: #f9f9fd;
 .city {
   color: #793a57;
   font-weight: bold;
+}
+
+.provincia {
+  color: #793a57;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .number {
